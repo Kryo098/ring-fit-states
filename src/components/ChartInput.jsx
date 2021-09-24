@@ -1,10 +1,28 @@
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
+import { addData } from "../reducks/users/operations";
 import PrimaryButton from "./PrimaryButton";
 import TextInput from "./Textinput";
-import { addData } from "../reducks/users/operations";
+import { makeStyles } from "@material-ui/core";
+
+const useStyle = makeStyles({
+  root:{
+    marginTop:30,
+  },
+  workInputCard:{
+    display:"block",
+    margin:"0 auto",
+    width:"50%",
+  },
+  workout:{
+    color:"",
+    fontWeight:800,
+    borderBottom:"solid 2px #e73e0e"
+  },
+});
 
 const WorkoutInput = (props) => {
+  const classes= useStyle();
   const dispatch = useDispatch();
   const [day, setDay] = useState(""),
     [count, setCount] = useState("");
@@ -21,25 +39,20 @@ const WorkoutInput = (props) => {
     [setCount]
   );
   return (
-    <div>
-      <section>
-        <h2>ワークアウトの追加</h2>
+    <div className={classes.root}>
+      <section className={classes.workInputCard}>
+        <p className={classes.workout}>ワークアウトの追加</p>
         <TextInput
-          label={"日付"}
-          type={"date"}
+          type={"deta"}
           onChange={inputDay}
-          required={true}
+          label={"日付"}
         />
         <TextInput
           type={"number"}
-          label={"回数"}
           onChange={inputCount}
-          required={true}
+          label={"回数"}
         />
-        <PrimaryButton
-          label={"保存"}
-          onClick={() => dispatch(addData(day, count, props.work))}
-        />
+        <PrimaryButton required onClick={()=>dispatch(addData(day,count,props.work))} label={'SEVE!'} />
       </section>
     </div>
   );

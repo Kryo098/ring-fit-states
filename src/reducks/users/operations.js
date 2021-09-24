@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import {
   fetchBackPressAction,
   fetchBowPressAction,
@@ -51,9 +50,15 @@ export const listenAuthState = () => {
 export const addData = (day, count, props) => {
   return async (dispatch, getState) => {
     const timestamp = FirebaseTimestamp.now();
+    const date = new Date();
+    const year = date.getFullYear();
+    const tomonth = date.getMonth() + 1;
+    const today = year + "-" + tomonth + "-" + date.getDate();
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
-    const data = [{ day: day, count: parseInt(count, 10), addedAt: timestamp }];
+    const counts = Number(count) ? count : (count = 0);
+    const days = day ? day : (day = today);
+    const data = [{ day: days, count: counts, addedAt: timestamp }];
     switch (props.work) {
       case "BackPress":
         await workRef.update({
@@ -187,6 +192,7 @@ export const addData = (day, count, props) => {
             dispatch(fetchMountainClimberAction(data.montainclimber));
           });
         break;
+      default:
     }
   };
 };

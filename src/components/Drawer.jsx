@@ -4,17 +4,43 @@ import { Drawer } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
-import { House } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { push } from "connected-react-router";
-//import { makeStyles } from "@material-ui/core";
+import BackPressIcon from "../icons/presin-tras-la-nucapng.png"
+import BowPressIcon from '../icons/arco-ring-conpng.png';
+import FlutterKickIcon from '../icons/piernas-alternas-arribapng.png';
+import FrontPressIcon from '../icons/presin-abajopng.png';
+import KneeLiftComboIcon from "../icons/rodillas-arriba-y-sentadillapng.png"
+import kneeLiftIcon from "../icons/rodillas-arribapng.png"
+import KneetoChestIcon from "../icons/rodillas-al-pechopng.png"
+import LegScissorsIcon from "../icons/tijeras-con-crucepng.png"
+import LegRaiseIcon from "../icons/piernas-juntas-arribapng.png"
+import MountainClimberIcon from "../icons/el-escaladorpng.png"
+import HipLiftIcon from "../icons/caderas-arribapng.png";
+import { makeStyles } from "@material-ui/core";
+
 //import { IconButton } from "@material-ui/core";
-//const useStyles = makeStyles({});
+
+const useStyles = makeStyles({
+  icontext: {
+    color:"#e73e0e",
+  },
+  icontextcontent :{
+    borderBottom: "solid 1px #ff8e00",
+  },
+  list: {
+    backgroundColor: "#f4f4f4",
+    color:"#e73e0e"
+  }
+})
+
+
 
 export const MenuDrawer = (props) => {
-  //const classes = useStyles();
+  const classes = useStyles();
   const { container } = props;
   const dispatch = useDispatch();
+
   const selectwork = (e, path) => {
     dispatch(push(path));
     props.onClose(e);
@@ -25,68 +51,68 @@ export const MenuDrawer = (props) => {
       label: "ウシロプッシュ",
       id: "BackPress",
       value: "/BackPress",
-      icon:<House />,
+      icon:(<img height="50" src={BackPressIcon} alt="icon"></img>)
     },
     
     { func: selectwork,
     label: "リングアロー",
     id: "BowPress",
     value: "/BowPress",
-    icon:<House />,
+    icon:(<img height="50" src={BowPressIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
       label: "バタバタレッグ",
       id: "FlutterKick",
       value: "/FlutterKick",
-      icon:<House />,
+      icon:(<img height="50" src={FlutterKickIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
       label: "サゲテプッシュ",
       id: "FrontPress",
       value: "/FrontPress",
-      icon:<House />,
+      icon:(<img height="50" src={FrontPressIcon} alt="icon"></img>),
     },
 
-    { func: selectwork, label: "ヒップリフト", id: "HipLift", value: "/HipLift",icon:<House />, },
+    { func: selectwork, label: "ヒップリフト", id: "HipLift", value: "/HipLift",icon:(<img height="50" src={HipLiftIcon} alt="icon"></img>), },
     {
       func: selectwork,
       label: "モモアゲコンボ",
       id: "KneeLiftCombo",
       value: "/KneeLiftCombo",
-      icon:<House />,
+      icon:(<img height="50" src={KneeLiftComboIcon} alt="icon"></img>),
     },
     { func: selectwork,
     label: "モモアゲアゲ",
     id: "KneeLift",
     value: "/KneeLift",
-    icon:<House />,
+    icon:(<img height="50" src={kneeLiftIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
       label: "ニートゥーチェスト",
       id: "KneetoChest",
       value: "/KneetoChest",
-      icon:<House />,
+      icon:(<img height="50" src={KneetoChestIcon} alt="icon"></img>),
     },
-    { func: selectwork, label: "レッグレイズ", id: "LegRaise", value: "/LegRaise",icon:<House />, }, 
+    { func: selectwork, label: "レッグレイズ", id: "LegRaise", value: "/LegRaise",icon:(<img height="50" src={LegRaiseIcon} alt="icon"></img>), }, 
     {
       func: selectwork,
       label: "ハサミレッグ",
       id: "LegScissors",
       value: "/LegScissors",
-      icon:<House />,
+      icon:(<img height="50" src={LegScissorsIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
       label: "マウンテンクライマー",
       id: "MountainClimber",
       value: "/MountainClimber",
-      icon:<House />,
+      icon:(<img height="50" src={MountainClimberIcon} alt="icon"></img>),
     },
   ];
-
+  
   return (
     <nav>
       <Drawer
@@ -100,17 +126,17 @@ export const MenuDrawer = (props) => {
         <div>
           <div></div>
           <Divider />
-          <List>
+          <List className={classes.list}>
             {menus.map((menu) => (
               <ListItem
-                button
+                button className={classes.icontextcontent}
                 key={menu.id}
                 onClick={(e) => menu.func(e, menu.value)}
               >
                 <ListItemIcon>
                   {menu.icon}
                 </ListItemIcon>
-                <ListItemText primary={menu.label} />
+                <ListItemText className={classes.icontext} primary={menu.label} />
               </ListItem>
             ))}
           </List>

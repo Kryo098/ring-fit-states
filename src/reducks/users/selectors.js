@@ -14,7 +14,6 @@ export const getUsername = createSelector(
   (state) => state.username
 );
 
-//各ワークアウトのステート管理
 
 export const getbackpress = createSelector(
   [usersSelector],

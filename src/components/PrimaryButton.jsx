@@ -4,12 +4,18 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   button: {
-    backgroundColor: "",
-    color: "#000",
-    fontSize: 16,
+    backgroundColor: "#e73e0e",
+    color: "#fff",
+    fontSize: 20,
     height: 48,
-    marginBottom: 16,
-    width: 256,
+    margin: 16,
+    width: 200,
+    letterSpacing:6,
+    fontWeight:800,
+    "&:hover":{
+      backgroundColor: "#ff8e00",
+      color:"#e73e0e"
+    }
   },
 });
 
@@ -20,6 +26,7 @@ const PrimaryButton = (props) => {
       className={classes.button}
       variant="contained"
       onClick={() => props.onClick()}
+      required={props.required}
     >
       {props.label}
     </Button>

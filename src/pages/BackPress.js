@@ -1,14 +1,82 @@
 import { BackPressChart } from "../components/Chart";
-import ChartInput from "../components/ChartInput";
+import { makeStyles } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+import BackPressIcon from "../icons/presin-tras-la-nucapng.png";
+const useStyles = makeStyles({
+  root: {},
+  titlecard: {
+    position: "relative",
+    height: 200,
+    width: "50rem",
+    backgroundColor: "#f4f4f4",
+    margin: "30px auto",
+    borderLeft: "solid 10px #ff8e00",
+  },
+  title: {
+    position: "absolute",
+    top: "2.5rem",
+    left: "17.5rem",
+    fontSize: "2.1rem",
+    fontWeight: "800",
+    fontStyle: "italic",
+    color: "#ff8e00",
+    lineHeight: 1,
+    letterSpacing: -2,
+    textIndent: "-0.2em",
+    transform: "scale(0.9, 1)",
+    transformOrigin: "top",
+  },
+  sbtitle: {
+    position: "absolute",
+    top: "2rem",
+    left: "18rem",
+    color: "#ff8e00",
+    fontWeight: 800,
+    fontSize: 14,
+    lineHeight: 1,
+    textIndent: "0.05rem",
+  },
+  icon: {
+    position: "absolute",
+    top: 40,
+    left: 50,
+  },
+  effect: {
+    position: "absolute",
+    top: "9.5rem",
+    left: 0,
+    width: "100%",
+    color: "#9a9b9d",
+    fontWeight: 500,
+    fontSize: "1rem",
+  },
+  small: {
+    fontWeight: 500,
+    fontSize: 16,
+  },
+});
 
 const BackPress = () => {
+  const classes = useStyles();
   return (
     <div className="App">
-      <h1>BackPressStste</h1>
+      <Box
+        className={classes.titlecard}
+      >
+        <img src={BackPressIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Back Press</p>
+        <h2 className={classes.title}>ウシロプッシュ</h2>
+        <div className={classes.effect}>
+          <span>#すっきり二の腕</span>
+          <span className={classes.small}>　</span>
+          <span>#姿勢改善</span>
+          <span className={classes.small}>　</span>
+          <span>#肩こりの改善</span>
+        </div>
+      </Box>
       <div className="ChartBox">
         <BackPressChart work="BackPress" />
       </div>
-      <ChartInput work="BackPress" />
     </div>
   );
 };

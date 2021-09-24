@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-//import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { push } from "connected-react-router";
@@ -14,6 +13,11 @@ import { MenuDrawer } from "./Drawer";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    color:"#ff8e00"
+  },
+  title: {
+    margin:"0 auto",
+    fontSize:30
   },
   menu: {
     backgroundColor: "#fff",
@@ -21,7 +25,6 @@ const useStyles = makeStyles({
   },
   toolBar: {
     margin: "0",
-    maxWidth: 1024,
     width: "100%",
   },
   iconButtons: {
@@ -44,17 +47,17 @@ const ButtonAppBar = () => {
   );
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: "#e73e0e" }} >
         <Toolbar className={classes.toolBar}>
           <IconButton color="inherit" aria-label="Menu">
             {isSignedIn && (
               <div>
-                <MenuIcon onClick={(e)=>handleToggle(e)}/>
+                <MenuIcon fontSize="large" onClick={(e)=>handleToggle(e)}/>
               </div>
             )}
           </IconButton>
-          <Typography color="inherit" onClick={() => dispatch(push("/"))}>
-            RINGFIT ADVENTURE STATEs
+          <Typography className={classes.title} color="inherit" onClick={() => dispatch(push("/"))}>
+            RINGFIT ADVENTURE STATES
           </Typography>
         </Toolbar>
       </AppBar>
