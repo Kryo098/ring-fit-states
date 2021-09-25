@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Standing_Twist = () => {
+const StandingTwist = () => {
   return (
     <div className="App">
-      <h1>Standing_Twist</h1>
+      <h1>StandingTwist</h1>
       <Chart />
     </div>
   );
 };
 
-export default Standing_Twist;
+export default StandingTwist;

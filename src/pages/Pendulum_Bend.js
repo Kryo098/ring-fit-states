@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Pendulum_Bend = () => {
+const PendulumBend = () => {
   return (
     <div className="App">
-      <h1>Pendulum_Bend</h1>
+      <h1>PendulumBend</h1>
       <Chart />
     </div>
   );
 };
 
-export default Pendulum_Bend;
+export default PendulumBend;

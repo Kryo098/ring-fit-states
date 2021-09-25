@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Lunge_Twist = () => {
+const LungeTwist = () => {
   return (
     <div className="App">
-      <h1>Lunge_Twist</h1>
+      <h1>LungeTwist</h1>
       <Chart />
     </div>
   );
 };
 
-export default Lunge_Twist;
+export default LungeTwist;

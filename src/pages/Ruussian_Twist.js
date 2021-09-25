@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Russian_Twist = () => {
+const RussianTwist = () => {
   return (
     <div className="App">
-      <h1>Russian_Twist</h1>
+      <h1>RussianTwist</h1>
       <Chart />
     </div>
   );
 };
 
-export default Russian_Twist;
+export default RussianTwist;

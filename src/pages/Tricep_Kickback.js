@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Tricep_Kickback = () => {
+const TricepKickback = () => {
   return (
     <div className="App">
-      <h1>Tricep_Kickback</h1>
+      <h1>TricepKickback</h1>
       <Chart />
     </div>
   );
 };
 
-export default Tricep_Kickback;
+export default TricepKickback;

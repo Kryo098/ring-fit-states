@@ -1,11 +1,11 @@
 import { Chart } from "../components/Chart.jsx";
-const Overhead_Arm_Twist = () => {
+const OverheadArmTwist = () => {
   return (
     <div className="App">
-      <h1>Overhead_Arm_Twist</h1>
+      <h1>OverheadArmTwist</h1>
       <Chart />
     </div>
   );
 };
 
-export default Overhead_Arm_Twist;
+export default OverheadArmTwist;

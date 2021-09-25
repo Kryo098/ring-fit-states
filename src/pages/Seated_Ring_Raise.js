@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Seated_Ring_Raise = () => {
+const SeatedRingRaise = () => {
   return (
     <div className="App">
-      <h1>Seated_Ring_Raise</h1>
+      <h1>SeatedRingRaise</h1>
       <Chart />
     </div>
   );
 };
 
-export default Seated_Ring_Raise;
+export default SeatedRingRaise;

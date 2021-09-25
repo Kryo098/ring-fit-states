@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Overhead_Press = () => {
+const OverheadPress = () => {
   return (
     <div className="App">
-      <h1>Overhead_Press</h1>
+      <h1>OverheadPress</h1>
       <Chart />
     </div>
   );
 };
 
-export default Overhead_Press;
+export default OverheadPress;

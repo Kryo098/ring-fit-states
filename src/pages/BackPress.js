@@ -1,16 +1,16 @@
 import { BackPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
-import { Box } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import BackPressIcon from "../icons/presin-tras-la-nucapng.png";
+
 const useStyles = makeStyles({
-  root: {},
   titlecard: {
     position: "relative",
     height: 200,
-    width: "50rem",
     backgroundColor: "#f4f4f4",
     margin: "30px auto",
     borderLeft: "solid 10px #ff8e00",
+    width: "50rem",
   },
   title: {
     position: "absolute",
@@ -60,9 +60,7 @@ const BackPress = () => {
   const classes = useStyles();
   return (
     <div className="App">
-      <Box
-        className={classes.titlecard}
-      >
+      <Paper elevation={4} className={classes.titlecard}>
         <img src={BackPressIcon} alt="icon" className={classes.icon}></img>
         <p className={classes.sbtitle}>Back Press</p>
         <h2 className={classes.title}>ウシロプッシュ</h2>
@@ -73,10 +71,8 @@ const BackPress = () => {
           <span className={classes.small}>　</span>
           <span>#肩こりの改善</span>
         </div>
-      </Box>
-      <div className="ChartBox">
-        <BackPressChart work="BackPress" />
-      </div>
+      </Paper>
+      <BackPressChart work="BackPress" /> 
     </div>
   );
 };

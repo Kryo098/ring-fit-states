@@ -1,11 +1,11 @@
 import Chart from "../components/Chart.jsx";
-const Thigh_Press = () => {
+const ThighPress = () => {
   return (
     <div className="App">
-      <h1>Thigh_Press</h1>
+      <h1>ThighPress</h1>
       <Chart />
     </div>
   );
 };
 
-export default Thigh_Press;
+export default ThighPress;

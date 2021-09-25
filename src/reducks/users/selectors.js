@@ -53,9 +53,9 @@ export const getlegraise = createSelector(
 );
 export const getlegscissors = createSelector(
   [usersSelector],
-  (state) => state.legcissors
+  (state) => state.legscissors
 );
 export const getmountainclimber = createSelector(
   [usersSelector],
-  (state) => state.mountainclimer
+  (state) => state.mountainclimber
 );

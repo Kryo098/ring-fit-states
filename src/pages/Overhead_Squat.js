@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Overhead_Squat = () => {
+const OverheadSquat = () => {
   return (
     <div className="App">
-      <h1>Overhead_Squat</h1>
+      <h1>OverheadSquat</h1>
       <Chart />
     </div>
   );
 };
 
-export default Overhead_Squat;
+export default OverheadSquat;

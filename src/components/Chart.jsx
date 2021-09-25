@@ -40,7 +40,7 @@ export const BackPressChart = (work) => {
             <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
           </linearGradient>
         </defs>
-        <XAxis dataKey="day" domain={["DAY"]} fontSize="18px" />
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
         <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
@@ -57,18 +57,24 @@ export const BowPressChart = (work) => {
   const data = getbowpress(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -79,18 +85,24 @@ export const FlutterKickChart = (work) => {
   const data = getflutterkick(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day"/>
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -101,18 +113,24 @@ export const FrontPressChart = (work) => {
   const data = getfrontpress(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -123,18 +141,24 @@ export const HipLiftChart = (work) => {
   const data = gethiplift(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -145,18 +169,24 @@ export const KneeLiftChart = (work) => {
   const data = getkneelift(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -167,18 +197,24 @@ export const KneeLiftComboChart = (work) => {
   const data = getkneeliftcombo(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -189,18 +225,24 @@ export const KneetoChestChart = (work) => {
   const data = getkneetochest(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -211,18 +253,24 @@ export const LegRaiseChart = (work) => {
   const data = getlegraise(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -233,18 +281,24 @@ export const LegScissorsChart = (work) => {
   const data = getlegscissors(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );
@@ -255,18 +309,24 @@ export const MountainClimberChart = (work) => {
   const data = getmountainclimber(selector);
   return (
     <>
+      <ResponsiveContainer width="100%" height={450}>
       <AreaChart
-        width={900}
-        height={500}
+        margin={{right: 300, left: 300,}}
         data={data}
-        margin={{ top: 40, right: 10, left: 10, bottom: 10 }}
       >
-        <XAxis dataKey="day" interval={0} />
-        <YAxis domain={[0, 500]} />
+        <defs>
+          <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
+            <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
+        <YAxis domain={[0, 500]} fontSize="18px"/>
         <CartesianGrid strokeDasharray="10 10" />
         <Tooltip />
-        <Area type="liner" dataKey="count" stroke="FFFFF" fillOpacity={0.6} />
+        <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
       </AreaChart>
+      </ResponsiveContainer>
       <ChartInput work={work} />
     </>
   );

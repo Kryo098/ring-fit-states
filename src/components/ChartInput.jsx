@@ -4,7 +4,7 @@ import { addData } from "../reducks/users/operations";
 import PrimaryButton from "./PrimaryButton";
 import TextInput from "./Textinput";
 import { makeStyles } from "@material-ui/core";
-
+import { Paper } from "@material-ui/core";
 const useStyle = makeStyles({
   root:{
     marginTop:30,
@@ -13,6 +13,7 @@ const useStyle = makeStyles({
     display:"block",
     margin:"0 auto",
     width:"50%",
+    backgroundColor:"#f4f4f4"
   },
   workout:{
     color:"",
@@ -40,7 +41,7 @@ const WorkoutInput = (props) => {
   );
   return (
     <div className={classes.root}>
-      <section className={classes.workInputCard}>
+      <Paper className={classes.workInputCard} elevation={4}>
         <p className={classes.workout}>ワークアウトの追加</p>
         <TextInput
           type={"deta"}
@@ -53,7 +54,7 @@ const WorkoutInput = (props) => {
           label={"回数"}
         />
         <PrimaryButton required onClick={()=>dispatch(addData(day,count,props.work))} label={'SEVE!'} />
-      </section>
+      </Paper>
     </div>
   );
 };

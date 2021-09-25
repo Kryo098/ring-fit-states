@@ -1,13 +1,13 @@
 
 import { Chart } from "../components/Chart.jsx";
 
-const Side_Step = () => {
+const SideStep = () => {
   return (
     <div className="App">
-      <h1>Side_Step</h1>
+      <h1>SideStep</h1>
       <Chart />
     </div>
   );
 };
 
-export default Side_Step;
+export default SideStep;

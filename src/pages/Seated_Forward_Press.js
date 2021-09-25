@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Seated_Forward_Press = () => {
+const SeatedForwardPress = () => {
   return (
     <div className="App">
-      <h1>Seated_Forward_Press</h1>
+      <h1>SeatedForwardPress</h1>
       <Chart />
     </div>
   );
 };
 
-export default Seated_Forward_Press;
+export default SeatedForwardPress;

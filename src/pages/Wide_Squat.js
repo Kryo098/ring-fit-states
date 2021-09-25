@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Wide_Squat = () => {
+const WideSquat = () => {
   return (
     <div className="App">
-      <h1>Wide_Squat</h1>
+      <h1>WideSquat</h1>
       <Chart />
     </div>
   );
 };
 
-export default Wide_Squat;
+export default WideSquat;

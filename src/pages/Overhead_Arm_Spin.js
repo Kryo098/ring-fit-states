@@ -1,5 +1,5 @@
 import { Chart } from "../components/Chart.jsx";
-const Overhead_Arm_Spin = () => {
+const OverheadArmSpin = () => {
   return (
     <div className="App">
       <h1>Overhead_Arm_Spin</h1>
@@ -8,4 +8,4 @@ const Overhead_Arm_Spin = () => {
   );
 };
 
-export default Overhead_Arm_Spin;
+export default OverheadArmSpin;

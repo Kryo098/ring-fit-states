@@ -1,12 +1,12 @@
 import { Chart } from "../components/Chart.jsx";
 
-const Overhead_Side_Bend = () => {
+const OverheadSideBend = () => {
   return (
     <div className="App">
-      <h1>Overhead_Side_Bend</h1>
+      <h1>OverheadSideBend</h1>
       <Chart />
     </div>
   );
 };
 
-export default Overhead_Side_Bend;
+export default OverheadSideBend;
