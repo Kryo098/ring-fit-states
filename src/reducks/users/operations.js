@@ -37,6 +37,16 @@ export const listenAuthState = () => {
                 uid: uid,
                 username: data.username,
                 backpress: data.backpress,
+                bowpress: data.bowpress,
+                flutterkick: data.flutterkick,
+                frontpress: data.frontpress,
+                hiplift: data.hiplift,
+                kneeliftcombo: data.kneeliftcombo,
+                kneelift: data.kneelift,
+                kneetochest: data.kneetochest,
+                legraise: data.legraise,
+                legscissors: data.legscissors,
+                mountainclimber: data.mountainclimber,
               })
             );
           });
@@ -54,11 +64,14 @@ export const addData = (day, count, props) => {
     const year = date.getFullYear();
     const tomonth = date.getMonth() + 1;
     const today = year + "-" + tomonth + "-" + date.getDate();
-    const uid = getState().users.uid;
-    const workRef = usersRef.doc(uid);
     const counts = Number(count) ? count : (count = 0);
     const days = day ? day : (day = today);
-    const data = [{ day: days, count: counts, addedAt: timestamp }];
+    const data = [
+      { day: days, count: parseInt(counts, 10), addedAt: timestamp },
+    ];
+    const uid = getState().users.uid;
+    const workRef = usersRef.doc(uid);
+
     switch (props.work) {
       case "BackPress":
         await workRef.update({
@@ -182,14 +195,14 @@ export const addData = (day, count, props) => {
         break;
       case "MountainClimber":
         await workRef.update({
-          montainclimber: arrayUnion(...data),
+          mountainclimber: arrayUnion(...data),
         });
         usersRef
           .doc(uid)
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
-            dispatch(fetchMountainClimberAction(data.montainclimber));
+            dispatch(fetchMountainClimberAction(data.mountainclimber));
           });
         break;
       default:
@@ -222,6 +235,16 @@ export const SignIn = (email, password) => {
                 uid: uid,
                 username: data.username,
                 backpress: data.backpress,
+                bowpress: data.bowpress,
+                flutterkick: data.flutterkick,
+                frontpress: data.frontpress,
+                hiplift: data.hiplift,
+                kneeliftcombo: data.kneeliftcombo,
+                kneelift: data.kneelift,
+                kneetochest: data.kneetochest,
+                legraise: data.legraise,
+                legscissors: data.legscissors,
+                mountainclimber: data.mountainclimber,
               })
             );
 
@@ -262,6 +285,17 @@ export const SignUp = (username, email, password, confirmpass) => {
             email: email,
             uid: uid,
             username: username,
+            backpress: [],
+            bowpress: [],
+            flutterkick: [],
+            frontpress: [],
+            hiplift: [],
+            kneeliftcombo: [],
+            kneelift: [],
+            kneetochest: [],
+            legraise: [],
+            legscissors: [],
+            mountainclimber: [],
           };
 
           db.collection("users")

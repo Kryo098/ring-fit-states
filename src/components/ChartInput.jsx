@@ -5,6 +5,7 @@ import PrimaryButton from "./PrimaryButton";
 import TextInput from "./Textinput";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
+import { DateInput } from "./DateInput";
 const useStyle = makeStyles({
   root:{
     marginTop:30,
@@ -25,14 +26,8 @@ const useStyle = makeStyles({
 const WorkoutInput = (props) => {
   const classes= useStyle();
   const dispatch = useDispatch();
-  const [day, setDay] = useState(""),
+  const [day] = useState(""),
     [count, setCount] = useState("");
-  const inputDay = useCallback(
-    (e) => {
-      setDay(e.target.value);
-    },
-    [setDay]
-  );
   const inputCount = useCallback(
     (e) => {
       setCount(e.target.value);
@@ -43,11 +38,7 @@ const WorkoutInput = (props) => {
     <div className={classes.root}>
       <Paper className={classes.workInputCard} elevation={4}>
         <p className={classes.workout}>ワークアウトの追加</p>
-        <TextInput
-          type={"deta"}
-          onChange={inputDay}
-          label={"日付"}
-        />
+        <DateInput />
         <TextInput
           type={"number"}
           onChange={inputCount}

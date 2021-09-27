@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Signup from "./pages/Signup.jsx";
-import Home from "./pages/Home";
+import Home from "./pages/Home.jsx";
 import Auth from "./Auth";
 import Signin from "./pages/Signin";
 import BackPress from "./pages/BackPress";

@@ -7,6 +7,17 @@ export const signInAction = (userState) => {
       uid: userState.uid,
       username: userState.username,
       backpress: userState.backpress,
+      bowpress: userState.bowpress,
+      flutterkick: userState.flutterkick,
+      frontpress: userState.frontpress,
+      hiplift: userState.hiplift,
+      kneeliftcombo: userState.kneeliftcombo,
+      kneelift: userState.kneelift,
+      kneetochest: userState.kneetochest,
+      legraise: userState.legraise,
+      legscissors: userState.legscissors,
+      mountainclimber: userState.mountainclimber,
+
     },
   };
 };
@@ -20,6 +31,16 @@ export const signOutAction = () => {
       uid: "",
       username: "",
       backpress: "",
+      bowpress:"",
+      flutterkick: "",
+      frontpress: "",
+      hiplift: "",
+      kneeliftcombo: "",
+      kneelift: "",
+      kneetochest: "",
+      legraise: "",
+      legscissors: "",
+      mountainclimber: "",
     },
   };
 };

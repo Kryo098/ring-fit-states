@@ -17,7 +17,8 @@ const useStyles = makeStyles({
   },
   title: {
     margin:"0 auto",
-    fontSize:30
+    fontSize:30,
+    cursor:"pointer"
   },
   menu: {
     backgroundColor: "#fff",

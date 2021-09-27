@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles,Zoom,Box,Paper} from "@material-ui/core";
+import { makeStyles,Box,Paper} from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { push } from "connected-react-router";
 import BackPressIcon from "../icons/presin-tras-la-nucapng.png"
@@ -15,9 +15,22 @@ import MountainClimberIcon from "../icons/el-escaladorpng.png"
 import HipLiftIcon from "../icons/caderas-arribapng.png";
 
 const useStyles = makeStyles({
+  root:{
+    backgroundColor: "#f4f4f4",
+    position: "absolute",
+    bottom: 0,
+    left:0,
+    right:0,
+  },
   cards:{
-    width:50,
+    width:70,
     display:"inline",
+    cursor:"pointer",
+    margin:10,
+  },
+  card: {
+    width:70,
+    height:70,
   }
 })
 
@@ -27,7 +40,7 @@ export const HomeMenuItem = (props) => {
 
   const selectwork  =(e, path) => {
     dispatch(push(path))
-    props.onClose(e)
+
   }
   const menus = [
     {
@@ -35,7 +48,7 @@ export const HomeMenuItem = (props) => {
       label: "ウシロプッシュ",
       id: "BackPress",
       value: "/BackPress",
-      icon:(<img height="50" src={BackPressIcon} alt="icon"></img>),
+      icon:(<img height="80" src={BackPressIcon} alt="icon"></img>),
       timeout:"0ms"
     },
     
@@ -43,7 +56,7 @@ export const HomeMenuItem = (props) => {
     label: "リングアロー",
     id: "BowPress",
     value: "/BowPress",
-    icon:(<img height="50" src={BowPressIcon} alt="icon"></img>),
+    icon:(<img height="80" src={BowPressIcon} alt="icon"></img>),
     timeout:"10ms"
     },
     {
@@ -51,7 +64,7 @@ export const HomeMenuItem = (props) => {
       label: "バタバタレッグ",
       id: "FlutterKick",
       value: "/FlutterKick",
-      icon:(<img height="50" src={FlutterKickIcon} alt="icon"></img>),
+      icon:(<img height="80" src={FlutterKickIcon} alt="icon"></img>),
       timeout:"20ms"
     },
     {
@@ -59,26 +72,26 @@ export const HomeMenuItem = (props) => {
       label: "サゲテプッシュ",
       id: "FrontPress",
       value: "/FrontPress",
-      icon:(<img height="50" src={FrontPressIcon} alt="icon"></img>),
+      icon:(<img height="80" src={FrontPressIcon} alt="icon"></img>),
       timeout:"30ms"
     
     },
 
-    { func: selectwork, label: "ヒップリフト", id: "HipLift", value: "/HipLift",icon:(<img height="50" src={HipLiftIcon} alt="icon"></img>),      
+    { func: selectwork, label: "ヒップリフト", id: "HipLift", value: "/HipLift",icon:(<img height="80" src={HipLiftIcon} alt="icon"></img>),      
     timeout:"40ms" },
     {
       func: selectwork,
       label: "モモアゲコンボ",
       id: "KneeLiftCombo",
       value: "/KneeLiftCombo",
-      icon:(<img height="50" src={KneeLiftComboIcon} alt="icon"></img>),
+      icon:(<img height="80" src={KneeLiftComboIcon} alt="icon"></img>),
       timeout:"50ms"
     },
     { func: selectwork,
     label: "モモアゲアゲ",
     id: "KneeLift",
     value: "/KneeLift",
-    icon:(<img height="50" src={kneeLiftIcon} alt="icon"></img>),
+    icon:(<img height="80" src={kneeLiftIcon} alt="icon"></img>),
     timeout:"60ms"
     },
     {
@@ -86,10 +99,10 @@ export const HomeMenuItem = (props) => {
       label: "ニートゥーチェスト",
       id: "KneetoChest",
       value: "/KneetoChest",
-      icon:(<img height="50" src={KneetoChestIcon} alt="icon"></img>),
+      icon:(<img height="80" src={KneetoChestIcon} alt="icon"></img>),
       timeout:"70ms"
     },
-    { func: selectwork, label: "レッグレイズ", id: "LegRaise", value: "/LegRaise",icon:(<img height="50" src={LegRaiseIcon} alt="icon"></img>),
+    { func: selectwork, label: "レッグレイズ", id: "LegRaise", value: "/LegRaise",icon:(<img height="80" src={LegRaiseIcon} alt="icon"></img>),
     timeout:"80ms"
     }, 
     {
@@ -97,7 +110,7 @@ export const HomeMenuItem = (props) => {
       label: "ハサミレッグ",
       id: "LegScissors",
       value: "/LegScissors",
-      icon:(<img height="50" src={LegScissorsIcon} alt="icon"></img>),
+      icon:(<img height="80" src={LegScissorsIcon} alt="icon"></img>),
       timeout:"90ms"
     },
     {
@@ -105,27 +118,21 @@ export const HomeMenuItem = (props) => {
       label: "マウンテンクライマー",
       id: "MountainClimber",
       value: "/MountainClimber",
-      icon:(<img height="50" src={MountainClimberIcon} alt="icon"></img>),
+      icon:(<img height="80" src={MountainClimberIcon} alt="icon"></img>),
       timeout:"100ms"
     },
   ]
   return(
-    <div>
-      <Paper
-      >
+      <Paper className={classes.root}>
         {menus.map((menu)=> (
           <Box
-          button
           key={menu.id}
           onClick={(e)=>menu.func(e, menu.value)}
           className={classes.cards}
           >
-            <Zoom in={props.open} style={{transitionDelay:menu.timeout}}>
               {menu.icon}
-            </Zoom>
           </Box>
         ))}
       </Paper>
-    </div>
   )
 }
