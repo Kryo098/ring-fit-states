@@ -1,7 +1,7 @@
-import { SquatChart } from "../components/Chart";
+import { SeatedForwardPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import SeatedForwardPressIcon from "../icons/presin-con-inclinacinpng.png"
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,25 +56,25 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const SeatedForwardPress = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img src={SeatedForwardPressIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Seated Forward Press</p>
+        <h2 className={classes.title}>マエニプッシュ</h2>
         <div className={classes.effect}>
-          <span>#すっきり美脚</span>
+          <span>#すっきり二の腕</span>
           <span className={classes.small}>　</span>
-          <span>#ヒップアップ</span>
+          <span>#ぽっこりお腹改善</span>
           <span className={classes.small}>　</span>
-          <span>#脂肪燃焼</span>
+          <span>#柔軟性アップ</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <SeatedForwardPressChart work="SeatedForwardPress" />
     </div>
   );
 };
 
-export default Squat;
+export default SeatedForwardPress;

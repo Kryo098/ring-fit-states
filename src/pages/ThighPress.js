@@ -1,7 +1,7 @@
-import { SquatChart } from "../components/Chart";
+import { ThighPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import ThighPressIcon from "../icons/presin-de-muslospng.png"
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,25 +56,29 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const ThighPress = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img
+          src={ThighPressIcon}
+          alt="icon"
+          className={classes.icon}
+        ></img>
+        <p className={classes.sbtitle}>Thigh Press</p>
+        <h2 className={classes.title}>モモデプッシュ</h2>
         <div className={classes.effect}>
           <span>#すっきり美脚</span>
           <span className={classes.small}>　</span>
-          <span>#ヒップアップ</span>
+          <span>#下半身強化</span>
           <span className={classes.small}>　</span>
-          <span>#脂肪燃焼</span>
+          <span>#姿勢改善</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <ThighPressChart work="ThighPress" />
     </div>
   );
 };
 
-export default Squat;
+export default ThighPress;

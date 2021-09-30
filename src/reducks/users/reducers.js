@@ -67,6 +67,120 @@ export const UsersReducer = (state = initialState.users, action) => {
         ...state,
         mountainclimber: [...action.payload],
       };
+    case Actions.FETCH_WORK_OVERHEADARMSPIN:
+      return {
+        ...state,
+        overheadarmspin: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADARMTWIST:
+      return {
+        ...state,
+        overheadarmtwist: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADBENT:
+      return {
+        ...state,
+        overheadbend: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OPENCLOSELEGRAISE:
+      return {
+        ...state,
+        opencloselegraise: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADHIPSHAKE:
+      return {
+        ...state,
+        overheadhipshake: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADLUNGETWIST:
+      return {
+        ...state,
+        overheadlungetwist: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADPRESS:
+      return {
+        ...state,
+        overheadpress: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADSIDEBENT:
+      return {
+        ...state,
+        overheadsidebend: [...action.payload],
+      };
+    case Actions.FETCH_WORK_OVERHEADSQUAT:
+      return {
+        ...state,
+        overheadsquat: [...action.payload],
+      };
+    case Actions.FETCH_WORK_PENDULUMBENT:
+      return {
+        ...state,
+        pendulumbend: [...action.payload],
+      };
+    case Actions.FETCH_WORK_PLANK:
+      return {
+        ...state,
+        plank: [...action.payload],
+      };
+    case Actions.FETCH_WORK_RINGRAISECOMBO:
+      return {
+        ...state,
+        ringraisecombo: [...action.payload],
+      };
+    case Actions.FETCH_WORK_RUSSIANTWIST:
+      return {
+        ...state,
+        russiantwist: [...action.payload],
+      };
+    case Actions.FETCH_WORK_SEATEDFORWARDPRESS:
+      return {
+        ...state,
+        seatedforwardpress: [...action.payload],
+      };
+    case Actions.FETCH_WORK_SEATEDRINGRAISE:
+      return {
+        ...state,
+        seatedringraise: [...action.payload],
+      };
+    case Actions.FETCH_WORK_SHOULDERPRESS:
+      return {
+        ...state,
+        shoulderpress: [...action.payload],
+      };
+    case Actions.FETCH_WORK_SIDESTEP:
+      return {
+        ...state,
+        sidestep: [...action.payload],
+      };
+    case Actions.FETCH_WORK_SQUAT:
+      return {
+        ...state,
+        squat: [...action.payload],
+      };
+
+    case Actions.FETCH_WORK_STANDINGTWIST:
+      return {
+        ...state,
+        standingtwist: [...action.payload],
+      };
+
+    case Actions.FETCH_WORK_THIGHPRESS:
+      return {
+        ...state,
+        thighpress: [...action.payload],
+      };
+
+    case Actions.FETCH_WORK_TRICEPKICKBACK:
+      return {
+        ...state,
+        tricepkickback: [...action.payload],
+      };
+
+    case Actions.FETCH_WORK_WIDESQUAT:
+      return {
+        ...state,
+        widesquat: [...action.payload],
+      };
 
     default:
       return state;

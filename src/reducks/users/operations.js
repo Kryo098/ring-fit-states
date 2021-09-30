@@ -10,6 +10,28 @@ import {
   fetchLegRaiseAction,
   fetchLegScissorsAction,
   fetchMountainClimberAction,
+  fetchOpenCloseLegRaiseAction,
+  fetchOverheadArmSpinAction,
+  fetchOverheadArmTwistAction,
+  fetchOverheadBentAction,
+  fetchOverheadHipShakeAction,
+  fetchOverheadLungeTwistAction,
+  fetchOverheadPressAction,
+  fetchOverheadSideBentAction,
+  fetchOverheadSquatAction,
+  fetchPendulumBentAction,
+  fetchPlankAction,
+  fetchRingRaiseComboAction,
+  fetchRussianTwistAction,
+  fetchSeatedForwardPressAction,
+  fetchSeateddRingRaiseAction,
+  fetchShoulderPressAction,
+  fetchSideStepAction,
+  fetchSquatAction,
+  fetchStandingTwistAction,
+  fetchThighPressAction,
+  fetchTricepKickbackAction,
+  fetchWideSquatAction,
   signInAction,
   signOutAction,
 } from "./actions";
@@ -47,6 +69,28 @@ export const listenAuthState = () => {
                 legraise: data.legraise,
                 legscissors: data.legscissors,
                 mountainclimber: data.mountainclimber,
+                opencloselegraise: data.opencloselegraise,
+                overheadarmspin: data.overheadarmspin,
+                overheadarmtwist: data.overheadarmtwist,
+                overheadbend: data.overheadbend,
+                overheadhipshake: data.overheadhipshake,
+                overheadlungetwist: data.overheadlungetwist,
+                overheadpress: data.overheadpress,
+                overheadsidebend: data.overheadsidebend,
+                overheadsquat: data.overheadsquat,
+                pendulumbend: data.pendulumbend,
+                plank: data.plank,
+                ringraisecombo: data.ringraisecombo,
+                russiantwist: data.russiantwist,
+                seatedforwardpress: data.seatedforwardpress,
+                seatedringraise: data.seatedringraise,
+                shoulderpress: data.shoulderpress,
+                sidestep: data.sidestep,
+                squat: data.squat,
+                standingtwist: data.standingtwist,
+                thighpress: data.thighpress,
+                tricepkickback: data.tricepkickback,
+                widesquat: data.widesquat,
               })
             );
           });
@@ -60,12 +104,23 @@ export const listenAuthState = () => {
 export const addData = (day, count, props) => {
   return async (dispatch, getState) => {
     const timestamp = FirebaseTimestamp.now();
+    //現在時刻の取得
     const date = new Date();
     const year = date.getFullYear();
     const tomonth = date.getMonth() + 1;
-    const today = year + "-" + tomonth + "-" + date.getDate();
-    const counts = Number(count) ? count : (count = 0);
-    const days = day ? day : (day = today);
+    const today = year + "/" + tomonth + "/" + date.getDate();
+    //入力された日付を最適化
+    if (day) {
+      const inputyear = day.getFullYear();
+      const inputmouth = day.getMonth() + 1;
+      const inputday = day.getDate();
+      var inputtoday = inputyear + "/" + inputmouth + "/" + inputday;
+    }
+    //入力された回数が0以下ではないことを確認
+    const counts = count < 0 || !count ? (count = 0) : count;
+    //日付が未入力の場合、現在時刻を代入
+    const days = inputtoday ? inputtoday : today;
+
     const data = [
       { day: days, count: parseInt(counts, 10), addedAt: timestamp },
     ];
@@ -205,6 +260,272 @@ export const addData = (day, count, props) => {
             dispatch(fetchMountainClimberAction(data.mountainclimber));
           });
         break;
+      case "OpenCloseLegRaise":
+        await workRef.update({
+          opencloselegraise: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(
+              fetchOpenCloseLegRaiseAction(data.opencloselegraise)
+            );
+          });
+        break;
+      case "OverheadArmSpin":
+        await workRef.update({
+          overheadarmspin: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadArmSpinAction(data.overheadarmspin));
+          });
+        break;
+      case "OverheadArmTwist":
+        await workRef.update({
+          overheadarmtwist: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadArmTwistAction(data.overheadarmtwist));
+          });
+        break;
+      case "OverheadBent":
+        await workRef.update({
+          overheadbend: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadBentAction(data.overheadbend));
+          });
+        break;
+      case "OverheadHipShake":
+        await workRef.update({
+          overheadhipshake: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadHipShakeAction(data.overheadhipshake));
+          });
+        break;
+      case "OverheadLungeTwist":
+        await workRef.update({
+          overheadlungetwist: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadLungeTwistAction(data.overheadlungetwist));
+          });
+        break;
+      case "OverheadPress":
+        await workRef.update({
+          overheadpress: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadPressAction(data.overheadpress));
+          });
+        break;
+      case "OverheadSideBent":
+        await workRef.update({
+          overheadsidebend: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadSideBentAction(data.overheadsidebend));
+          });
+        break;
+      case "OverheadSquat":
+        await workRef.update({
+          overheadsquat: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadSquatAction(data.overheadsquat));
+          });
+        break;
+      case "PendulumBent":
+        await workRef.update({
+          pendulumbend: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchPendulumBentAction(data.pendulumbend));
+          });
+        break;
+      case "Plank":
+        await workRef.update({
+          plank: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchPlankAction(data.plank));
+          });
+        break;
+      case "RingRaiseCombo":
+        await workRef.update({
+          ringraisecombo: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchRingRaiseComboAction(data.ringraisecombo));
+          });
+        break;
+      case "RussianTwist":
+        await workRef.update({
+          russiantwist: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchRussianTwistAction(data.russiantwist));
+          });
+        break;
+      case "SeatedForwardPress":
+        await workRef.update({
+          seatedforwardpress: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSeatedForwardPressAction(data.seatedforwardpress));
+          });
+        break;
+      case "SeatedRingRaise":
+        await workRef.update({
+          seatedringraise: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSeateddRingRaiseAction(data.seatedringraise));
+          });
+        break;
+      case "ShoulderPress":
+        await workRef.update({
+          shoulderpress: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchShoulderPressAction(data.shoulderpress));
+          });
+        break;
+      case "SideStep":
+        await workRef.update({
+          sidestep: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSideStepAction(data.sidestep));
+          });
+        break;
+      case "Squat":
+        await workRef.update({
+          squat: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSquatAction(data.squat));
+          });
+        break;
+      case "StandingTwist":
+        await workRef.update({
+          standingtwist: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchStandingTwistAction(data.standingtwist));
+          });
+        break;
+      case "ThighPress":
+        await workRef.update({
+          thighpress: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchThighPressAction(data.thighpress));
+          });
+        break;
+      case "TricepKickback":
+        await workRef.update({
+          tricepkickback: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchTricepKickbackAction(data.tricepkickback));
+          });
+        break;
+      case "WideSquat":
+        await workRef.update({
+          widesquat: arrayUnion(...data),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchWideSquatAction(data.widesquat));
+          });
+        break;
       default:
     }
   };
@@ -245,6 +566,28 @@ export const SignIn = (email, password) => {
                 legraise: data.legraise,
                 legscissors: data.legscissors,
                 mountainclimber: data.mountainclimber,
+                opencloselegraise: data.opencloselegraise,
+                overheadarmspin: data.overheadarmspin,
+                overheadarmtwist: data.overheadarmtwist,
+                overheadbend: data.overheadbend,
+                overheadhipshake: data.overheadhipshake,
+                overheadlungetwist: data.overheadlungetwist,
+                overheadpress: data.overheadpress,
+                overheadsidebend: data.overheadsidebend,
+                overheadsquat: data.overheadsquat,
+                pendulumbend: data.pendulumbend,
+                plank: data.plank,
+                ringraisecombo: data.ringraisecombo,
+                russiantwist: data.russiantwist,
+                seatedforwardpress: data.seatedforwardpress,
+                seatedringraise: data.seatedringraise,
+                shoulderpress: data.shoulderpress,
+                sidestep: data.sidestep,
+                squat: data.squat,
+                standingtwist: data.standingtwist,
+                thighpress: data.thighpress,
+                tricepkickback: data.tricepkickback,
+                widesquat: data.widesquat,
               })
             );
 
@@ -296,6 +639,28 @@ export const SignUp = (username, email, password, confirmpass) => {
             legraise: [],
             legscissors: [],
             mountainclimber: [],
+            opencloselegraise: [],
+            overheadarmspin: [],
+            overheadarmtwist: [],
+            overheadbend: [],
+            overheadhipshake: [],
+            overheadlungetwist: [],
+            overheadpress: [],
+            overheadsidebend: [],
+            overheadsquat: [],
+            pendulumbend: [],
+            plank: [],
+            ringraisecombo: [],
+            russiantwist: [],
+            seatedforwardpress: [],
+            seatedringraise: [],
+            shoulderpress: [],
+            sidestep: [],
+            squat: [],
+            standingtwist: [],
+            thighpress: [],
+            tricepkickback: [],
+            widesquat: [],
           };
 
           db.collection("users")

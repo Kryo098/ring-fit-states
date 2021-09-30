@@ -1,7 +1,8 @@
-import { SquatChart } from "../components/Chart";
+import { SideStepChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import SideStepIcon from "../icons/pasos-lateralespng.png"
+
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,25 +57,25 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const SideStep = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img src={SideStepIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Side Step</p>
+        <h2 className={classes.title}>ステップアップ</h2>
         <div className={classes.effect}>
-          <span>#すっきり美脚</span>
+          <span>#すっきり二の腕</span>
           <span className={classes.small}>　</span>
-          <span>#ヒップアップ</span>
+          <span>#すっきり美脚</span>
           <span className={classes.small}>　</span>
           <span>#脂肪燃焼</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <SideStepChart work="SideStep" />
     </div>
   );
 };
 
-export default Squat;
+export default SideStep;

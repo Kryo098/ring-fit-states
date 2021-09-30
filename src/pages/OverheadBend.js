@@ -1,7 +1,7 @@
-import { SquatChart } from "../components/Chart";
+import { OverheadBendChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import OverheadBendIcon from "../icons/inclinacin-hacia-delantepng.png"
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,25 +56,25 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const OverheadBend = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img src={OverheadBendIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Overhead Bent</p>
+        <h2 className={classes.title}>バンザイモーニング</h2>
         <div className={classes.effect}>
-          <span>#すっきり美脚</span>
+          <span>#体幹の強化</span>
           <span className={classes.small}>　</span>
-          <span>#ヒップアップ</span>
+          <span>#姿勢改善</span>
           <span className={classes.small}>　</span>
-          <span>#脂肪燃焼</span>
+          <span>#背筋の強化</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <OverheadBendChart work="OverheadBend" />
     </div>
   );
 };
 
-export default Squat;
+export default OverheadBend;

@@ -1,7 +1,7 @@
-import { SquatChart } from "../components/Chart";
+import { OverheadSquatChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import OverheadSquatIcon from "../icons/sentadilla-brazos-arribapng.png"
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,14 +56,14 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const OverheadSquat = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img src={OverheadSquatIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Overhead Squat</p>
+        <h2 className={classes.title}>バンザイスクワット</h2>
         <div className={classes.effect}>
           <span>#すっきり美脚</span>
           <span className={classes.small}>　</span>
@@ -72,9 +72,9 @@ const Squat = () => {
           <span>#脂肪燃焼</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <OverheadSquatChart work="OverheadSquat" />
     </div>
   );
 };
 
-export default Squat;
+export default OverheadSquat;

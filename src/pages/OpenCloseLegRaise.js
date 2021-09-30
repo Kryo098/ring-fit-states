@@ -1,7 +1,7 @@
-import { SquatChart } from "../components/Chart";
+import { OpenCloseLegRaiseChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SquatIcon from "../icons/cambio-de-ritmopng.png"
+import OpenCloseLegRaiseIcon from "../icons/tijeras-abiertaspng.png"
 
 const useStyles = makeStyles({
   titlecard: {
@@ -56,25 +56,25 @@ const useStyles = makeStyles({
   },
 });
 
-const Squat = () => {
+const OpenCloseLegRaise = () => {
   const classes = useStyles();
   return (
     <div className="App">
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={SquatIcon} alt="icon" className={classes.icon}></img>
-        <p className={classes.sbtitle}>Squat</p>
-        <h2 className={classes.title}>スクワット</h2>
+        <img src={OpenCloseLegRaiseIcon} alt="icon" className={classes.icon}></img>
+        <p className={classes.sbtitle}>Open&Close Leg Raise</p>
+        <h2 className={classes.title}>アシパカパカ</h2>
         <div className={classes.effect}>
+          <span>#ぽっこりお腹改善</span>
+          <span className={classes.small}>　</span>
           <span>#すっきり美脚</span>
           <span className={classes.small}>　</span>
           <span>#ヒップアップ</span>
-          <span className={classes.small}>　</span>
-          <span>#脂肪燃焼</span>
         </div>
       </Paper>
-      <SquatChart work="Squat" />
+      <OpenCloseLegRaiseChart work="OpenCloseLegRaise" />
     </div>
   );
 };
 
-export default Squat;
+export default OpenCloseLegRaise;
