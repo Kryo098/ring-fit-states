@@ -49,12 +49,12 @@ import { makeStyles,Switch, Typography} from "@material-ui/core";
 const  useStyles= makeStyles({
   chartcontent: {
     margin:"0 auto",
-    marginTop:"20vh",
+    marginTop:"10vh",
   },
   swich:{
     position:"relative",
-    top:"20vh",
-    left:"55vw",
+    top:"10vh",
+    left:"60vw",
     width:400,
   }
 })

@@ -2,20 +2,20 @@ import { LegScissorsChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import LegScissorsIcon from "../icons/tijeras-con-crucepng.png";
-
+import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles({
   titlecard: {
     position: "relative",
-    height: 200,
+    height: 160,
     backgroundColor: "#f4f4f4",
-    margin: "30px auto",
+    margin: "20px auto",
     borderLeft: "solid 10px #ff8e00",
     width: "50rem",
   },
   title: {
     position: "absolute",
-    top: "2.5rem",
-    left: "17.5rem",
+    top: "1.3rem",
+    left: "18rem",
     fontSize: "2.1rem",
     fontWeight: "800",
     fontStyle: "italic",
@@ -28,8 +28,8 @@ const useStyles = makeStyles({
   },
   sbtitle: {
     position: "absolute",
-    top: "2rem",
-    left: "18rem",
+    top: "0.6rem",
+    left: "18.5rem",
     color: "#ff8e00",
     fontWeight: 800,
     fontSize: 14,
@@ -38,12 +38,12 @@ const useStyles = makeStyles({
   },
   icon: {
     position: "absolute",
-    top: 40,
-    left: 50,
+    top: 20,
+    left: 60,
   },
   effect: {
     position: "absolute",
-    top: "9.5rem",
+    top: "7rem",
     left: 0,
     width: "100%",
     color: "#9a9b9d",
@@ -55,6 +55,7 @@ const useStyles = makeStyles({
     fontSize: 16,
   },
 });
+
 
 const LegScissors = () => {
   const classes = useStyles();
@@ -73,6 +74,7 @@ const LegScissors = () => {
         </div>
       </Paper>
       <LegScissorsChart work="LegScissors" />
+      <HomeMenuItem />
     </div>
   );
 };

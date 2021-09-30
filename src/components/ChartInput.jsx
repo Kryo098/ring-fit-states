@@ -12,16 +12,15 @@ import jaLocale from 'date-fns/locale/ja';
 
 const useStyle = makeStyles({
   root:{
-    marginTop:30,
+    marginTop:20,
   },
   workInputCard:{
     display:"block",
     margin:"0 auto",
     width:"50%",
-    backgroundColor:"#f4f4f4"
+    backgroundColor:"#f4f4f4",
   },
   workout:{
-    color:"",
     fontWeight:800,
     borderBottom:"solid 2px #e73e0e"
   },
