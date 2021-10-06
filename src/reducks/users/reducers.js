@@ -77,7 +77,7 @@ export const UsersReducer = (state = initialState.users, action) => {
         ...state,
         overheadarmtwist: [...action.payload],
       };
-    case Actions.FETCH_WORK_OVERHEADBENT:
+    case Actions.FETCH_WORK_OVERHEADBEND:
       return {
         ...state,
         overheadbend: [...action.payload],
@@ -102,7 +102,7 @@ export const UsersReducer = (state = initialState.users, action) => {
         ...state,
         overheadpress: [...action.payload],
       };
-    case Actions.FETCH_WORK_OVERHEADSIDEBENT:
+    case Actions.FETCH_WORK_OVERHEADSIDEBEND:
       return {
         ...state,
         overheadsidebend: [...action.payload],
@@ -112,7 +112,7 @@ export const UsersReducer = (state = initialState.users, action) => {
         ...state,
         overheadsquat: [...action.payload],
       };
-    case Actions.FETCH_WORK_PENDULUMBENT:
+    case Actions.FETCH_WORK_PENDULUMBEND:
       return {
         ...state,
         pendulumbend: [...action.payload],

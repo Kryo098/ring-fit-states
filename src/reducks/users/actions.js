@@ -187,10 +187,10 @@ export const fetchOverheadArmTwistAction = (works) => {
     payload: works,
   };
 };
-export const FETCH_WORK_OVERHEADBENT = "FETCH_WORK_OVERHEADBENT";
-export const fetchOverheadBentAction = (works) => {
+export const FETCH_WORK_OVERHEADBEND = "FETCH_WORK_OVERHEADBEND";
+export const fetchOverheadBendAction = (works) => {
   return {
-    type: "FETCH_WORK_OVERHEADBENT",
+    type: "FETCH_WORK_OVERHEADBEND",
     payload: works,
   };
 };
@@ -215,10 +215,10 @@ export const fetchOverheadPressAction = (works) => {
     payload: works,
   };
 };
-export const FETCH_WORK_OVERHEADSIDEBENT = "FETCH_WORK_OVERHEADSIDEBENT";
-export const fetchOverheadSideBentAction = (works) => {
+export const FETCH_WORK_OVERHEADSIDEBEND = "FETCH_WORK_OVERHEADSIDEBEND";
+export const fetchOverheadSideBendAction = (works) => {
   return {
-    type: "FETCH_WORK_OVERHEADSIDEBENT",
+    type: "FETCH_WORK_OVERHEADSIDEBEND",
     payload: works,
   };
 };
@@ -229,10 +229,10 @@ export const fetchOverheadSquatAction = (works) => {
     payload: works,
   };
 };
-export const FETCH_WORK_PENDULUMBENT = "FETCH_WORK_PENDULUMBENT";
-export const fetchPendulumBentAction = (works) => {
+export const FETCH_WORK_PENDULUMBEND = "FETCH_WORK_PENDULUMBEND";
+export const fetchPendulumBendAction = (works) => {
   return {
-    type: "FETCH_WORK_PENDULUMBENT",
+    type: "FETCH_WORK_PENDULUMBEND",
     payload: works,
   };
 };

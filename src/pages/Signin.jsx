@@ -4,6 +4,7 @@ import { TextField } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { SignIn } from "../reducks/users/operations";
 import { makeStyles } from "@material-ui/core";
+import { push } from "connected-react-router";
 
 const useStyles =makeStyles((theme)=>({
   root:{
@@ -16,12 +17,14 @@ const useStyles =makeStyles((theme)=>({
   form:{
     width:"50%",
     margin:"0 auto",
-    marginTop:100,
+    marginTop:150,
+    marginBottom:130,
   },
   text:{
     cursor:"pointer",
-    width:220,
+    width:260,
     margin:"0 auto",
+    marginTop:20,
     transition: theme.transitions.create(
       ['color'],
       {duration: theme.transitions.duration.complex}
@@ -77,12 +80,13 @@ const Signin = () => {
       />
       </div>
       <div>
-        <br />
         <PrimaryButton
           label={"SIGN IN"}
+          className={classes.button}
           onClick={() => dispatch(SignIn(email, password))}
         />
       </div>
+      <p className={classes.text} onClick={() => dispatch(push('/signup'))}>アカウントをお持ちではない方はこちら</p>
     </div>
   );
 };

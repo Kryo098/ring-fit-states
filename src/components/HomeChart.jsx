@@ -46,18 +46,32 @@ import {
 } from "../reducks/users/selectors";
 import { makeStyles,Switch, Typography} from "@material-ui/core";
 
-const  useStyles= makeStyles({
+const  useStyles= makeStyles((theme) => ({
   chartcontent: {
     margin:"0 auto",
-    marginTop:"10vh",
+    marginTop:"9vh",
+    marginBottom:"2vh",
+    width:"95vw",
+    height:"50vh",
+    [theme.breakpoints.down('md')]: {
+      marginTop:'5vh',
+      marginBottom:'5vh'
+    }
   },
   swich:{
     position:"relative",
     top:"10vh",
     left:"60vw",
     width:400,
+    "&:span":{
+      fontSize:1
+    },
+    [theme.breakpoints.down('md')]:{
+      top:"59vh",
+      left:"2vw",
+    }
   }
-})
+}))
 
 export const HomeChart = () => {
   const classes = useStyles()
@@ -382,6 +396,9 @@ export const HomeChart = () => {
 
 
     //総合行なったワークアウト（回数）for処理
+  for(let i=0;i<backpress.length;i++){
+    backpressTotalCount = backpressTotalCount + backpress[i].count
+  }
   for(let i=0;i<bowpress.length;i++){
     bowpressTotalCount = bowpressTotalCount + bowpress[i].count
   }
@@ -407,10 +424,10 @@ export const HomeChart = () => {
     legraiseTotalCount = legraiseTotalCount + legraise[i].count
   }
   for(let i=0;i<legscissors.length;i++){
-  legscissorsTotalCount = legscissorsTotalCount + legscissors[i].count
+    legscissorsTotalCount = legscissorsTotalCount + legscissors[i].count
   }
   for(let i=0;i<mountainclimber.length;i++){
-  mountainclimberTotalCount = mountainclimberTotalCount + mountainclimber[i].count
+    mountainclimberTotalCount = mountainclimberTotalCount + mountainclimber[i].count
   }
   for(let i=0;i<opencloselegraise.length;i++){
     opencloselegraiseTotalCount = opencloselegraiseTotalCount + opencloselegraise[i].count
@@ -434,13 +451,13 @@ export const HomeChart = () => {
     overheadpressTotalCount = overheadpressTotalCount + overheadpress[i].count
   }
   for(let i=0;i<overheadsidebend.length;i++){
-  overheadsidebendTotalCount = overheadsidebendTotalCount + overheadsidebend[i].count
+    overheadsidebendTotalCount = overheadsidebendTotalCount + overheadsidebend[i].count
   }
   for(let i=0;i<overheadsquat.length;i++){
     overheadsquatTotalCount = overheadsquatTotalCount + overheadsquat[i].count
   }
   for(let i=0;i<pendulumbend.length;i++){
-  pendulumbendTotalCount = pendulumbendTotalCount + pendulumbend[i].count
+    pendulumbendTotalCount = pendulumbendTotalCount + pendulumbend[i].count
   }
   for(let i=0;i<ringraisecombo.length;i++){
     ringraisecomboTotalCount = ringraisecomboTotalCount + ringraisecombo[i].count
@@ -752,21 +769,22 @@ export const HomeChart = () => {
   return (
     <div className={classes.root}>
     <div className={classes.swich}>
-      <Typography variant="span">本日のワークアウト</Typography>
+      <Typography component="span">本日のワークアウト</Typography>
       <Switch checked={toggle} onChange={handle}/>
-      <Typography variant="span">総合のワークアウト</Typography>
+      <Typography component="span">総合のワークアウト</Typography>
     </div>
-      <ResponsiveContainer width="60%" height={450} className={classes.chartcontent}>
-      <BarChart data={toggle?data:todaydata}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="work" />
+    <div className={classes.chartcontent}>
+      <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={toggle?data:todaydata} margin={{left:10,right:50}}>
+        <CartesianGrid strokeDasharray="0" />
+        <XAxis dataKey="work" fontSize={12} />
         
         <YAxis />
         <Tooltip />
         <Bar dataKey="Count" fill="#ff8e00" />
-        
       </BarChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 };

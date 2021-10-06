@@ -31,7 +31,6 @@ export { default as TricepKickback } from "./TricepKickback";
 export { default as SideStep } from "./SideStep";
 export { default as Squat } from "./Squat";
 export { default as WideSquat } from "./WideSquat";
-
 export { default as Home } from "./Home";
 export { default as Signin } from "./Signin";
 export { default as Signup } from "./Signup";

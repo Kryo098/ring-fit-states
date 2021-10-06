@@ -13,13 +13,13 @@ import {
   fetchOpenCloseLegRaiseAction,
   fetchOverheadArmSpinAction,
   fetchOverheadArmTwistAction,
-  fetchOverheadBentAction,
+  fetchOverheadBendAction,
   fetchOverheadHipShakeAction,
   fetchOverheadLungeTwistAction,
   fetchOverheadPressAction,
-  fetchOverheadSideBentAction,
+  fetchOverheadSideBendAction,
   fetchOverheadSquatAction,
-  fetchPendulumBentAction,
+  fetchPendulumBendAction,
   fetchPlankAction,
   fetchRingRaiseComboAction,
   fetchRussianTwistAction,
@@ -37,7 +37,8 @@ import {
 } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index";
-import { arrayUnion } from "firebase/firestore";
+import { arrayUnion, arrayRemove } from "firebase/firestore";
+import { months } from "moment";
 
 const usersRef = db.collection("users");
 
@@ -55,7 +56,6 @@ export const listenAuthState = () => {
             dispatch(
               signInAction({
                 isSignedIn: true,
-                role: data.role,
                 uid: uid,
                 username: data.username,
                 backpress: data.backpress,
@@ -107,22 +107,27 @@ export const addData = (day, count, props) => {
     //現在時刻の取得
     const date = new Date();
     const year = date.getFullYear();
-    const tomonth = date.getMonth() + 1;
-    const today = year + "/" + tomonth + "/" + date.getDate();
+    const tomonthNm = date.getMonth() + 1
+    const tomonthSt = String(tomonthNm).length<2?('0'+tomonthNm):String(tomonthNm)
+    const todayNm = date.getDate()
+    const todaySt = String(todayNm).length<2?('0'+todayNm):String(todayNm)
+    const today = "" + year + tomonthSt  + todaySt;
     //入力された日付を最適化
     if (day) {
       const inputyear = day.getFullYear();
-      const inputmouth = day.getMonth() + 1;
-      const inputday = day.getDate();
-      var inputtoday = inputyear + "/" + inputmouth + "/" + inputday;
+      const inputmonthNm = day.getMonth() + 1
+      const inputmouthSt = String(inputmonthNm).length<2?('0'+inputmonthNm):String(inputmonthNm)
+
+      const inputdayNm = day.getDate();
+      const inputdaySt = String(inputdayNm).length<2?('0'+inputdayNm):String(inputdayNm)
+      var inputtoday = "" + inputyear + inputmouthSt + inputdaySt;
     }
     //入力された回数が0以下ではないことを確認
     const counts = count < 0 || !count ? (count = 0) : count;
     //日付が未入力の場合、現在時刻を代入
     const days = inputtoday ? inputtoday : today;
-
     const data = [
-      { day: days, count: parseInt(counts, 10), addedAt: timestamp },
+      { day: Number(days), count: parseInt(counts, 10), addedAt: timestamp },
     ];
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
@@ -269,9 +274,7 @@ export const addData = (day, count, props) => {
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
-            dispatch(
-              fetchOpenCloseLegRaiseAction(data.opencloselegraise)
-            );
+            dispatch(fetchOpenCloseLegRaiseAction(data.opencloselegraise));
           });
         break;
       case "OverheadArmSpin":
@@ -298,7 +301,7 @@ export const addData = (day, count, props) => {
             dispatch(fetchOverheadArmTwistAction(data.overheadarmtwist));
           });
         break;
-      case "OverheadBent":
+      case "OverheadBend":
         await workRef.update({
           overheadbend: arrayUnion(...data),
         });
@@ -307,7 +310,7 @@ export const addData = (day, count, props) => {
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
-            dispatch(fetchOverheadBentAction(data.overheadbend));
+            dispatch(fetchOverheadBendAction(data.overheadbend));
           });
         break;
       case "OverheadHipShake":
@@ -346,7 +349,7 @@ export const addData = (day, count, props) => {
             dispatch(fetchOverheadPressAction(data.overheadpress));
           });
         break;
-      case "OverheadSideBent":
+      case "OverheadSideBend":
         await workRef.update({
           overheadsidebend: arrayUnion(...data),
         });
@@ -355,7 +358,7 @@ export const addData = (day, count, props) => {
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
-            dispatch(fetchOverheadSideBentAction(data.overheadsidebend));
+            dispatch(fetchOverheadSideBendAction(data.overheadsidebend));
           });
         break;
       case "OverheadSquat":
@@ -370,7 +373,7 @@ export const addData = (day, count, props) => {
             dispatch(fetchOverheadSquatAction(data.overheadsquat));
           });
         break;
-      case "PendulumBent":
+      case "PendulumBend":
         await workRef.update({
           pendulumbend: arrayUnion(...data),
         });
@@ -379,7 +382,7 @@ export const addData = (day, count, props) => {
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
-            dispatch(fetchPendulumBentAction(data.pendulumbend));
+            dispatch(fetchPendulumBendAction(data.pendulumbend));
           });
         break;
       case "Plank":
@@ -530,6 +533,25 @@ export const addData = (day, count, props) => {
     }
   };
 };
+//バックプレスのみ
+export const deleteData = (item, index) => {
+  return (dispatch, getState) => {
+    const uid = getState().users.uid;
+    const workRef = usersRef.doc(uid);
+    index.day = Number(index.day.split('/').join(''))
+
+    workRef.update({
+      backpress: arrayRemove(index),
+    });
+    usersRef
+      .doc(uid)
+      .get()
+      .then((snapshot) => {
+        const data = snapshot.data();
+        dispatch(fetchBackPressAction(data.backpress));
+      });
+  };
+};
 
 export const SignIn = (email, password) => {
   return async (dispatch) => {
@@ -552,7 +574,6 @@ export const SignIn = (email, password) => {
             dispatch(
               signInAction({
                 isSignedIn: true,
-                role: data.role,
                 uid: uid,
                 username: data.username,
                 backpress: data.backpress,

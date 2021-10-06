@@ -40,20 +40,22 @@ import WideSquatIcon from "../icons/sentadilla-de-sumopng.png"
 const useStyles = makeStyles((theme)=> ({
   root:{
     backgroundColor: "#f4f4f4",
-    position: "absolute",
-    bottom: -80,
+    position: "relative",
+    bottom: -10,
     left:0,
     right:0,
     margin:"0 auto",
     paddingTop:15,
     width:"90%",
-    transition: theme.transitions.create(
+    [theme.breakpoints.up('xl')]:{
+      transition: theme.transitions.create(
       ['bottom'],
       {duration:theme.transitions.duration.complex}
     ),
     "&:hover":{
-      bottom:10
+      bottom:150
     },
+  },
   },
   cards:{
     display:"inline",
@@ -64,19 +66,21 @@ const useStyles = makeStyles((theme)=> ({
     width:70,
     height:70,
     margin:5,
-    transition: theme.transitions.create(
-      ['width','height','margin'],
-      {duration:theme.transitions.duration.complex}
-    ),
-    "&:hover":{
-      width:100,
-      height:100,
-      margin:-10,
+    [theme.breakpoints.up('xl')]:{
+      transition: theme.transitions.create(
+        ['width','height','margin'],
+        {duration:theme.transitions.duration.complex}
+      ),
+      "&:hover":{
+        width:100,
+        height:100,
+        margin:-10,
+      },
     },
   },
 }))
 
-export const HomeMenuItem = () => {
+export const HomeMenuItem = (props) => {
   const classes = useStyles()
   const dispatch = useDispatch();
 
@@ -318,7 +322,7 @@ export const HomeMenuItem = () => {
   },
   ]
   return(
-      <Paper className={classes.root}>
+      <Paper className={classes.root} style={{bottom:props.value}}>
         {menus.map((menu)=> (
           <Box
           key={menu.id}

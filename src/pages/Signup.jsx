@@ -23,6 +23,7 @@ const useStyles =makeStyles((theme)=>({
       cursor:"pointer",
       width:220,
       margin:"0 auto",
+      marginTop:20,
       transition: theme.transitions.create(
         ['color'],
         {duration: theme.transitions.duration.complex}
@@ -116,7 +117,6 @@ const Signup = () => {
       />
       </div>
       <div>
-        <br />
         <PrimaryButton
           label={"SIGN UP"}
           onClick={() =>

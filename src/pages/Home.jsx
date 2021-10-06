@@ -4,24 +4,34 @@ import { useSelector } from "react-redux";
 import { Box } from "@material-ui/core";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 import { HomeChart } from "../components/HomeChart";
+import {makeStyles} from "@material-ui/styles"
+
+const useStyles = makeStyles((theme)=>({
+  home: {
+    textAlign:"center",
+  },
+  welcome:{
+    marginTop:40,
+  }
+}))
 
 const Home = () => {
+  const classes = useStyles()
   const selector = useSelector((state) => state)
   const name = getUsername(selector);
 
   return (
-    <div className="App">
-      <h2>ようこそ！{name}</h2>
+    <div className={classes.home}>
+      <h2 className={classes.welcome}>ようこそ！{name}</h2>
       <HomeChart />
       <Box
         sx={{
           justifyContent: "center",
-          bgcolor: "red",
           width: "90%",
           margin: "0 auto",
         }}
       >
-        <HomeMenuItem />
+        <HomeMenuItem value={0}/>
       </Box>
     </div>
   );

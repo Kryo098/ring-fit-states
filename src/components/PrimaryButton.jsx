@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=> ({
   button: {
     backgroundColor: "#e73e0e",
     color: "#fff",
@@ -14,10 +14,10 @@ const useStyles = makeStyles({
     fontWeight:800,
     "&:hover":{
       backgroundColor: "#ff8e00",
-      color:"#e73e0e"
-    }
+      color:"#e73e0e",
+    },
   },
-});
+}));
 
 const PrimaryButton = (props) => {
   const classes = useStyles();
