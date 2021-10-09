@@ -1,0 +1,15 @@
+
+.statusMessage {
+  opacity: 0;
+  font-size: 20px;
+  text-align: center;
+  margin: 5 0 auto;
+}
+.success{
+  opacity: 1;
+  color: green;
+}
+.failure {
+  opacity:1;
+  color:red;
+}

@@ -116,13 +116,16 @@ export const HomeChart = () => {
   const thighpress =getthighpress(selector)
   const tricepkickback =gettricepkickback(selector)
   const widesquat =getwidesquat(selector)
-
   
   const date = new Date();
   const year = date.getFullYear();
-  const tomonth = date.getMonth() + 1;
-  const today = year + "/" + tomonth + "/" + date.getDate();
+  const tomonthNm = date.getMonth() + 1
+  const tomonthSt = String(tomonthNm).length<2?('0'+tomonthNm):String(tomonthNm)
+  const todayNm = date.getDate()
+  const todaySt = String(todayNm).length<2?('0'+todayNm):String(todayNm)
+  const today = Number("" + year + tomonthSt  + todaySt);
 
+  //トータルカウント初期化
   var backpressTotalCount = 0
   var bowpressTotalCount = 0
   var flutterkickTotalCount = 0
@@ -157,6 +160,7 @@ export const HomeChart = () => {
   var tricepkickbackTotalCount = 0
   var widesquatTotalCount = 0
 
+    //今日のカウント
   var backpressTodayCount = 0
   var bowpressTodayCount = 0
   var flutterkickTodayCount = 0
@@ -499,134 +503,130 @@ export const HomeChart = () => {
   //総合ワークアウト回数
   const data = [
     {
-    work:"BackPress",
+    work:"ウシロプッシュ",
     Count:backpressTotalCount,
   },{
-    work:"BowPress",
+    work:"リングアロー",
     Count:bowpressTotalCount,
   },{
-    work:"FlutterKick",
+    work:"バタバタレッグ",
     Count:flutterkickTotalCount,
   },{
-    work:"FrontPress",
+    work:"サゲテプッシュ",
     Count:frontpressTotalCount,
   },{
-    work:"HipLift",
+    work:"ヒップリフト",
     Count:hipliftTotalCount,
   },{
-    work:"KneeLift",
+    work:"モモアゲアゲ",
     Count:kneeliftTotalCount,
   },{
-    work:"KneeLiftCombo",
+    work:"モモアゲコンボ",
     Count:kneeliftcomboTotalCount,
   },{
-    work:"KneetoChest",
+    work:"ニートゥーチェスト",
     Count:kneetochestTotalCount,
   },{
-    work:"LegRaise",
+    work:"レッグレイス",
     Count:legraiseTotalCount,
   },{
-    work:"LegScissors",
+    work:"ハサミレッグ",
     Count:legscissorsTotalCount,
   },
     {
-    work:"MountainClimber",
+    work:"マウンテンクライマー",
     Count:mountainclimberTotalCount,
   },
   {
-    work:"OpenCloseLegRaise",
+    work:"アシパカパカ",
     Count:opencloselegraiseTotalCount,
   },
   {
-    work:"OverheadArmSpin",
+    work:"グルグルアーム",
     Count:overheadarmspinTotalCount,
   },
   {
-    work:"OverheadArmTwist",
+    work:"アームツイスト",
     Count:overheadarmtwistTotalCount,
   },
   {
-    work:"OverheadBend",
+    work:"バンザイモーニング",
     Count:overheadbendTotalCount,
   },
   {
-    work:"OverheadHipShake",
+    work:"バンザイコシフリ",
     Count:overheadhipshakeTotalCount,
   },
   {
-    work:"OverheadLungeTwist",
+    work:"バンザイツイスト",
     Count:overheadlungetwistTotalCount,
   },
   {
-    work:"OverheadPress",
+    work:"バンザイプッシュ",
     Count:overheadpressTotalCount,
   },
   {
-    work:"OverheadSideBend",
+    work:"バンザイサイドベント",
     Count:overheadsidebendTotalCount,
   },
   {
-    work:"OverheadSquat",
+    work:"バンザイスクワット",
     Count:overheadsquatTotalCount,
   },
   {
-    work:"PendulumBend",
+    work:"ベントオーバー",
     Count:pendulumbendTotalCount,
   },
   {
-    work:"RingRaiseCombo",
+    work:"アゲサゲコンボ",
     Count:ringraisecomboTotalCount,
   },
   {
-    work:"Plank",
+    work:"プランク",
     Count:plankTotalCount,
   },
   {
-    work:"RussianTwist",
+    work:"ロシアンツイスト",
     Count:russiantwistTotalCount,
   },
   {
-    work:"MountainClimber",
+    work:"マウンテンクライマー",
     Count:mountainclimberTotalCount,
   },
   {
-    work:"SeatedForwardPress",
+    work:"マエニプッシュ",
     Count:seatedforwardpressTotalCount,
   },
   {
-    work:"SeatedRingRaise",
+    work:"リングアゲサゲ",
     Count:seatedringraiseTotalCount,
   },
   {
-    work:"ShoulderPress",
+    work:"カタデプッシュ",
     Count:shoulderpressTotalCount,
   },
   {
-    work:"SideStep",
+    work:"サイドステップ",
     Count:sidestepTotalCount,
   },
   {
-    work:"Squat",
+    work:"スクワット",
     Count:squatTotalCount,
   },
   {
-    work:"StandingTwist",
+    work:"スワイショウ",
     Count:standingtwistTotalCount,
   },
   {
-    work:"thighpress",
+    work:"モモデプッシュ",
     Count:thighpressTotalCount,
   },
   {
-    work:"ThighPress",
-    Count:thighpressTotalCount,
-  },
-  {
-    work:"TricepKickback",
+    work:"トライセプト",
     Count:tricepkickbackTotalCount,
   },
   {
-    work:"WideSquat",
+    work:"ワイドスクワット",
     Count:widesquatTotalCount,
   },
 
@@ -634,134 +634,130 @@ export const HomeChart = () => {
     //今日行ったワークアウト回数
   const todaydata = [
     {
-    work:"BackPress",
+    work:"ウシロプッシュ",
     Count:backpressTodayCount,
   },{
-    work:"BowPress",
+    work:"リングアロー",
     Count:bowpressTodayCount,
   },{
-    work:"FlutterKick",
+    work:"バタバタレッグ",
     Count:flutterkickTodayCount,
   },{
-    work:"FrontPress",
+    work:"サゲテプッシュ",
     Count:frontpressTodayCount,
   },{
-    work:"HipLift",
+    work:"ヒップリフト",
     Count:hipliftTodayCount,
   },{
-    work:"KneeLift",
+    work:"モモアゲアゲ",
     Count:kneeliftTodayCount,
   },{
-    work:"KneeLiftCombo",
+    work:"モモアゲコンボ",
     Count:kneeliftcomboTodayCount,
   },{
-    work:"KneetoChest",
+    work:"ニートゥーチェスト",
     Count:kneetochestTodayCount,
   },{
-    work:"LegRaise",
+    work:"レッグレイス",
     Count:legraiseTodayCount,
   },{
-    work:"LegScissors",
+    work:"ハサミレッグ",
     Count:legscissorsTodayCount,
   },
     {
-    work:"MountainClimber",
+    work:"マウンテンクライマー",
     Count:mountainclimberTodayCount,
   },
   {
-    work:"OpenCloseLegRaise",
+    work:"アシパカパカ",
     Count:opencloselegraiseTodayCount,
   },
   {
-    work:"OverheadArmSpin",
+    work:"グルグルアーム",
     Count:overheadarmspinTodayCount,
   },
   {
-    work:"OverheadArmTwist",
+    work:"アームツイスト",
     Count:overheadarmtwistTodayCount,
   },
   {
-    work:"OverheadBend",
+    work:"バンザイモーニング",
     Count:overheadbendTodayCount,
   },
   {
-    work:"OverheadHipShake",
+    work:"バンザイコシフリ",
     Count:overheadhipshakeTodayCount,
   },
   {
-    work:"OverheadLungeTwist",
+    work:"バンザイツイスト",
     Count:overheadlungetwistTodayCount,
   },
   {
-    work:"OverheadPress",
+    work:"バンザイプッシュ",
     Count:overheadpressTodayCount,
   },
   {
-    work:"OverheadSideBend",
+    work:"バンザイサイドベント",
     Count:overheadsidebendTodayCount,
   },
   {
-    work:"OverheadSquat",
+    work:"バンザイスクワット",
     Count:overheadsquatTodayCount,
   },
   {
-    work:"PendulumBend",
+    work:"ベントオーバー",
     Count:pendulumbendTodayCount,
   },
   {
-    work:"RingRaiseCombo",
+    work:"アゲサゲコンボ",
     Count:ringraisecomboTodayCount,
   },
   {
-    work:"Plank",
+    work:"プランク",
     Count:plankTodayCount,
   },
   {
-    work:"RussianTwist",
+    work:"ロシアンツイスト",
     Count:russiantwistTodayCount,
   },
   {
-    work:"MountainClimber",
+    work:"マウンテンクライマー",
     Count:mountainclimberTodayCount,
   },
   {
-    work:"SeatedForwardPress",
+    work:"マエニプッシュ",
     Count:seatedforwardpressTodayCount,
   },
   {
-    work:"SeatedRingRaise",
+    work:"リングアゲサゲ",
     Count:seatedringraiseTodayCount,
   },
   {
-    work:"ShoulderPress",
+    work:"カタデプッシュ",
     Count:shoulderpressTodayCount,
   },
   {
-    work:"SideStep",
+    work:"サイドステップ",
     Count:sidestepTodayCount,
   },
   {
-    work:"Squat",
+    work:"スクワット",
     Count:squatTodayCount,
   },
   {
-    work:"StandingTwist",
+    work:"スワイショウ",
     Count:standingtwistTodayCount,
   },
   {
-    work:"thighpress",
+    work:"モモデプッシュ",
     Count:thighpressTodayCount,
   },
   {
-    work:"ThighPress",
-    Count:thighpressTodayCount,
-  },
-  {
-    work:"TricepKickback",
+    work:"トライセプト",
     Count:tricepkickbackTodayCount,
   },
   {
-    work:"WideSquat",
+    work:"ワイドスクワット",
     Count:widesquatTodayCount,
   },
 
@@ -769,9 +765,9 @@ export const HomeChart = () => {
   return (
     <div className={classes.root}>
     <div className={classes.swich}>
-      <Typography component="span">本日のワークアウト</Typography>
+      <Typography component="span">本日のフィットネス</Typography>
       <Switch checked={toggle} onChange={handle}/>
-      <Typography component="span">総合のワークアウト</Typography>
+      <Typography component="span">総合のフィットネス</Typography>
     </div>
     <div className={classes.chartcontent}>
       <ResponsiveContainer width="100%" height="100%">

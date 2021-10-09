@@ -38,7 +38,6 @@ import {
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index";
 import { arrayUnion, arrayRemove } from "firebase/firestore";
-import { months } from "moment";
 
 const usersRef = db.collection("users");
 
@@ -135,7 +134,7 @@ export const addData = (day, count, props) => {
     switch (props.work) {
       case "BackPress":
         await workRef.update({
-          backpress: arrayUnion(...data),
+          backpress: arrayUnion(...data)
         });
         usersRef
           .doc(uid)
@@ -147,7 +146,7 @@ export const addData = (day, count, props) => {
         break;
       case "BowPress":
         await workRef.update({
-          bowpress: arrayUnion(...data),
+          bowpress: arrayUnion(...data)
         });
         usersRef
           .doc(uid)
@@ -533,23 +532,412 @@ export const addData = (day, count, props) => {
     }
   };
 };
-//バックプレスのみ
-export const deleteData = (item, index) => {
+
+export const deleteData = (item, index, props) => {
   return (dispatch, getState) => {
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
     index.day = Number(index.day.split('/').join(''))
 
-    workRef.update({
-      backpress: arrayRemove(index),
-    });
-    usersRef
-      .doc(uid)
-      .get()
-      .then((snapshot) => {
-        const data = snapshot.data();
-        dispatch(fetchBackPressAction(data.backpress));
-      });
+    switch (props.work) {
+      case "BackPress":
+        workRef.update({
+          backpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchBackPressAction(data.backpress));
+          });
+        break;
+      case "BowPress":
+        workRef.update({
+          bowpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchBowPressAction(data.bowpress));
+          });
+        break;
+      case "FlutterKick":
+        workRef.update({
+          flutterkick: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchFlutterKickAction(data.flutterkick));
+          });
+        break;
+      case "FrontPress":
+        workRef.update({
+          frontpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchFrontPressAction(data.frontpress));
+          });
+        break;
+      case "HipLift":
+        workRef.update({
+          hiplift: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchHipLiftAction(data.hiplift));
+          });
+        break;
+      case "KneeLiftCombo":
+        workRef.update({
+          kneeliftcombo: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchKneeLiftComboAction(data.kneeliftcombo));
+          });
+        break;
+      case "KneeLift":
+        workRef.update({
+          kneelift: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchKneeLiftAction(data.kneelift));
+          });
+        break;
+      case "KneetoChest":
+        workRef.update({
+          kneetochest: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchKneetoChestAction(data.kneetochest));
+          });
+        break;
+      case "LegRaise":
+        workRef.update({
+          legraise: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchLegRaiseAction(data.legraise));
+          });
+        break;
+      case "LegScissors":
+        workRef.update({
+          legscissors: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchLegScissorsAction(data.legscissors));
+          });
+        break;
+      case "MountainClimber":
+        workRef.update({
+          mountainclimber: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchMountainClimberAction(data.mountainclimber));
+          });
+        break;
+      case "OpenCloseLegRaise":
+        workRef.update({
+          opencloselegraise: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOpenCloseLegRaiseAction(data.opencloselegraise));
+          });
+        break;
+      case "OverheadArmSpin":
+        workRef.update({
+          overheadarmspin: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadArmSpinAction(data.overheadarmspin));
+          });
+        break;
+      case "OverheadArmTwist":
+        workRef.update({
+          overheadarmtwist: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadArmTwistAction(data.overheadarmtwist));
+          });
+        break;
+      case "OverheadBend":
+        workRef.update({
+          overheadbend: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadBendAction(data.overheadbend));
+          });
+        break;
+      case "OverheadHipShake":
+        workRef.update({
+          overheadhipshake: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadHipShakeAction(data.overheadhipshake));
+          });
+        break;
+      case "OverheadLungeTwist":
+        workRef.update({
+          overheadlungetwist: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadLungeTwistAction(data.overheadlungetwist));
+          });
+        break;
+      case "OverheadPress":
+        workRef.update({
+          overheadpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadPressAction(data.overheadpress));
+          });
+        break;
+      case "OverheadSideBend":
+        workRef.update({
+          overheadsidebend: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadSideBendAction(data.overheadsidebend));
+          });
+        break;
+      case "OverheadSquat":
+        workRef.update({
+          overheadsquat: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchOverheadSquatAction(data.overheadsquat));
+          });
+        break;
+      case "PendulumBend":
+        workRef.update({
+          pendulumbend: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchPendulumBendAction(data.pendulumbend));
+          });
+        break;
+      case "Plank":
+        workRef.update({
+          plank: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchPlankAction(data.plank));
+          });
+        break;
+      case "RingRaiseCombo":
+        workRef.update({
+          ringraisecombo: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchRingRaiseComboAction(data.ringraisecombo));
+          });
+        break;
+      case "RussianTwist":
+        workRef.update({
+          russiantwist: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchRussianTwistAction(data.russiantwist));
+          });
+        break;
+      case "SeatedForwardPress":
+        workRef.update({
+          seatedforwardpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSeatedForwardPressAction(data.seatedforwardpress));
+          });
+        break;
+      case "SeatedRingRaise":
+        workRef.update({
+          seatedringraise: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSeateddRingRaiseAction(data.seatedringraise));
+          });
+        break;
+      case "ShoulderPress":
+        workRef.update({
+          shoulderpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchShoulderPressAction(data.shoulderpress));
+          });
+        break;
+      case "SideStep":
+        workRef.update({
+          sidestep: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSideStepAction(data.sidestep));
+          });
+        break;
+      case "Squat":
+        workRef.update({
+          squat: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchSquatAction(data.squat));
+          });
+        break;
+      case "StandingTwist":
+        workRef.update({
+          standingtwist: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchStandingTwistAction(data.standingtwist));
+          });
+        break;
+      case "ThighPress":
+        workRef.update({
+          thighpress: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchThighPressAction(data.thighpress));
+          });
+        break;
+      case "TricepKickback":
+        workRef.update({
+          tricepkickback: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchTricepKickbackAction(data.tricepkickback));
+          });
+        break;
+      case "WideSquat":
+        workRef.update({
+          widesquat: arrayRemove(index),
+        });
+        usersRef
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+            dispatch(fetchWideSquatAction(data.widesquat));
+          });
+        break;
+      default:
+    }
   };
 };
 

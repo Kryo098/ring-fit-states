@@ -3,14 +3,47 @@ import { useDispatch } from "react-redux";
 import { addData,deleteData } from "../reducks/users/operations";
 import PrimaryButton from "./PrimaryButton";
 import TextInput from "./Textinput";
-import { makeStyles,Paper,Modal,Box,Typography,Button,} from "@material-ui/core";
+import { makeStyles,Paper,Modal,Box,Button, TableContainer,Table,TableBody,TableCell,TableHead,TableRow} from "@material-ui/core";
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { DatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import jaLocale from 'date-fns/locale/ja';
-import { getbackpress } from "../reducks/users/selectors";
+import { 
+  getbackpress,
+  getbowpress,
+  getflutterkick,
+  getfrontpress,
+  gethiplift,
+  getkneelift,
+  getkneeliftcombo,
+  getkneetochest,
+  getlegraise,
+  getlegscissors,
+  getmountainclimber,
+  getopencloselegraise,
+  getoverheadarmspin,
+  getoverheadarmtwist,
+  getoverheadbend,
+  getoverheadhipshake,
+  getoverheadlungetwist,
+  getoverheadpress,
+  getoverheadsidebend,
+  getoverheadsquat,
+  getpendulumbend,
+  getringraisecombo,
+  getplank,
+  getrussiantwist,
+  getseatedforwardpress,
+  getseatedringraise,
+  getshoulderpress,
+  getsidestep,
+  getsquat,
+  getstandingtwist,
+  getthighpress,
+  gettricepkickback,
+  getwidesquat } from "../reducks/users/selectors";
 import { useSelector } from "react-redux";
-import { Settings } from "@material-ui/icons";
+import { Settings,Backspace } from "@material-ui/icons";
 
 const useStyle = makeStyles((theme)=>({
   root:{
@@ -45,11 +78,16 @@ const useStyle = makeStyles((theme)=>({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    width: "60%",
     backgroundColor: '#f4f4f4',
     border: '2px solid #000',
     boxShadow: 24,
     padding: 4,
+  },
+  delete: {
+    position:"relative",
+    left:0,
+    right:0,
   },
   icon:{
     transform:"scale(1.4)"
@@ -57,9 +95,111 @@ const useStyle = makeStyles((theme)=>({
 }));
 
 const WorkoutInput = (props) => {
-  const selector = useSelector((state)=>state)
-  const data = getbackpress(selector)
 
+  const selector = useSelector((state)=>state)
+  let data
+  switch (props.work.work) {
+      case "BackPress":
+        data = getbackpress(selector)
+        break;
+      case "BowPress":
+        data = getbowpress(selector)
+        break;
+      case "FlutterKick":
+        data = getflutterkick(selector)
+        break;
+      case "FrontPress":
+        data = getfrontpress(selector)
+        break;
+      case "HipLift":
+        data = gethiplift(selector)
+        break;
+      case "KneeLiftCombo":
+        data = getkneeliftcombo(selector)
+        break;
+      case "KneeLift":
+        data = getkneelift(selector)
+        break;
+      case "KneetoChest":
+        data = getkneetochest(selector)
+        break;
+      case "LegRaise":
+        data = getlegraise(selector)
+        break;
+      case "LegScissors":
+        data = getlegscissors(selector)
+        break;
+      case "MountainClimber":
+        data = getmountainclimber(selector)
+        break;
+      case "OpenCloseLegRaise":
+        data = getopencloselegraise(selector)
+        break;
+      case "OverheadArmSpin":
+        data = getoverheadarmspin(selector)
+        break;
+      case "OverheadArmTwist":
+        data = getoverheadarmtwist(selector)
+        break;
+      case "OverheadBend":
+        data = getoverheadbend(selector)
+        break;
+      case "OverheadHipShake":
+        data = getoverheadhipshake(selector)
+        break;
+      case "OverheadLungeTwist":
+        data = getoverheadlungetwist(selector)
+        break;
+      case "OverheadPress":
+        data = getoverheadpress(selector)
+        break;
+      case "OverheadSideBend":
+        data = getoverheadsidebend(selector)
+        break;
+      case "OverheadSquat":
+        data = getoverheadsquat(selector)
+        break;
+      case "PendulumBend":
+        data = getpendulumbend(selector)
+        break;
+      case "Plank":
+        data = getplank(selector)
+        break;
+      case "RingRaiseCombo":
+        data = getringraisecombo(selector)
+        break;
+      case "RussianTwist":
+        data = getrussiantwist(selector)
+        break;
+      case "SeatedForwardPress":
+        data = getseatedforwardpress(selector)
+        break;
+      case "SeatedRingRaise":
+        data = getseatedringraise(selector)
+        break;
+      case "ShoulderPress":
+        data = getshoulderpress(selector)
+        break;
+      case "SideStep":
+        data = getsidestep(selector)
+        break;
+      case "Squat":
+        data = getsquat(selector)
+        break;
+      case "StandingTwist":
+        data = getstandingtwist(selector)
+        break;
+      case "ThighPress":
+        data = getthighpress(selector)
+        break;
+      case "TricepKickback":
+        data = gettricepkickback(selector)
+        break;
+      case "WideSquat":
+        data = getwidesquat(selector)
+        break;
+      default:
+    }
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -99,7 +239,7 @@ const WorkoutInput = (props) => {
         />
         <PrimaryButton required onClick={()=>dispatch(addData(day,count,props.work))} label={'SEVE!'} />
         <div>
-          <Button onClick={handleOpen}><Settings className={classes.icon}/></Button>
+          <Button onClick={handleOpen} className={classes.delete}><Settings className={classes.icon}/></Button>
           <Modal
         open={open}
         onClose={handleClose}
@@ -107,9 +247,25 @@ const WorkoutInput = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box className={classes.modal}>
-          {data.map((item,index)=>(
-          <button key={item.id} onClick={()=>dispatch(deleteData(index,item))}>{item.day}</button>
-        ))}
+          <TableContainer component={Paper}>
+            <Table className={classes.table}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>日付</TableCell>
+                  <TableCell>回数</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+              {data.map((item,index)=>(
+                  <TableRow key={item.id}>
+                    <TableCell>{item.day}</TableCell>
+                    <TableCell>{item.count}</TableCell>
+                    <TableCell><Button onClick={()=>dispatch(deleteData(index,item,props.work))}><Backspace /></Button></TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Box>
       </Modal>
         </div>
