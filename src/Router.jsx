@@ -38,8 +38,6 @@ import{
   SideStep,
   Squat,
   WideSquat,
-  Contact
-
 } from "./pages/index"
 
 
@@ -48,7 +46,6 @@ const Router = () => {
     <Switch>
       <Route exact path={"/Signup"} component={Signup} />
       <Route exact path={"/Signin"} component={Signin} />
-      <Route exact path={"/Contact"} component={Contact} />
       <Auth>
         <Route exact path={"(/)?"} component={Home} />
         <Route exact path={"/BackPress"} component={BackPress} />

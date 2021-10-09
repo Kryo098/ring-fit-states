@@ -1,17 +1,13 @@
 import React, {useState} from "react";
-import { makeStyles,Modal,Box,Paper } from "@material-ui/core";
-import { Message } from "@material-ui/icons";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
+import { makeStyles,Modal,Box,Paper,AppBar,Toolbar,Typography,IconButton } from "@material-ui/core";
+import { Message,ExitToApp,Info } from "@material-ui/icons";
 import { push } from "connected-react-router";
 import { useDispatch } from "react-redux";
-import { ExitToApp,Info } from "@material-ui/icons";
 import { signOut } from "../reducks/users/operations";
 import { getIsSignedIn } from "../reducks/users/selectors";
 import { useSelector } from "react-redux";
 import Form from "./Form"
+
 const useStyles = makeStyles((theme)=> ({
   root: {
     flexGrow: 1,
