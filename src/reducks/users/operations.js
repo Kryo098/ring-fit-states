@@ -34,10 +34,13 @@ import {
   fetchWideSquatAction,
   signInAction,
   signOutAction,
+  showLoadingAction,
+  hideLoadingAction,
 } from "./actions";
 import { push } from "connected-react-router";
 import { auth, db, FirebaseTimestamp } from "../../firebase/index";
 import { arrayUnion, arrayRemove } from "firebase/firestore";
+import { isVaildEmail, isVaildRequired } from "../../function/common";
 
 const usersRef = db.collection("users");
 
@@ -57,6 +60,7 @@ export const listenAuthState = () => {
                 isSignedIn: true,
                 uid: uid,
                 username: data.username,
+                email: data.email,
                 backpress: data.backpress,
                 bowpress: data.bowpress,
                 flutterkick: data.flutterkick,
@@ -106,19 +110,25 @@ export const addData = (day, count, props) => {
     //現在時刻の取得
     const date = new Date();
     const year = date.getFullYear();
-    const tomonthNm = date.getMonth() + 1
-    const tomonthSt = String(tomonthNm).length<2?('0'+tomonthNm):String(tomonthNm)
-    const todayNm = date.getDate()
-    const todaySt = String(todayNm).length<2?('0'+todayNm):String(todayNm)
-    const today = "" + year + tomonthSt  + todaySt;
+    const tomonthNm = date.getMonth() + 1;
+    const tomonthSt =
+      String(tomonthNm).length < 2 ? "0" + tomonthNm : String(tomonthNm);
+    const todayNm = date.getDate();
+    const todaySt =
+      String(todayNm).length < 2 ? "0" + todayNm : String(todayNm);
+    const today = "" + year + tomonthSt + todaySt;
     //入力された日付を最適化
     if (day) {
       const inputyear = day.getFullYear();
-      const inputmonthNm = day.getMonth() + 1
-      const inputmouthSt = String(inputmonthNm).length<2?('0'+inputmonthNm):String(inputmonthNm)
+      const inputmonthNm = day.getMonth() + 1;
+      const inputmouthSt =
+        String(inputmonthNm).length < 2
+          ? "0" + inputmonthNm
+          : String(inputmonthNm);
 
       const inputdayNm = day.getDate();
-      const inputdaySt = String(inputdayNm).length<2?('0'+inputdayNm):String(inputdayNm)
+      const inputdaySt =
+        String(inputdayNm).length < 2 ? "0" + inputdayNm : String(inputdayNm);
       var inputtoday = "" + inputyear + inputmouthSt + inputdaySt;
     }
     //入力された回数が0以下ではないことを確認
@@ -134,7 +144,7 @@ export const addData = (day, count, props) => {
     switch (props.work) {
       case "BackPress":
         await workRef.update({
-          backpress: arrayUnion(...data)
+          backpress: arrayUnion(...data),
         });
         usersRef
           .doc(uid)
@@ -146,7 +156,7 @@ export const addData = (day, count, props) => {
         break;
       case "BowPress":
         await workRef.update({
-          bowpress: arrayUnion(...data)
+          bowpress: arrayUnion(...data),
         });
         usersRef
           .doc(uid)
@@ -537,7 +547,7 @@ export const deleteData = (item, index, props) => {
   return (dispatch, getState) => {
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
-    index.day = Number(index.day.split('/').join(''))
+    index.day = Number(index.day.split("/").join(""));
 
     switch (props.work) {
       case "BackPress":
@@ -943,83 +953,104 @@ export const deleteData = (item, index, props) => {
 
 export const SignIn = (email, password) => {
   return async (dispatch) => {
-    if (email === "" || password === "") {
-      alert("必須項目が未入力です");
+    dispatch(showLoadingAction("Sign in..."));
+    if (!isVaildRequired(email, password)) {
+      dispatch(hideLoadingAction());
+      alert("メールアドレス、又はパスワードが未入力です。");
       return false;
     }
 
-    auth.signInWithEmailAndPassword(email, password).then((retult) => {
-      const user = retult.user;
-      if (user) {
-        const uid = user.uid;
+    if (!isVaildEmail(email)) {
+      dispatch(hideLoadingAction());
+      alert("メールアドレスの形式が不正です。");
+      return false;
+    }
 
-        db.collection("users")
-          .doc(uid)
-          .get()
-          .then((snapshot) => {
-            const data = snapshot.data();
+    return auth
+      .signInWithEmailAndPassword(email, password)
+      .then(async (retult) => {
+        const user = retult.user;
+        if (!user) {
+          dispatch(hideLoadingAction());
+          throw new Error("ユーザーIDを取得できません");
+        }
+        const userId = user.uid;
 
-            dispatch(
-              signInAction({
-                isSignedIn: true,
-                uid: uid,
-                username: data.username,
-                backpress: data.backpress,
-                bowpress: data.bowpress,
-                flutterkick: data.flutterkick,
-                frontpress: data.frontpress,
-                hiplift: data.hiplift,
-                kneeliftcombo: data.kneeliftcombo,
-                kneelift: data.kneelift,
-                kneetochest: data.kneetochest,
-                legraise: data.legraise,
-                legscissors: data.legscissors,
-                mountainclimber: data.mountainclimber,
-                opencloselegraise: data.opencloselegraise,
-                overheadarmspin: data.overheadarmspin,
-                overheadarmtwist: data.overheadarmtwist,
-                overheadbend: data.overheadbend,
-                overheadhipshake: data.overheadhipshake,
-                overheadlungetwist: data.overheadlungetwist,
-                overheadpress: data.overheadpress,
-                overheadsidebend: data.overheadsidebend,
-                overheadsquat: data.overheadsquat,
-                pendulumbend: data.pendulumbend,
-                plank: data.plank,
-                ringraisecombo: data.ringraisecombo,
-                russiantwist: data.russiantwist,
-                seatedforwardpress: data.seatedforwardpress,
-                seatedringraise: data.seatedringraise,
-                shoulderpress: data.shoulderpress,
-                sidestep: data.sidestep,
-                squat: data.squat,
-                standingtwist: data.standingtwist,
-                thighpress: data.thighpress,
-                tricepkickback: data.tricepkickback,
-                widesquat: data.widesquat,
-              })
-            );
-
-            dispatch(push("/"));
-          });
-      }
-    });
+        const snapshot = await usersRef.doc(userId).get();
+        const data = snapshot.data();
+        if (!data) {
+          dispatch(hideLoadingAction());
+          throw new Error("ユーザーが存在しません");
+        }
+        dispatch(
+          signInAction({
+            isSignedIn: true,
+            uid: userId,
+            username: data.username,
+            email: data.email,
+            backpress: data.backpress,
+            bowpress: data.bowpress,
+            flutterkick: data.flutterkick,
+            frontpress: data.frontpress,
+            hiplift: data.hiplift,
+            kneeliftcombo: data.kneeliftcombo,
+            kneelift: data.kneelift,
+            kneetochest: data.kneetochest,
+            legraise: data.legraise,
+            legscissors: data.legscissors,
+            mountainclimber: data.mountainclimber,
+            opencloselegraise: data.opencloselegraise,
+            overheadarmspin: data.overheadarmspin,
+            overheadarmtwist: data.overheadarmtwist,
+            overheadbend: data.overheadbend,
+            overheadhipshake: data.overheadhipshake,
+            overheadlungetwist: data.overheadlungetwist,
+            overheadpress: data.overheadpress,
+            overheadsidebend: data.overheadsidebend,
+            overheadsquat: data.overheadsquat,
+            pendulumbend: data.pendulumbend,
+            plank: data.plank,
+            ringraisecombo: data.ringraisecombo,
+            russiantwist: data.russiantwist,
+            seatedforwardpress: data.seatedforwardpress,
+            seatedringraise: data.seatedringraise,
+            shoulderpress: data.shoulderpress,
+            sidestep: data.sidestep,
+            squat: data.squat,
+            standingtwist: data.standingtwist,
+            thighpress: data.thighpress,
+            tricepkickback: data.tricepkickback,
+            widesquat: data.widesquat,
+          })
+        );
+        dispatch(hideLoadingAction());
+        dispatch(push("/"));
+      })
+      .catch(() => {
+        dispatch(hideLoadingAction());
+      });
   };
 };
 
 export const SignUp = (username, email, password, confirmpass) => {
   return async (dispatch) => {
-    if (
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      confirmpass === ""
-    ) {
+    if (!isVaildRequired(email, password, confirmpass)) {
       alert("必須項目が未入力です");
       return false;
     }
+
+    if (!isVaildEmail(email)) {
+      alert("メールアドレスの形式が不正です。もう一度入力してください。");
+      return false;
+    }
+
     if (password !== confirmpass) {
-      alert("パスワードが一致していません");
+      alert("パスワードが一致しません。もう一度入力してください。");
+      return false;
+    }
+
+    if (password.length < 6) {
+      alert("パスワードは６文字以上で入力してください。");
       return false;
     }
 
