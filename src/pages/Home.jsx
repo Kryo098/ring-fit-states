@@ -31,7 +31,7 @@ const Home = () => {
           margin: "0 auto",
         }}
       >
-        <HomeMenuItem value={0}/>
+        <HomeMenuItem bottom={0} height={"auto"}/>
       </Box>
     </div>
   );

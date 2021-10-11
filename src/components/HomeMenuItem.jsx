@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme)=> ({
     paddingTop:15,
     width:"90%",
     [theme.breakpoints.up('xl')]:{
+      height:430,
       transition: theme.transitions.create(
       ['bottom'],
       {duration:theme.transitions.duration.complex}
@@ -322,7 +323,7 @@ export const HomeMenuItem = (props) => {
   },
   ]
   return(
-      <Paper className={classes.root} style={{bottom:props.value}}>
+      <Paper className={classes.root} style={{bottom:props.bottom,height:props.height}}>
         {menus.map((menu)=> (
           <Box
           key={menu.id}

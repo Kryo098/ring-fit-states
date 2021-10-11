@@ -55,6 +55,9 @@ export const listenAuthState = () => {
           .get()
           .then((snapshot) => {
             const data = snapshot.data();
+            if (!data) {
+              throw new Error("ユーザーが存在しません。");
+            }
             dispatch(
               signInAction({
                 isSignedIn: true,
@@ -972,7 +975,9 @@ export const SignIn = (email, password) => {
         const user = retult.user;
         if (!user) {
           dispatch(hideLoadingAction());
-          throw new Error("ユーザーIDを取得できません");
+          alert("ユーザーIDを取得できません。");
+          console.log("error");
+          throw new Error("ユーザーIDを取得できません。");
         }
         const userId = user.uid;
 
@@ -980,7 +985,9 @@ export const SignIn = (email, password) => {
         const data = snapshot.data();
         if (!data) {
           dispatch(hideLoadingAction());
-          throw new Error("ユーザーが存在しません");
+          console.log("error");
+          alert("ユーザーが存在しません。");
+          throw new Error("ユーザーが存在しません。");
         }
         dispatch(
           signInAction({
