@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{ useState } from "react"
 import {
   BarChart,
   CartesianGrid,
@@ -80,8 +80,8 @@ export const HomeChart = () => {
     setToggle(prev=>!prev)
   }
 
-
   const selector = useSelector((state) => state)
+
   const backpress = getbackpress(selector)
   const bowpress = getbowpress(selector)
   const flutterkick = getflutterkick(selector)
@@ -93,7 +93,6 @@ export const HomeChart = () => {
   const legscissors =getlegscissors(selector)
   const kneetochest =getkneetochest(selector)
   const mountainclimber =getmountainclimber(selector)
-
   const opencloselegraise =getopencloselegraise(selector)
   const overheadarmspin =getoverheadarmspin(selector)
   const overheadarmtwist =getoverheadarmtwist(selector)
@@ -760,8 +759,8 @@ export const HomeChart = () => {
     work:"ワイドスクワット",
     Count:widesquatTodayCount,
   },
-
   ]
+  console.log(backpressfilledtoday)
   return (
     <div className={classes.root}>
     <div className={classes.swich}>
