@@ -20,7 +20,7 @@
 .env.production.local
 
 #firebase
-firebase.rules
+firestore.rules
 src/firebase/config.js
 
 #local
