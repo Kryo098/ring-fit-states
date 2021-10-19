@@ -1,4 +1,4 @@
-import React,{ useState } from "react"
+import React,{ useState,useEffect } from "react"
 import {
   BarChart,
   CartesianGrid,
@@ -193,6 +193,172 @@ export const HomeChart = () => {
   var thighpressTodayCount = 0
   var tricepkickbackTodayCount = 0
   var widesquatTodayCount = 0
+  
+  if(typeof(backpress[0].day) === "string"){
+    Object.keys(backpress).forEach(a=>{
+      backpress[a].day = Number((backpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(bowpress[0].day) === "string"){
+    Object.keys(bowpress).forEach(a=>{
+      bowpress[a].day = Number((bowpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(flutterkick[0].day) === "string"){
+    Object.keys(flutterkick).forEach(a=>{
+      flutterkick[a].day = Number((flutterkick[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(frontpress[0].day) === "string"){
+    Object.keys(frontpress).forEach(a=>{
+      frontpress[a].day = Number((frontpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(hiplift[0].day) === "string"){
+    Object.keys(hiplift).forEach(a=>{
+      hiplift[a].day = Number((hiplift[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(kneelift[0].day) === "string"){
+    Object.keys(kneelift).forEach(a=>{
+      kneelift[a].day = Number((kneelift[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(kneeliftcombo[0].day) === "string"){
+    Object.keys(kneeliftcombo).forEach(a=>{
+      kneeliftcombo[a].day = Number((kneeliftcombo[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(legraise[0].day) === "string"){
+    Object.keys(legraise).forEach(a=>{
+      legraise[a].day = Number((legraise[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(legscissors[0].day) === "string"){
+    Object.keys(legscissors).forEach(a=>{
+      legscissors[a].day = Number((legscissors[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(kneetochest[0].day) === "string"){
+    Object.keys(kneetochest).forEach(a=>{
+      kneetochest[a].day = Number((kneetochest[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(mountainclimber[0].day) === "string"){
+    Object.keys(mountainclimber).forEach(a=>{
+      mountainclimber[a].day = Number((mountainclimber[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(opencloselegraise[0].day) === "string"){
+    Object.keys(opencloselegraise).forEach(a=>{
+      opencloselegraise[a].day = Number((opencloselegraise[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadarmspin[0].day) === "string"){
+    Object.keys(overheadarmspin).forEach(a=>{
+      overheadarmspin[a].day = Number((overheadarmspin[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadarmtwist[0].day) === "string"){
+    Object.keys(overheadarmtwist).forEach(a=>{
+      overheadarmtwist[a].day = Number((overheadarmtwist[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadbend[0].day) === "string"){
+    Object.keys(overheadbend).forEach(a=>{
+      overheadbend[a].day = Number((overheadbend[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadhipshake[0].day) === "string"){
+    Object.keys(overheadhipshake).forEach(a=>{
+      overheadhipshake[a].day = Number((overheadhipshake[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadlungetwist[0].day) === "string"){
+    Object.keys(overheadlungetwist).forEach(a=>{
+      overheadlungetwist[a].day = Number((overheadlungetwist[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadpress[0].day) === "string"){
+    Object.keys(overheadpress).forEach(a=>{
+      overheadpress[a].day = Number((overheadpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadsidebend[0].day) === "string"){
+    Object.keys(overheadsidebend).forEach(a=>{
+      overheadsidebend[a].day = Number((overheadsidebend[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(overheadsquat[0].day) === "string"){
+    Object.keys(overheadsquat).forEach(a=>{
+      overheadsquat[a].day = Number((overheadsquat[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(pendulumbend[0].day) === "string"){
+    Object.keys(pendulumbend).forEach(a=>{
+      pendulumbend[a].day = Number((pendulumbend[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(ringraisecombo[0].day) === "string"){
+    Object.keys(ringraisecombo).forEach(a=>{
+      ringraisecombo[a].day = Number((ringraisecombo[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(plank[0].day) === "string"){
+    Object.keys(plank).forEach(a=>{
+      plank[a].day = Number((plank[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(russiantwist[0].day) === "string"){
+    Object.keys(russiantwist).forEach(a=>{
+      russiantwist[a].day = Number((russiantwist[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(seatedforwardpress[0].day) === "string"){
+    Object.keys(seatedforwardpress).forEach(a=>{
+      seatedforwardpress[a].day = Number((seatedforwardpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(seatedringraise[0].day) === "string"){
+    Object.keys(seatedringraise).forEach(a=>{
+      seatedringraise[a].day = Number((seatedringraise[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(shoulderpress[0].day) === "string"){
+    Object.keys(shoulderpress).forEach(a=>{
+      shoulderpress[a].day = Number((shoulderpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(sidestep[0].day) === "string"){
+    Object.keys(sidestep).forEach(a=>{
+      sidestep[a].day = Number((sidestep[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(squat[0].day) === "string"){
+    Object.keys(squat).forEach(a=>{
+      squat[a].day = Number((squat[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(standingtwist[0].day) === "string"){
+    Object.keys(standingtwist).forEach(a=>{
+      standingtwist[a].day = Number((standingtwist[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(thighpress[0].day) === "string"){
+    Object.keys(thighpress).forEach(a=>{
+      thighpress[a].day = Number((thighpress[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(tricepkickback[0].day) === "string"){
+    Object.keys(tricepkickback).forEach(a=>{
+      tricepkickback[a].day = Number((tricepkickback[a].day).replace(/\//g,""))
+  })
+  }
+  if(typeof(widesquat[0].day) === "string"){
+    Object.keys(widesquat).forEach(a=>{
+      widesquat[a].day = Number((widesquat[a].day).replace(/\//g,""))
+  })
+  }
 
     //今日行なったワークアウト（回数）フィルター処理
   const backpressfilledtoday = backpress.filter((filledtoday)=>{
@@ -298,106 +464,109 @@ export const HomeChart = () => {
   
   //今日行なったワークアウト（回数）for処理
   for(let i=0;i<backpressfilledtoday.length;i++){
-    backpressTodayCount=backpressTodayCount+backpress[i].count
+    backpressTodayCount = backpressTodayCount + backpressfilledtoday[i].count
   }
   for(let i=0;i<bowpressfilledtoday.length;i++){
-    bowpressTodayCount = bowpressTodayCount + bowpress[i].count
+    bowpressTodayCount = bowpressTodayCount + bowpressfilledtoday[i].count
   }
   for(let i=0;i<flutterkickfilledtoday.length;i++){
-    flutterkickTodayCount = flutterkickTodayCount + flutterkick[i].count
+    flutterkickTodayCount = flutterkickTodayCount + flutterkickfilledtoday[i].count
   }
   for(let i=0;i<frontpressfilledtoday.length;i++){
-    frontpressTodayCount = frontpressTodayCount + frontpress[i].count
+    frontpressTodayCount = frontpressTodayCount + frontpressfilledtoday[i].count
   }
   for(let i=0;i<hipliftfilledtoday.length;i++){
-    hipliftTodayCount = hipliftTodayCount + hiplift[i].count
+    hipliftTodayCount = hipliftTodayCount + hipliftfilledtoday[i].count
   }
   for(let i=0;i<kneeliftfilledtoday.length;i++){
-    kneeliftTodayCount = kneeliftTodayCount + kneelift[i].count
+    kneeliftTodayCount = kneeliftTodayCount + kneeliftfilledtoday[i].count
   }
   for(let i=0;i<kneeliftcombofilledtoday.length;i++){
-    kneeliftcomboTodayCount = kneeliftcomboTodayCount + kneeliftcombo[i].count
+    kneeliftcomboTodayCount = kneeliftcomboTodayCount + kneeliftcombofilledtoday[i].count
   }
   for(let i=0;i<kneetochestfilledtoday.length;i++){
-    kneetochestTodayCount = kneetochestTodayCount + kneetochest[i].count
+    kneetochestTodayCount = kneetochestTodayCount + kneetochestfilledtoday[i].count
   }
   for(let i=0;i<legraisefilledtoday.length;i++){
-    legraiseTodayCount = legraiseTodayCount + legraise[i].count
+    legraiseTodayCount = legraiseTodayCount + legraisefilledtoday[i].count
   }
   for(let i=0;i<legscissorsfilledtoday.length;i++){
-    legscissorsTodayCount = legscissorsTodayCount + legscissors[i].count
+    legscissorsTodayCount = legscissorsTodayCount + legscissorsfilledtoday[i].count
   }
   for(let i=0;i<mountainclimberfilledtoday.length;i++){
-    mountainclimberTodayCount = mountainclimberTodayCount + mountainclimber[i].count
+    mountainclimberTodayCount = mountainclimberTodayCount + mountainclimberfilledtoday[i].count
   }
   for(let i=0;i<opencloselegraisefilledtoday.length;i++){
-    opencloselegraiseTodayCount = opencloselegraiseTodayCount + opencloselegraise[i].count
+    opencloselegraiseTodayCount = opencloselegraiseTodayCount + opencloselegraisefilledtoday[i].count
   }
   for(let i=0;i<overheadarmspinfilledtoday.length;i++){
-    overheadarmspinTodayCount = overheadarmspinTodayCount + overheadarmspin[i].count
+    overheadarmspinTodayCount = overheadarmspinTodayCount + overheadarmspinfilledtoday[i].count
   }
   for(let i=0;i<overheadarmtwistfilledtoday.length;i++){
-    overheadarmtwistTodayCount = overheadarmtwistTodayCount + overheadarmtwist[i].count
+    overheadarmtwistTodayCount = overheadarmtwistTodayCount + overheadarmtwistfilledtoday[i].count
   }
   for(let i=0;i<overheadbendfilledtoday.length;i++){
-    overheadbendTodayCount = overheadbendTodayCount + overheadbend[i].count
+    overheadbendTodayCount = overheadbendTodayCount + overheadbendfilledtoday[i].count
   }
   for(let i=0;i<overheadhipshakefilledtoday.length;i++){
-    overheadhipshakeTodayCount = overheadhipshakeTodayCount + overheadhipshake[i].count
+    overheadhipshakeTodayCount = overheadhipshakeTodayCount + overheadhipshakefilledtoday[i].count
   }
   for(let i=0;i<overheadlungetwistfilledtoday.length;i++){
-    overheadlungetwistTodayCount = overheadlungetwistTodayCount + overheadlungetwist[i].count
+    overheadlungetwistTodayCount = overheadlungetwistTodayCount + overheadlungetwistfilledtoday[i].count
   }
   for(let i=0;i<overheadpressfilledtoday.length;i++){
-    overheadpressTodayCount = overheadpressTodayCount + overheadpress[i].count
+    overheadpressTodayCount = overheadpressTodayCount + overheadpressfilledtoday[i].count
   }
   for(let i=0;i<overheadsidebendfilledtoday.length;i++){
-    overheadsidebendTodayCount = overheadsidebendTodayCount + overheadsidebend[i].count
+    overheadsidebendTodayCount = overheadsidebendTodayCount + overheadsidebendfilledtoday[i].count
   }
   for(let i=0;i<overheadsquatfilledtoday.length;i++){
-    overheadsquatTodayCount = overheadsquatTodayCount + overheadsquat[i].count
+    overheadsquatTodayCount = overheadsquatTodayCount + overheadsquatfilledtoday[i].count
   }
   for(let i=0;i<pendulumbendfilledtoday.length;i++){
-    pendulumbendTodayCount = pendulumbendTodayCount + pendulumbend[i].count
+    pendulumbendTodayCount = pendulumbendTodayCount + pendulumbendfilledtoday[i].count
   }
   for(let i=0;i<ringraisecombofilledtoday.length;i++){
-    ringraisecomboTodayCount = ringraisecomboTodayCount + ringraisecombo[i].count
+    ringraisecomboTodayCount = ringraisecomboTodayCount + ringraisecombofilledtoday[i].count
   }
   for(let i=0;i<plankfilledtoday.length;i++){
-    plankTodayCount = plankTodayCount + plank[i].count
+    plankTodayCount = plankTodayCount + plankfilledtoday[i].count
   }
   for(let i=0;i<russiantwistfilledtoday.length;i++){
-    russiantwistTodayCount = russiantwistTodayCount + russiantwist[i].count
+    russiantwistTodayCount = russiantwistTodayCount + russiantwistfilledtoday[i].count
   }
   for(let i=0;i<seatedforwardpressfilledtoday.length;i++){
     seatedforwardpressTodayCount = seatedforwardpressTodayCount + seatedforwardpress[i].count
   }
   for(let i=0;i<seatedringraisefilledtoday.length;i++){
-    seatedringraiseTodayCount = seatedringraiseTodayCount + seatedringraise[i].count
+    seatedringraiseTodayCount = seatedringraiseTodayCount + seatedforwardpressfilledtoday[i].count
   }
   for(let i=0;i<shoulderpressfilledtoday.length;i++){
-    shoulderpressTodayCount = shoulderpressTodayCount + shoulderpress[i].count
+    shoulderpressTodayCount = shoulderpressTodayCount + shoulderpressfilledtoday[i].count
   }
   for(let i=0;i<sidestepfilledtoday.length;i++){
-    sidestepTodayCount = sidestepTodayCount + sidestep[i].count
+    sidestepTodayCount = sidestepTodayCount + sidestepfilledtoday[i].count
   }
   for(let i=0;i<squatfilledtoday.length;i++){
-    squatTodayCount = squatTodayCount + squat[i].count
+    squatTodayCount = squatTodayCount + squatfilledtoday[i].count
   }
   for(let i=0;i<standingtwistfilledtoday.length;i++){
-    standingtwistTodayCount = standingtwistTodayCount + standingtwist[i].count
+    standingtwistTodayCount = standingtwistTodayCount + standingtwistfilledtoday[i].count
   }
   for(let i=0;i<thighpressfilledtoday.length;i++){
-    thighpressTodayCount = thighpressTodayCount + thighpress[i].count
+    thighpressTodayCount = thighpressTodayCount + thighpressfilledtoday[i].count
   }
   for(let i=0;i<tricepkickbackfilledtoday.length;i++){
-    tricepkickbackTodayCount = tricepkickbackTodayCount + tricepkickback[i].count
+    tricepkickbackTodayCount = tricepkickbackTodayCount + tricepkickbackfilledtoday[i].count
   }
   for(let i=0;i<widesquatfilledtoday.length;i++){
-    widesquatTodayCount = widesquatTodayCount + widesquat[i].count
+    widesquatTodayCount = widesquatTodayCount + widesquatfilledtoday[i].count
   }
-
-
+  if(typeof(backpress[0].day) === "string"){
+    Object.keys(backpress).forEach(a=>{
+      backpress[a].day = Number((backpress[a].day).replace(/\//g,""))
+  })
+  }
     //総合行なったワークアウト（回数）for処理
   for(let i=0;i<backpress.length;i++){
     backpressTotalCount = backpressTotalCount + backpress[i].count
@@ -498,7 +667,6 @@ export const HomeChart = () => {
   for(let i=0;i<widesquat.length;i++){
     widesquatTotalCount = widesquatTotalCount + widesquat[i].count
   }
-
   //総合ワークアウト回数
   const data = [
     {
@@ -760,7 +928,6 @@ export const HomeChart = () => {
     Count:widesquatTodayCount,
   },
   ]
-  console.log(backpressfilledtoday)
   return (
     <div className={classes.root}>
     <div className={classes.swich}>
