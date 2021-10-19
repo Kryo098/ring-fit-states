@@ -1,11 +1,10 @@
 import { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addData,deleteData } from "../reducks/users/operations";
 import PrimaryButton from "./PrimaryButton";
 import TextInput from "./Textinput";
 import { makeStyles,Paper,Modal,Box,Button, TableContainer,Table,TableBody,TableCell,TableHead,TableRow} from "@material-ui/core";
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { DatePicker } from '@material-ui/pickers';
+import { MuiPickersUtilsProvider,DatePicker } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import jaLocale from 'date-fns/locale/ja';
 import { 
@@ -42,7 +41,6 @@ import {
   getthighpress,
   gettricepkickback,
   getwidesquat } from "../reducks/users/selectors";
-import { useSelector } from "react-redux";
 import { Settings,Backspace } from "@material-ui/icons";
 
 const useStyle = makeStyles((theme)=>({

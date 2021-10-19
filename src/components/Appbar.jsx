@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import { makeStyles,Modal,Box,Paper,AppBar,Toolbar,Typography,IconButton } from "@material-ui/core";
 import { Message,ExitToApp,Info } from "@material-ui/icons";
 import { push } from "connected-react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../reducks/users/operations";
 import { getIsSignedIn } from "../reducks/users/selectors";
-import { useSelector } from "react-redux";
 import Form from "./Form"
 
 const useStyles = makeStyles((theme)=> ({
@@ -137,7 +136,7 @@ const ButtonAppBar = () => {
             <Box className={classes.modal}>
               <Paper className={classes.info}>
               <Message className={classes.icon}/>
-              <Typography className={classes.typo}>このサイトは Nintendo®Switchソフト Ring Fit Advebture に収録されている<br />各フィットネスを行なった回数と日付をグラフ化、自己管理に便利なアプリです。</Typography>
+              <Typography className={classes.typo}>このサイトは Nintendo®Switchソフト Ring Fit Adventure に収録されている<br />各フィットネスを行なった回数と日付をグラフ化、自己管理に便利なアプリです。</Typography>
               </Paper>
               <Form />
             </Box>
