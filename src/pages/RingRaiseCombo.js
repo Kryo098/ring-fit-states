@@ -1,7 +1,7 @@
 import { RingRaiseComboChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import RingRaiseComboIcon from "../icons/subibaja-de-ring-conpng.png"
+import RingRaiseComboIcon from "../icons/subibaja-de-ring-conpng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 
 const useStyles = makeStyles((theme) => ({

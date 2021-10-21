@@ -1,7 +1,7 @@
 import { ThighPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import ThighPressIcon from "../icons/presin-de-muslospng.png"
+import ThighPressIcon from "../icons/presin-de-muslospng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

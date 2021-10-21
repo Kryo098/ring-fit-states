@@ -1,6 +1,6 @@
-import React from "react";
-import { Route, Switch } from "react-router";
-import Auth from "./Auth";
+import React from "react"
+import { Route, Switch } from "react-router"
+import Auth from "./Auth"
 import{
   Home,
   Signup,
@@ -83,7 +83,7 @@ const Router = () => {
         <Route exact path={"/WideSquat"} component={WideSquat} />
       </Auth>
     </Switch>
-  );
-};
+  )
+}
 
-export default Router;
+export default Router

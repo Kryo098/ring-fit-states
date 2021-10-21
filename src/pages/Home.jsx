@@ -1,9 +1,9 @@
-import React from "react";
-import { getUsername } from "../reducks/users/selectors";
-import { useSelector } from "react-redux";
-import { Box } from "@material-ui/core";
-import { HomeMenuItem } from "../components/HomeMenuItem";
-import { HomeChart } from "../components/HomeChart";
+import React from "react"
+import { getUsername } from "../reducks/users/selectors"
+import { useSelector } from "react-redux"
+import { Box } from "@material-ui/core"
+import { HomeMenuItem } from "../components/HomeMenuItem"
+import { HomeChart } from "../components/HomeChart"
 import {makeStyles} from "@material-ui/styles"
 
 const useStyles = makeStyles((theme)=>({
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme)=>({
 const Home = () => {
   const classes = useStyles()
   const selector = useSelector((state) => state)
-  const name = getUsername(selector);
+  const name = getUsername(selector)
 
   return (
     <div className={classes.home}>
@@ -34,7 +34,7 @@ const Home = () => {
         <HomeMenuItem bottom={0} height={"auto"}/>
       </Box>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

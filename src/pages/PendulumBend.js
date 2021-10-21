@@ -1,7 +1,7 @@
 import { PendulumBendChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import PendulumBendIcon from "../icons/rotacin-en-inclinacinpng.png"
+import PendulumBendIcon from "../icons/rotacin-en-inclinacinpng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

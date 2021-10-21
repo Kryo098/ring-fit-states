@@ -1,7 +1,7 @@
 import { OverheadPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadPressIcon from "../icons/presin-sobre-la-cabezapng.png"
+import OverheadPressIcon from "../icons/presin-sobre-la-cabezapng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

@@ -1,18 +1,18 @@
-import React from "react";
-import { makeStyles,Box,Paper} from "@material-ui/core";
-import { useDispatch } from "react-redux";
-import { push } from "connected-react-router";
+import React from "react"
+import { makeStyles,Box,Paper} from "@material-ui/core"
+import { useDispatch } from "react-redux"
+import { push } from "connected-react-router"
 import BackPressIcon from "../icons/presin-tras-la-nucapng.png"
-import BowPressIcon from '../icons/arco-ring-conpng.png';
-import FlutterKickIcon from '../icons/piernas-alternas-arribapng.png';
-import FrontPressIcon from '../icons/presin-abajopng.png';
+import BowPressIcon from '../icons/arco-ring-conpng.png'
+import FlutterKickIcon from '../icons/piernas-alternas-arribapng.png'
+import FrontPressIcon from '../icons/presin-abajopng.png'
 import KneeLiftComboIcon from "../icons/rodillas-arriba-y-sentadillapng.png"
 import kneeLiftIcon from "../icons/rodillas-arribapng.png"
 import KneetoChestIcon from "../icons/rodillas-al-pechopng.png"
 import LegScissorsIcon from "../icons/tijeras-con-crucepng.png"
 import LegRaiseIcon from "../icons/piernas-juntas-arribapng.png"
 import MountainClimberIcon from "../icons/el-escaladorpng.png"
-import HipLiftIcon from "../icons/caderas-arribapng.png";
+import HipLiftIcon from "../icons/caderas-arribapng.png"
 import OpenCloseLegRaiseIcon from "../icons/tijeras-abiertaspng.png"
 import OverheadArmSpinIcon from "../icons/rotacin-con-los-brazospng.png"
 import OverheadArmTwistIcon from "../icons/rotacin-de-muecaspng.png"
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme)=> ({
 
 export const HomeMenuItem = (props) => {
   const classes = useStyles()
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const selectwork  =(e, path) => {
     dispatch(push(path))

@@ -7,8 +7,8 @@ import {
   Tooltip,
   ResponsiveContainer,
   Bar
-} from "recharts";
-import { useSelector } from "react-redux";
+} from "recharts"
+import { useSelector } from "react-redux"
 import {
   getbackpress,
   getbowpress,
@@ -43,8 +43,9 @@ import {
   getthighpress,
   gettricepkickback,
   getwidesquat,
-} from "../reducks/users/selectors";
-import { makeStyles,Switch, Typography} from "@material-ui/core";
+} from "../reducks/users/selectors"
+import { makeStyles,Switch, Typography} from "@material-ui/core"
+  
 
 const  useStyles= makeStyles((theme) => ({
   chartcontent: {
@@ -117,14 +118,14 @@ export const HomeChart = () => {
   const widesquat =getwidesquat(selector)
   
   //今日の日付取得、YYYYMMDD型に変換
-  const date = new Date();
-  const year = date.getFullYear();
+  const date = new Date()
+  const year = date.getFullYear()
   const tomonthNm = date.getMonth() + 1
   const tomonthSt = String(tomonthNm).length<2?('0'+tomonthNm):String(tomonthNm)
   const todayNm = date.getDate()
   const todaySt = String(todayNm).length<2?('0'+todayNm):String(todayNm)
-  const today = Number("" + year + tomonthSt  + todaySt);
-
+  const today = Number("" + year + tomonthSt  + todaySt)
+  
   //トータルカウント初期化
   var backpressTotalCount = 0
   var bowpressTotalCount = 0
@@ -944,5 +945,5 @@ export const HomeChart = () => {
       </ResponsiveContainer>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,7 +1,7 @@
 import { SideStepChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SideStepIcon from "../icons/pasos-lateralespng.png"
+import SideStepIcon from "../icons/pasos-lateralespng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 
 const useStyles = makeStyles((theme) => ({

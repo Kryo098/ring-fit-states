@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from "react";
-import PrimaryButton from "../components/PrimaryButton";
-import TextInput from "../components/Textinput";
-import { useDispatch } from "react-redux";
-import { SignUp } from "../reducks/users/operations";
+import React, { useCallback, useState } from "react"
+import PrimaryButton from "../components/PrimaryButton"
+import TextInput from "../components/Textinput"
+import { useDispatch } from "react-redux"
+import { SignUp } from "../reducks/users/operations"
 import {makeStyles} from "@material-ui/core"
-import { push } from "connected-react-router";
+import { push } from "connected-react-router"
 
 const useStyles =makeStyles((theme)=>({
     root:{
@@ -36,40 +36,40 @@ const useStyles =makeStyles((theme)=>({
 }))
 const Signup = () => {
   const classes = useStyles()
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const [username, setUsername] = useState(""),
     [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
-    [confirmpass, setConfirmpass] = useState("");
+    [confirmpass, setConfirmpass] = useState("")
 
   const inputUsername = useCallback(
     (e) => {
-      setUsername(e.target.value);
+      setUsername(e.target.value)
     },
     [setUsername]
-  );
+  )
 
   const inputEmail = useCallback(
     (e) => {
-      setEmail(e.target.value);
+      setEmail(e.target.value)
     },
     [setEmail]
-  );
+  )
 
   const inputPassword = useCallback(
     (e) => {
-      setPassword(e.target.value);
+      setPassword(e.target.value)
     },
     [setPassword]
-  );
+  )
 
   const inputConfirmpass = useCallback(
     (e) => {
-      setConfirmpass(e.target.value);
+      setConfirmpass(e.target.value)
     },
     [setConfirmpass]
-  );
+  )
 
   return (
     <div className={classes.root}>
@@ -126,7 +126,7 @@ const Signup = () => {
         <p className={classes.text} onClick={() => dispatch(push('/signin'))}>アカウントをお持ちの方はこちら</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

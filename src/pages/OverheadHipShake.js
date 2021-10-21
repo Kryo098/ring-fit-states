@@ -1,7 +1,7 @@
 import { OverheadHipShakeChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadHipShakeIcon from "../icons/caderas-ligeraspng.png"
+import OverheadHipShakeIcon from "../icons/caderas-ligeraspng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

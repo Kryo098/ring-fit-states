@@ -1,7 +1,7 @@
 import { OverheadSquatChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadSquatIcon from "../icons/sentadilla-brazos-arribapng.png"
+import OverheadSquatIcon from "../icons/sentadilla-brazos-arribapng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

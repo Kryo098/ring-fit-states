@@ -1,13 +1,13 @@
-import { useCallback, useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
-import { addData,deleteData } from "../reducks/users/operations";
-import PrimaryButton from "./PrimaryButton";
-import TextInput from "./Textinput";
-import { makeStyles,Paper,Modal,Box,Button, TableContainer,Table,TableBody,TableCell,TableHead,TableRow} from "@material-ui/core";
-import { MuiPickersUtilsProvider,DatePicker } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import jaLocale from 'date-fns/locale/ja';
-import { 
+import { useCallback, useState } from "react"
+import { useDispatch,useSelector } from "react-redux"
+import { addData,deleteData } from "../reducks/users/operations"
+import PrimaryButton from "./PrimaryButton"
+import TextInput from "./Textinput"
+import { makeStyles,Paper,Modal,Box,Button, TableContainer,Table,TableBody,TableCell,TableHead,TableRow} from "@material-ui/core"
+import { MuiPickersUtilsProvider,DatePicker } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
+import jaLocale from 'date-fns/locale/ja'
+import {
   getbackpress,
   getbowpress,
   getflutterkick,
@@ -40,8 +40,8 @@ import {
   getstandingtwist,
   getthighpress,
   gettricepkickback,
-  getwidesquat } from "../reducks/users/selectors";
-import { Settings,Backspace } from "@material-ui/icons";
+  getwidesquat } from "../reducks/users/selectors"
+import { Settings,Backspace } from "@material-ui/icons"
 
 const useStyle = makeStyles((theme)=>({
   root:{
@@ -95,6 +95,7 @@ const useStyle = makeStyles((theme)=>({
 const WorkoutInput = (props) => {
 
   const selector = useSelector((state)=>state)
+  //代入データの選別　workname
   let data
   switch (props.work.work) {
       case "BackPress":
@@ -202,10 +203,11 @@ const WorkoutInput = (props) => {
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const classes= useStyle();
-  const dispatch = useDispatch();
+  const classes= useStyle()
+  const dispatch = useDispatch()
   const [day,setDay] = useState(""),
-        [count, setCount] = useState("");
+        [count, setCount] = useState("")
+
   const inputCount = useCallback(
     (e) => {
       setCount(e.target.value);
@@ -272,4 +274,4 @@ const WorkoutInput = (props) => {
   );
 };
 
-export default WorkoutInput;
+export default WorkoutInput

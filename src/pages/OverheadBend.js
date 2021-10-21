@@ -1,7 +1,7 @@
 import { OverheadBendChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadBendIcon from "../icons/inclinacin-hacia-delantepng.png"
+import OverheadBendIcon from "../icons/inclinacin-hacia-delantepng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from "react";
-import PrimaryButton from "../components/PrimaryButton";
-import { TextField } from "@material-ui/core";
-import { useDispatch } from "react-redux";
-import { SignIn } from "../reducks/users/operations";
-import { makeStyles } from "@material-ui/core";
-import { push } from "connected-react-router";
+import React, { useCallback, useState } from "react"
+import PrimaryButton from "../components/PrimaryButton"
+import { TextField } from "@material-ui/core"
+import { useDispatch } from "react-redux"
+import { SignIn } from "../reducks/users/operations"
+import { makeStyles } from "@material-ui/core"
+import { push } from "connected-react-router"
 
 const useStyles =makeStyles((theme)=>({
   root:{
@@ -37,22 +37,22 @@ const useStyles =makeStyles((theme)=>({
 }))
 const Signin = () => {
   const classes = useStyles()
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [email, setEmail] = useState(""),
-    [password, setPassword] = useState("");
+    [password, setPassword] = useState("")
 
   const inputEmail = useCallback(
     (e) => {
-      setEmail(e.target.value);
+      setEmail(e.target.value)
     },
     [setEmail]
-  );
+  )
   const inputPassword = useCallback(
     (e) => {
-      setPassword(e.target.value);
+      setPassword(e.target.value)
     },
     [setPassword]
-  );
+  )
 
   return (
     <div className={classes.root}>
@@ -88,7 +88,7 @@ const Signin = () => {
       </div>
       <p className={classes.text} onClick={() => dispatch(push('/signup'))}>アカウントをお持ちではない方はこちら</p>
     </div>
-  );
-};
+  )
+}
 
-export default Signin;
+export default Signin

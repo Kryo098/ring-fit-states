@@ -1,7 +1,7 @@
 import { PlankChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import PlankIcon from "../icons/la-tablapng.png"
+import PlankIcon from "../icons/la-tablapng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 
 const useStyles = makeStyles((theme) => ({

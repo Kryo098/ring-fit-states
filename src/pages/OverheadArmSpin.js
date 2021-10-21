@@ -1,7 +1,7 @@
 import { OverheadArmSpinChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadArmSpinIcon from "../icons/rotacin-con-los-brazospng.png"
+import OverheadArmSpinIcon from "../icons/rotacin-con-los-brazospng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

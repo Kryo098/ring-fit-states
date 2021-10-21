@@ -1,7 +1,7 @@
 import { SeatedForwardPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SeatedForwardPressIcon from "../icons/presin-con-inclinacinpng.png"
+import SeatedForwardPressIcon from "../icons/presin-con-inclinacinpng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

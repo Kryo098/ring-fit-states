@@ -1,7 +1,7 @@
 import { TricepKickbackChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import TricepKickbackIcon from "../icons/tricepspng.png"
+import TricepKickbackIcon from "../icons/tricepspng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

@@ -1,7 +1,7 @@
 import { ShoulderPressChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import ShoulderPressIcon from "../icons/presin-sobre-el-hombropng.png"
+import ShoulderPressIcon from "../icons/presin-sobre-el-hombropng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

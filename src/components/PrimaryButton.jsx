@@ -1,6 +1,6 @@
-import React from "react";
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import React from "react"
+import { Button } from "@material-ui/core"
+import { makeStyles } from "@material-ui/styles"
 
 const useStyles = makeStyles((theme)=> ({
   button: {
@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme)=> ({
       color:"#e73e0e",
     },
   },
-}));
+}))
 
 const PrimaryButton = (props) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <Button
       className={classes.button}
@@ -30,7 +30,8 @@ const PrimaryButton = (props) => {
     >
       {props.label}
     </Button>
-  );
-};
+  )
+}
 
-export default PrimaryButton;
+export default PrimaryButton
+  

@@ -1,7 +1,7 @@
 import { OverheadArmTwistChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import OverheadArmTwistIcon from "../icons/rotacin-de-muecaspng.png"
+import OverheadArmTwistIcon from "../icons/rotacin-de-muecaspng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

@@ -1,7 +1,7 @@
 import { SeatedRingRaiseChart } from "../components/Chart";
 import { makeStyles } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-import SeatedRingRaiseIcon from "../icons/subibaja-de-ring-conpng.png"
+import SeatedRingRaiseIcon from "../icons/subibaja-de-ring-conpng.png";
 import { HomeMenuItem } from "../components/HomeMenuItem";
 const useStyles = makeStyles((theme) => ({
   app: {

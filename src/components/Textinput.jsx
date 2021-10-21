@@ -1,13 +1,13 @@
-import React from "react";
-import { TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
+import React from "react"
+import { TextField } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles({
   textfield:{
     margin:10,
     color:"red"
   }
-});
+})
 const TextInput = (props) => {
   const classes = useStyles()
   return (
@@ -21,7 +21,7 @@ const TextInput = (props) => {
       type={props.type}
       onChange={props.onChange}
     />
-  );
-};
+  )
+}
 
-export default TextInput;
+export default TextInput

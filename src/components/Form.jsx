@@ -98,7 +98,8 @@ const Form =() =>{
     generateContactNumbr()
     sendForm('default_service', 'template_ehtxvze', '#contact-form')
     .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
+      console.log('SUCCESS!', response.status, response.text)
+  
       form.reset()
       setStatusMessage('メッセージを送信しました！')
       statusMessage.className = 'statusMessage success'
@@ -106,13 +107,17 @@ const Form =() =>{
         setStatusMessage.className = 'statusMessage'
       },5000)
     }, function(error) {
-      console.log('FAILED...', error);
-      setStatusMessage("Failed to send message! Please try again later.");
-      statusMessage.className = "statusMessage failure";
+      console.log('FAILED...', error)
+  
+      setStatusMessage("Failed to send message! Please try again later.")
+  
+      statusMessage.className = "statusMessage failure"
+  
       setTimeout(()=> {
         statusMessage.className = 'statusMessage'
       }, 5000)
-    });
+    })
+  
   }
 
   return(
@@ -128,4 +133,5 @@ const Form =() =>{
   )
 }
 
-export default Form;
+export default Form
+  
