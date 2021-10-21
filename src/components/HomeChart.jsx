@@ -116,6 +116,7 @@ export const HomeChart = () => {
   const tricepkickback =gettricepkickback(selector)
   const widesquat =getwidesquat(selector)
   
+  //今日の日付取得、YYYYMMDD型に変換
   const date = new Date();
   const year = date.getFullYear();
   const tomonthNm = date.getMonth() + 1
@@ -159,7 +160,7 @@ export const HomeChart = () => {
   var tricepkickbackTotalCount = 0
   var widesquatTotalCount = 0
 
-    //今日のカウント
+    //今日のカウント初期化
   var backpressTodayCount = 0
   var bowpressTodayCount = 0
   var flutterkickTodayCount = 0
@@ -194,6 +195,7 @@ export const HomeChart = () => {
   var tricepkickbackTodayCount = 0
   var widesquatTodayCount = 0
   
+  //日付の最適化 String型YYYY/MM/DD => Number型YYYYMMDD　へ変換
   if(typeof(backpress[0].day) === "string"){
     Object.keys(backpress).forEach(a=>{
       backpress[a].day = Number((backpress[a].day).replace(/\//g,""))
@@ -604,7 +606,7 @@ export const HomeChart = () => {
   }
   for(let i=0;i<overheadarmtwist.length;i++){
     overheadarmtwistTotalCount = overheadarmtwistTotalCount + overheadarmtwist[i].count
-        }
+  }
   for(let i=0;i<overheadbend.length;i++){
     overheadbendTotalCount = overheadbendTotalCount + overheadbend[i].count
   }
@@ -793,7 +795,7 @@ export const HomeChart = () => {
   },
 
   ]
-    //今日行ったワークアウト回数
+  //今日行ったワークアウト回数
   const todaydata = [
     {
     work:"ウシロプッシュ",
@@ -922,7 +924,6 @@ export const HomeChart = () => {
     work:"ワイドスクワット",
     Count:widesquatTodayCount,
   },
-  console.log(seatedforwardpressTodayCount)
   ]
   return (
     <div className={classes.root}>
@@ -936,7 +937,6 @@ export const HomeChart = () => {
       <BarChart data={toggle?data:todaydata} margin={{left:10,right:50}}>
         <CartesianGrid strokeDasharray="0" />
         <XAxis dataKey="work" fontSize={12} />
-        
         <YAxis />
         <Tooltip />
         <Bar dataKey="Count" fill="#ff8e00" />
