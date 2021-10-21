@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from "react"
+import React,{ useState } from "react"
 import {
   BarChart,
   CartesianGrid,
@@ -536,10 +536,10 @@ export const HomeChart = () => {
     russiantwistTodayCount = russiantwistTodayCount + russiantwistfilledtoday[i].count
   }
   for(let i=0;i<seatedforwardpressfilledtoday.length;i++){
-    seatedforwardpressTodayCount = seatedforwardpressTodayCount + seatedforwardpress[i].count
+    seatedforwardpressTodayCount = seatedforwardpressTodayCount + seatedforwardpressfilledtoday[i].count
   }
   for(let i=0;i<seatedringraisefilledtoday.length;i++){
-    seatedringraiseTodayCount = seatedringraiseTodayCount + seatedforwardpressfilledtoday[i].count
+    seatedringraiseTodayCount = seatedringraiseTodayCount + seatedringraisefilledtoday[i].count
   }
   for(let i=0;i<shoulderpressfilledtoday.length;i++){
     shoulderpressTodayCount = shoulderpressTodayCount + shoulderpressfilledtoday[i].count
@@ -561,11 +561,6 @@ export const HomeChart = () => {
   }
   for(let i=0;i<widesquatfilledtoday.length;i++){
     widesquatTodayCount = widesquatTodayCount + widesquatfilledtoday[i].count
-  }
-  if(typeof(backpress[0].day) === "string"){
-    Object.keys(backpress).forEach(a=>{
-      backpress[a].day = Number((backpress[a].day).replace(/\//g,""))
-  })
   }
     //総合行なったワークアウト（回数）for処理
   for(let i=0;i<backpress.length;i++){
@@ -669,7 +664,7 @@ export const HomeChart = () => {
   }
   //総合ワークアウト回数
   const data = [
-    {
+  {
     work:"ウシロプッシュ",
     Count:backpressTotalCount,
   },{
@@ -927,6 +922,7 @@ export const HomeChart = () => {
     work:"ワイドスクワット",
     Count:widesquatTodayCount,
   },
+  console.log(seatedforwardpressTodayCount)
   ]
   return (
     <div className={classes.root}>
