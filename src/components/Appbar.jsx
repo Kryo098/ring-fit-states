@@ -135,7 +135,7 @@ const ButtonAppBar = () => {
           }
 
           <Typography className={classes.title} color="inherit" onClick={() => dispatch(push("/"))}>
-            RINGFIT ADVENTURE STATES
+            RINGFIT ADVENTURE STATUS
           </Typography>
           <IconButton color="inherit" onClick={handleOpen}>
             <Info />
