@@ -24,10 +24,14 @@ const useStyles = makeStyles((theme)=> ({
   },
   title: {
     position:"relative",
-    left:-60,
+    left:0,
     right:0,
     margin:"0 auto",
+    width:"85%",
+    textAlign:"center",
+    fontWeight:800,
     fontSize:30,
+    letterSpacing:2,
     cursor:"pointer",
     "&:hover":{
       transition: theme.transitions.create(
@@ -38,7 +42,7 @@ const useStyles = makeStyles((theme)=> ({
     },
     [theme.breakpoints.down('sm')]: {
       fontSize:21,
-      left:20,
+      left:0,
     },
   },
   menu: {
@@ -68,10 +72,19 @@ const useStyles = makeStyles((theme)=> ({
     },
   },
   logout: {
-    fontSize:18,
+    fontSize:17,
+    marginLeft:5,
     [theme.breakpoints.down('sm')]: {
       fontSize:0,
     },
+  },
+  logouticon: {
+    transform:"scale(1.3)"
+  },
+  logoutgroup: {
+    position:"relative",
+    left:0,
+    width:"17%",
   },
   info: {
     padding:20,
@@ -82,6 +95,17 @@ const useStyles = makeStyles((theme)=> ({
       width:"100%",
       marginTop:0,
     }
+  },
+  infogroup:{
+    width:"17%",
+  },
+  infoButton: {
+    transform:'scale(1.3)',
+    position:"relative",
+    marginLeft:"70%",
+    [theme.breakpoints.down('sm')]: {
+      marginLeft:"40%",
+    },
   },
   icon:{
     position:'relative',
@@ -124,23 +148,25 @@ const ButtonAppBar = () => {
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: "#e73e0e" }} >
         <Toolbar className={classes.toolBar}>
-          
+        <div className={classes.logoutgroup}>
           {IsSignedIn&&
           (
                       <IconButton color="inherit" onClick={()=>dispatch(signOut())}>
-                      <ExitToApp />
+                      <ExitToApp className={classes.logouticon} />
                       <Typography className={classes.logout}>ログアウト</Typography>
                       </IconButton>
           )
           }
+        </div>
 
           <Typography className={classes.title} color="inherit" onClick={() => dispatch(push("/"))}>
             RINGFIT ADVENTURE STATUS
           </Typography>
-          <IconButton color="inherit" onClick={handleOpen}>
-            <Info />
-          </IconButton>
-
+          <div className={classes.infogroup}>
+            <IconButton className={classes.infoButton} color="inherit" onClick={handleOpen}>
+              <Info />
+            </IconButton>
+          </div>
           <Modal
           open={open}
           onClose={handleClose}
