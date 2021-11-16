@@ -24,6 +24,7 @@ firestore.rules
 src/firebase/config.js
 storage.rules
 .firebase
+firebaserc
 #local
 src/reportWebVitals.js
 
