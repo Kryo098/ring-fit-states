@@ -43,11 +43,11 @@ import {
   getwidesquat } from "../reducks/users/selectors"
 import { Settings,Backspace } from "@material-ui/icons"
 
-const useStyle = makeStyles((theme)=>({
-  root:{
+const useStyle = makeStyles((theme) => ({
+  root: {
     marginTop:20,
   },
-  workInputCard:{
+  workInputCard: {
     display:"block",
     margin:"0 auto",
     width:"50%",
@@ -56,7 +56,7 @@ const useStyle = makeStyles((theme)=>({
       width:"98%",
     }
   },
-  workout:{
+  workout: {
     fontWeight:800,
     borderBottom:"solid 2px #e73e0e"
   },
@@ -65,13 +65,13 @@ const useStyle = makeStyles((theme)=>({
       width:50,
     }
   },
-  datePicker :{
+  datePicker: {
     marginTop:10,
     [theme.breakpoints.down('sm')]: {
       width:100,
     },
   },
-  modal:{
+  modal: {
     position: 'absolute',
     top: '50%',
     left: '50%',
