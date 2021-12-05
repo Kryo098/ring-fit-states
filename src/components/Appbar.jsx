@@ -23,32 +23,32 @@ const useStyles = makeStyles((theme)=> ({
     }
   },
   title: {
-    position:"relative",
-    left:0,
-    right:0,
-    margin:"0 auto",
-    width:"85%",
-    textAlign:"center",
-    fontWeight:800,
-    fontSize:30,
-    letterSpacing:2,
-    cursor:"pointer",
-    "&:hover":{
+    position: "relative",
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    width: "85%",
+    textAlign: "center",
+    fontWeight: 800,
+    fontSize: 30,
+    letterSpacing: 2,
+    cursor: "pointer",
+    "&:hover": {
       transition: theme.transitions.create(
         ['color'],
         {duration:theme.transitions.duration.complex}
       ),
-      color:"#ffb5a0",
+      color: "#ffb5a0",
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize:21,
-      left:0,
+      fontSize: 21,
+      left: 0,
     },
   },
   menu: {
     backgroundColor: "#fff",
     color: "#444",
-    width:200
+    width: 200
   },
   toolBar: {
     margin: "0",
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme)=> ({
   iconButtons: {
     margin: "0 0 0 auto",
   },
-  modal:{
+  modal: {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -72,61 +72,61 @@ const useStyles = makeStyles((theme)=> ({
     },
   },
   logout: {
-    fontSize:17,
-    marginLeft:5,
+    fontSize: 17,
+    marginLeft: 5,
     [theme.breakpoints.down('sm')]: {
-      fontSize:0,
+      fontSize: 0,
     },
   },
   logouticon: {
-    transform:"scale(1.3)"
+    transform: "scale(1.3)"
   },
   logoutgroup: {
-    position:"relative",
+    position: "relative",
     left:0,
-    width:"17%",
+    width: "17%",
   },
   info: {
-    padding:20,
-    width:700,
-    marginTop:20,
-    margin:"0 auto",
+    padding: 20,
+    width: 700,
+    marginTop: 20,
+    margin: "0 auto",
     [theme.breakpoints.down('md')]:{
-      width:"100%",
-      marginTop:0,
+      width: "100%",
+      marginTop: 0,
     }
   },
-  infogroup:{
-    width:"17%",
+  infogroup: {
+    width: "17%",
   },
   infoButton: {
-    transform:'scale(1.3)',
-    position:"relative",
-    marginLeft:"70%",
+    transform: 'scale(1.3)',
+    position: "relative",
+    marginLeft: "70%",
     [theme.breakpoints.down('sm')]: {
-      marginLeft:"40%",
+      marginLeft: "40%",
     },
   },
-  icon:{
-    position:'relative',
-    top:15,
-    transform:'scale(1.6)',
+  icon: {
+    position: 'relative',
+    top: 15,
+    transform: 'scale(1.6)',
     [theme.breakpoints.down('md')]: {
-      top:-10,
-      left:-10,
-      transform:"scale(1.2)"
+      top: -10,
+      left: -10,
+      transform: "scale(1.2)"
     },
   },
   typo: {
-    display:"block",
-    lineHeight:1.8,
-    width:600,
-    marginLeft:50,
-    marginTop:-30,
+    display: "block",
+    lineHeight: 1.8,
+    width: 600,
+    marginLeft: 50,
+    marginTop: -30,
     [theme.breakpoints.down('md')]: {
-      marginLeft:0,
-      marginTop:-15,
-      width:'auto',
+      marginLeft: 0,
+      marginTop: -15,
+      width: 'auto',
     }
   }
 }))
@@ -134,8 +134,8 @@ const useStyles = makeStyles((theme)=> ({
 
 const ButtonAppBar = () => {
   const [open,setOpen] =useState(false)
-  const handleOpen =()=> setOpen(true)
-  const handleClose =()=> setOpen(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   const classes = useStyles()
   
@@ -158,7 +158,6 @@ const ButtonAppBar = () => {
           )
           }
         </div>
-
           <Typography className={classes.title} color="inherit" onClick={() => dispatch(push("/"))}>
             RINGFIT ADVENTURE STATUS
           </Typography>
@@ -183,7 +182,6 @@ const ButtonAppBar = () => {
               <Form />
             </Box>
           </Modal>
-          
         </Toolbar>
       </AppBar>
     </div>

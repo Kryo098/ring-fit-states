@@ -48,27 +48,27 @@ const useStyle = makeStyles((theme) => ({
     marginTop:20,
   },
   workInputCard: {
-    display:"block",
-    margin:"0 auto",
-    width:"50%",
-    backgroundColor:"#f4f4f4",
+    display: "block",
+    margin: "0 auto",
+    width: "50%",
+    backgroundColor: "#f4f4f4",
     [theme.breakpoints.down('sm')]: {
-      width:"98%",
+      width: "98%",
     }
   },
   workout: {
-    fontWeight:800,
-    borderBottom:"solid 2px #e73e0e"
+    fontWeight: 800,
+    borderBottom: "solid 2px #e73e0e"
   },
   count: {
     [theme.breakpoints.down('sm')]: {
-      width:50,
+      width: 50,
     }
   },
   datePicker: {
-    marginTop:10,
+    marginTop: 10,
     [theme.breakpoints.down('sm')]: {
-      width:100,
+      width: 100,
     },
   },
   modal: {
@@ -82,45 +82,45 @@ const useStyle = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: 24,
     padding: 4,
-    overflow:"scroll",
+    overflow: "scroll",
     [theme.breakpoints.down('sm')]: {
-      width:"90%",
+      width: "90%",
     },
   },
   delete: {
-    position:"relative",
-    left:0,
-    right:0,
+    position: "relative",
+    left: 0,
+    right: 0,
   },
   icon: {
-    transform:"scale(1.4)"
+    transform: "scale(1.4)"
   },
   tableDay: {
-    textAlign:"center",
-    fontSize:18,
-    fontWeight:800,
-    backgroundColor:"rgba(231,62,14,0.5)"
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: 800,
+    backgroundColor: "rgba(231,62,14,0.5)"
   },
   tableCount: {
-    textAlign:"center",
-    fontSize:18,
-    fontWeight:800,
-    backgroundColor:"rgba(231,62,14,0.5)"
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: 800,
+    backgroundColor: "rgba(231,62,14,0.5)"
   },
   tableDelete: {
-    textAlign:"center",
-    fontSize:18,
-    fontWeight:800,
-    backgroundColor:"rgba(231,62,14,0.5)"
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: 800,
+    backgroundColor: "rgba(231,62,14,0.5)"
   },
   table: {
-    textAlign:"center",
-    fontSize:16,
-    fontWeight:600,
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: 600,
   },
   row: {
-    "&:nth-child(even)":{
-      backgroundColor:"rgba(255,142,0,0.4)"
+    "&:nth-child(even)": {
+      backgroundColor: "rgba(255,142,0,0.4)"
     }
   }
 }));

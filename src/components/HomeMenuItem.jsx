@@ -38,7 +38,7 @@ import WideSquatIcon from "../icons/sentadilla-de-sumopng.png"
 
 
 const useStyles = makeStyles((theme)=> ({
-  root:{
+  root: {
     backgroundColor: "#f4f4f4",
     position: "relative",
     bottom: -10,
@@ -53,12 +53,12 @@ const useStyles = makeStyles((theme)=> ({
       ['bottom'],
       {duration:theme.transitions.duration.complex}
     ),
-    "&:hover":{
+    "&:hover": {
       bottom:150
     },
   },
   },
-  cards:{
+  cards: {
     display:"inline",
     cursor:"pointer",
     margin:5,
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme)=> ({
         ['width','height','margin'],
         {duration:theme.transitions.duration.complex}
       ),
-      "&:hover":{
+      "&:hover": {
         width:100,
         height:100,
         margin:-10,
@@ -85,7 +85,7 @@ export const HomeMenuItem = (props) => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const selectwork  =(e, path) => {
+  const selectwork = (e, path) => {
     dispatch(push(path))
 
   }
@@ -95,7 +95,7 @@ export const HomeMenuItem = (props) => {
       label: "ウシロプッシュ",
       id: "BackPress",
       value: "/BackPress",
-      icon:(<img className={classes.card} src={BackPressIcon} alt="icon"></img>),
+      icon: (<img className={classes.card} src={BackPressIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
@@ -133,11 +133,12 @@ export const HomeMenuItem = (props) => {
       icon:(<img className={classes.card} src={KneeLiftComboIcon} alt="icon"></img>),
       
     },
-    { func: selectwork,
-    label: "モモアゲアゲ",
-    id: "KneeLift",
-    value: "/KneeLift",
-    icon:(<img className={classes.card} src={kneeLiftIcon} alt="icon"></img>),
+    {
+      func: selectwork,
+      label: "モモアゲアゲ",
+      id: "KneeLift",
+      value: "/KneeLift",
+      icon:(<img className={classes.card} src={kneeLiftIcon} alt="icon"></img>),
     },
     {
       func: selectwork,
@@ -147,11 +148,11 @@ export const HomeMenuItem = (props) => {
       icon:(<img className={classes.card} src={KneetoChestIcon} alt="icon"></img>),
     },
     { 
-    func: selectwork,
-    label: "レッグレイズ",
-    id: "LegRaise",
-    value: "/LegRaise",
-    icon:(<img className={classes.card} src={LegRaiseIcon} alt="icon"></img>),
+      func: selectwork,
+      label: "レッグレイズ",
+      id: "LegRaise",
+      value: "/LegRaise",
+      icon:(<img className={classes.card} src={LegRaiseIcon} alt="icon"></img>),
     }, 
     {
       func: selectwork,
@@ -168,11 +169,11 @@ export const HomeMenuItem = (props) => {
       icon:(<img className={classes.card} src={MountainClimberIcon} alt="icon"></img>),
     },
   {
-    func: selectwork,
-    label: "アシパカパカ",
-    id: "OpenCloseLegRaise",
-    value: "/OpenCloseLegRaise",
-    icon:(<img className={classes.card} src={OpenCloseLegRaiseIcon} alt="icon"></img>),
+      func: selectwork,
+      label: "アシパカパカ",
+      id: "OpenCloseLegRaise",
+      value: "/OpenCloseLegRaise",
+      icon:(<img className={classes.card} src={OpenCloseLegRaiseIcon} alt="icon"></img>),
   },
   {
     func: selectwork,

@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme)=> ({
     height: 48,
     margin: 16,
     width: 200,
-    letterSpacing:6,
-    fontWeight:800,
-    "&:hover":{
+    letterSpacing: 6,
+    fontWeight: 800,
+    "&:hover": {
       backgroundColor: "#ff8e00",
-      color:"#e73e0e",
+      color: "#e73e0e",
     },
   },
 }))

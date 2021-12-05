@@ -8,81 +8,81 @@ import {Send} from "@material-ui/icons"
 init('user_8xqmapNB3IIa6XJfZ3ZOB')
 
 const useStyles = makeStyles((theme)=>({
-  h2 : {
-    marginLeft:10,
-    marginTop:20,
-    marginBottom:-10,
-    letterSpacing:2,
-    fontSize:28,
+  h2: {
+    marginLeft: 10,
+    marginTop: 20,
+    marginBottom: -10,
+    letterSpacing: 2,
+    fontSize: 28,
     [theme.breakpoints.down('md')]:{
-      textAlign:"center",
-      marginTop:30,
-      marginBottom:5,
+      textAlign: "center",
+      marginTop: 30,
+      marginBottom: 5,
     },
   },
   button: {
-    position:"relative",
-    left:0,
-    right:0,
+    position: "relative",
+    left: 0,
+    right: 0,
     backgroundColor: "#e73e0e",
     color: "#fff",
     fontSize: 20,
     height: 62,
-    letterSpacing:6,
-    margin:10,
-    fontWeight:800,
-    "&:hover":{
+    letterSpacing: 6,
+    margin: 10,
+    fontWeight: 800,
+    "&:hover": {
       backgroundColor: "#ff8e00",
-      color:"#e73e0e",
-      "& $send":{
+      color: "#e73e0e",
+      "& $send": {
         transition: theme.transitions.create(
           ['left'],
-          {duration:theme.transitions.duration.complex}
+          {duration: theme.transitions.duration.complex}
         ),
-        left:135
+        left: 135
       }
     },
     [theme.breakpoints.down('md')]: {
-      margin:0,
-      marginTop:10,
+      margin: 0,
+      marginTop: 10,
     },
   },
   send: {
-    position:"relative",
-    left:-10,
+    position: "relative",
+    left: -10,
   },
-  form:{
-    width:"70%",
-    margin:"0 auto",
-    marginTop:70,
+  form: {
+    width: "70%",
+    margin: "0 auto",
+    marginTop: 70,
     [theme.breakpoints.down('md')]: {
-      marginTop:10,
-      width:"100%"
+      marginTop: 10,
+      width: "100%"
     },
   },
-  name:{
-    margin:10,
+  name: {
+    margin: 10,
     [theme.breakpoints.down('md')]: {
-      marginTop:10,
-      margin:0,
+      marginTop: 10,
+      margin: 0,
     },
   },
-  email:{
-    margin:10,
+  email: {
+    margin: 10,
     [theme.breakpoints.down('md')]: {
-      marginTop:10,
-      margin:0,
+      marginTop: 10,
+      margin: 0,
     },
   },
-  message:{
-    margin:10,
+  message: {
+    margin: 10,
     [theme.breakpoints.down('md')]: {
-      marginTop:10,
-      margin:0,
+      marginTop: 10,
+      margin: 0,
     },
   },
 }))
-const Form =() =>{
+const Form = () =>{
   const classes = useStyles()
   const [contactNumber,setContactNumber] = useState("000000")
   const [statusMessage,setStatusMessage] = useState("Message")
@@ -92,7 +92,7 @@ const Form =() =>{
   }
   const { register, handleSubmit} = useForm()
   
-  const onSubmit =(data) =>{
+  const onSubmit = (data) =>{
     const statusMessage = document.querySelector('.statusMessage')
     const form = document.querySelector('#contact-form')
     generateContactNumbr()
@@ -134,4 +134,3 @@ const Form =() =>{
 }
 
 export default Form
-  

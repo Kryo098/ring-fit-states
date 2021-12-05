@@ -49,8 +49,8 @@ import { makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles((theme)=>({
   root: {
-    height:"50vh",
-    width:"95vw",
+    height: "50vh",
+    width: "95vw",
   }
 }))
 
