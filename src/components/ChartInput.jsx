@@ -77,18 +77,51 @@ const useStyle = makeStyles((theme)=>({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: "60%",
+    height:"98%",
     backgroundColor: '#f4f4f4',
     border: '2px solid #000',
     boxShadow: 24,
     padding: 4,
+    overflow:"scroll",
+    [theme.breakpoints.down('sm')]: {
+      width:"90%",
+    },
   },
   delete: {
     position:"relative",
     left:0,
     right:0,
   },
-  icon:{
+  icon: {
     transform:"scale(1.4)"
+  },
+  tableDay: {
+    textAlign:"center",
+    fontSize:18,
+    fontWeight:800,
+    backgroundColor:"rgba(231,62,14,0.5)"
+  },
+  tableCount: {
+    textAlign:"center",
+    fontSize:18,
+    fontWeight:800,
+    backgroundColor:"rgba(231,62,14,0.5)"
+  },
+  tableDelete: {
+    textAlign:"center",
+    fontSize:18,
+    fontWeight:800,
+    backgroundColor:"rgba(231,62,14,0.5)"
+  },
+  table: {
+    textAlign:"center",
+    fontSize:16,
+    fontWeight:600,
+  },
+  row: {
+    "&:nth-child(even)":{
+      backgroundColor:"rgba(255,142,0,0.4)"
+    }
   }
 }));
 
@@ -248,19 +281,20 @@ const WorkoutInput = (props) => {
       >
         <Box className={classes.modal}>
           <TableContainer component={Paper}>
-            <Table className={classes.table}>
+            <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>日付</TableCell>
-                  <TableCell>回数</TableCell>
+                  <TableCell className={classes.tableDay}>日付</TableCell>
+                  <TableCell className={classes.tableCount}>回数</TableCell>
+                  <TableCell className={classes.tableDelete}>削除</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
               {data.map((item,index)=>(
-                  <TableRow key={item.id}>
-                    <TableCell>{item.day}</TableCell>
-                    <TableCell>{item.count}</TableCell>
-                    <TableCell><Button onClick={()=>dispatch(deleteData(index,item,props.work))}><Backspace /></Button></TableCell>
+                  <TableRow className={classes.row} key={item.id}>
+                    <TableCell className={classes.table}>{item.day}</TableCell>
+                    <TableCell className={classes.table}>{item.count}回</TableCell>
+                    <TableCell className={classes.table}><Button onClick={()=>dispatch(deleteData(index,item,props.work))}><Backspace /></Button></TableCell>
                   </TableRow>
                 ))}
               </TableBody>
