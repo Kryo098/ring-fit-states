@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme)=>({
     },
   },
 }))
-const Form = () =>{
+const Form = () => {
   const classes = useStyles()
   const [contactNumber,setContactNumber] = useState("000000")
   const [statusMessage,setStatusMessage] = useState("Message")
@@ -92,7 +92,7 @@ const Form = () =>{
   }
   const { register, handleSubmit} = useForm()
   
-  const onSubmit = (data) =>{
+  const onSubmit = (data) => {
     const statusMessage = document.querySelector('.statusMessage')
     const form = document.querySelector('#contact-form')
     generateContactNumbr()

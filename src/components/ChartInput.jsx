@@ -84,7 +84,9 @@ const useStyle = makeStyles((theme) => ({
     padding: 4,
     overflow: "scroll",
     [theme.breakpoints.down('sm')]: {
-      width: "90%",
+      width: "80%",
+      height: "75%",
+      top: "45%",
     },
   },
   delete: {

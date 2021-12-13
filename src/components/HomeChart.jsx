@@ -44,42 +44,81 @@ import {
   gettricepkickback,
   getwidesquat,
 } from "../reducks/users/selectors"
-import { makeStyles,Switch, Typography} from "@material-ui/core"
-  
+import { makeStyles, Button} from "@material-ui/core"
 
-const  useStyles= makeStyles((theme) => ({
+const useStyles= makeStyles((theme) => ({
   chartcontent: {
-    margin:"0 auto",
-    marginTop:"9vh",
-    marginBottom:"2vh",
-    width:"95vw",
-    height:"50vh",
+    margin: "0 auto",
+    marginTop: "9vh",
+    marginBottom: "2vh",
+    width: "95vw",
+    height: "50vh",
     [theme.breakpoints.down('md')]: {
-      marginTop:'5vh',
-      marginBottom:'5vh'
+      marginTop: "5vh",
+      marginBottom: "5vh"
     }
   },
-  swich:{
-    position:"relative",
-    top:"10vh",
-    left:"60vw",
-    width:400,
-    "&:span":{
-      fontSize:1
-    },
-    [theme.breakpoints.down('md')]:{
-      top:"59vh",
-      left:"2vw",
+  swich: {
+    position: "relative",
+    top: "10vh",
+    left: "65vw",
+    width: 400,
+    [theme.breakpoints.down('md')]: {
+      top: "5vh",
+      left: 0,
+      right:0,
+      margin:"0 auto"
     }
+  },
+  button: {
+    position: "relative",
+    top:-20,
+    left: 0,
+    right: 0,
+    backgroundColor: "#ff8e00",
+    color: "#fff",
+    fontSize: 16,
+    height: 42,
+    fontWeight: 400,
+    borderRadius: 0,
+    padding: 15,
+    letterSpacing: 2,
+    border: "2px solid",
+    "&:hover": {
+      backgroundColor: "#ff8e00",
+    },
+    [theme.breakpoints.down('md')]: {
+    },
+  },
+  buttonFalse: {
+    position: "relative",
+    top: -20,
+    left: 0,
+    right: 0,
+    backgroundColor: "#e73e0e",
+    color: "#fff",
+    fontSize: 16,
+    height: 42,
+    fontWeight: 400,
+    borderRadius: 0,
+    padding: 15,
+    letterSpacing: 2,
+    border: "2px solid",
+    opacity: 0.5,
+    "&:hover": {
+      backgroundColor: "#ff8e00",
+    },
+    [theme.breakpoints.down('md')]: {
+    },
   }
 }))
 
 export const HomeChart = () => {
   const classes = useStyles()
-  const [toggle,setToggle]= useState(false)
-  const handle = e => {
-    setToggle(prev=>!prev)
-  }
+  const [toggle, setToggle] = useState(false)
+  const TodayHandle = () => setToggle(false)
+  const CopHandle = () => setToggle(true)
+
 
   const selector = useSelector((state) => state)
 
@@ -467,203 +506,203 @@ export const HomeChart = () => {
   
   //今日行なったワークアウト（回数）for処理
   for(let i=0;i<backpressfilledtoday.length;i++){
-    backpressTodayCount = backpressTodayCount + backpressfilledtoday[i].count
+    backpressTodayCount += backpressfilledtoday[i].count
   }
   for(let i=0;i<bowpressfilledtoday.length;i++){
-    bowpressTodayCount = bowpressTodayCount + bowpressfilledtoday[i].count
+    bowpressTodayCount += bowpressfilledtoday[i].count
   }
   for(let i=0;i<flutterkickfilledtoday.length;i++){
-    flutterkickTodayCount = flutterkickTodayCount + flutterkickfilledtoday[i].count
+    flutterkickTodayCount += flutterkickfilledtoday[i].count
   }
   for(let i=0;i<frontpressfilledtoday.length;i++){
-    frontpressTodayCount = frontpressTodayCount + frontpressfilledtoday[i].count
+    frontpressTodayCount += frontpressfilledtoday[i].count
   }
   for(let i=0;i<hipliftfilledtoday.length;i++){
-    hipliftTodayCount = hipliftTodayCount + hipliftfilledtoday[i].count
+    hipliftTodayCount += hipliftfilledtoday[i].count
   }
   for(let i=0;i<kneeliftfilledtoday.length;i++){
-    kneeliftTodayCount = kneeliftTodayCount + kneeliftfilledtoday[i].count
+    kneeliftTodayCount += kneeliftfilledtoday[i].count
   }
   for(let i=0;i<kneeliftcombofilledtoday.length;i++){
-    kneeliftcomboTodayCount = kneeliftcomboTodayCount + kneeliftcombofilledtoday[i].count
+    kneeliftcomboTodayCount += kneeliftcombofilledtoday[i].count
   }
   for(let i=0;i<kneetochestfilledtoday.length;i++){
-    kneetochestTodayCount = kneetochestTodayCount + kneetochestfilledtoday[i].count
+    kneetochestTodayCount += kneetochestfilledtoday[i].count
   }
   for(let i=0;i<legraisefilledtoday.length;i++){
-    legraiseTodayCount = legraiseTodayCount + legraisefilledtoday[i].count
+    legraiseTodayCount += legraisefilledtoday[i].count
   }
   for(let i=0;i<legscissorsfilledtoday.length;i++){
-    legscissorsTodayCount = legscissorsTodayCount + legscissorsfilledtoday[i].count
+    legscissorsTodayCount += legscissorsfilledtoday[i].count
   }
   for(let i=0;i<mountainclimberfilledtoday.length;i++){
-    mountainclimberTodayCount = mountainclimberTodayCount + mountainclimberfilledtoday[i].count
+    mountainclimberTodayCount += mountainclimberfilledtoday[i].count
   }
   for(let i=0;i<opencloselegraisefilledtoday.length;i++){
-    opencloselegraiseTodayCount = opencloselegraiseTodayCount + opencloselegraisefilledtoday[i].count
+    opencloselegraiseTodayCount += opencloselegraisefilledtoday[i].count
   }
   for(let i=0;i<overheadarmspinfilledtoday.length;i++){
-    overheadarmspinTodayCount = overheadarmspinTodayCount + overheadarmspinfilledtoday[i].count
+    overheadarmspinTodayCount += overheadarmspinfilledtoday[i].count
   }
   for(let i=0;i<overheadarmtwistfilledtoday.length;i++){
-    overheadarmtwistTodayCount = overheadarmtwistTodayCount + overheadarmtwistfilledtoday[i].count
+    overheadarmtwistTodayCount += overheadarmtwistfilledtoday[i].count
   }
   for(let i=0;i<overheadbendfilledtoday.length;i++){
-    overheadbendTodayCount = overheadbendTodayCount + overheadbendfilledtoday[i].count
+    overheadbendTodayCount += overheadbendfilledtoday[i].count
   }
   for(let i=0;i<overheadhipshakefilledtoday.length;i++){
-    overheadhipshakeTodayCount = overheadhipshakeTodayCount + overheadhipshakefilledtoday[i].count
+    overheadhipshakeTodayCount += overheadhipshakefilledtoday[i].count
   }
   for(let i=0;i<overheadlungetwistfilledtoday.length;i++){
-    overheadlungetwistTodayCount = overheadlungetwistTodayCount + overheadlungetwistfilledtoday[i].count
+    overheadlungetwistTodayCount += overheadlungetwistfilledtoday[i].count
   }
   for(let i=0;i<overheadpressfilledtoday.length;i++){
-    overheadpressTodayCount = overheadpressTodayCount + overheadpressfilledtoday[i].count
+    overheadpressTodayCount += overheadpressfilledtoday[i].count
   }
   for(let i=0;i<overheadsidebendfilledtoday.length;i++){
-    overheadsidebendTodayCount = overheadsidebendTodayCount + overheadsidebendfilledtoday[i].count
+    overheadsidebendTodayCount += overheadsidebendfilledtoday[i].count
   }
   for(let i=0;i<overheadsquatfilledtoday.length;i++){
-    overheadsquatTodayCount = overheadsquatTodayCount + overheadsquatfilledtoday[i].count
+    overheadsquatTodayCount += overheadsquatfilledtoday[i].count
   }
   for(let i=0;i<pendulumbendfilledtoday.length;i++){
-    pendulumbendTodayCount = pendulumbendTodayCount + pendulumbendfilledtoday[i].count
+    pendulumbendTodayCount += pendulumbendfilledtoday[i].count
   }
   for(let i=0;i<ringraisecombofilledtoday.length;i++){
-    ringraisecomboTodayCount = ringraisecomboTodayCount + ringraisecombofilledtoday[i].count
+    ringraisecomboTodayCount += ringraisecombofilledtoday[i].count
   }
   for(let i=0;i<plankfilledtoday.length;i++){
-    plankTodayCount = plankTodayCount + plankfilledtoday[i].count
+    plankTodayCount += plankfilledtoday[i].count
   }
   for(let i=0;i<russiantwistfilledtoday.length;i++){
-    russiantwistTodayCount = russiantwistTodayCount + russiantwistfilledtoday[i].count
+    russiantwistTodayCount += russiantwistfilledtoday[i].count
   }
   for(let i=0;i<seatedforwardpressfilledtoday.length;i++){
-    seatedforwardpressTodayCount = seatedforwardpressTodayCount + seatedforwardpressfilledtoday[i].count
+    seatedforwardpressTodayCount += seatedforwardpressfilledtoday[i].count
   }
   for(let i=0;i<seatedringraisefilledtoday.length;i++){
-    seatedringraiseTodayCount = seatedringraiseTodayCount + seatedringraisefilledtoday[i].count
+    seatedringraiseTodayCount += seatedringraisefilledtoday[i].count
   }
   for(let i=0;i<shoulderpressfilledtoday.length;i++){
-    shoulderpressTodayCount = shoulderpressTodayCount + shoulderpressfilledtoday[i].count
+    shoulderpressTodayCount += shoulderpressfilledtoday[i].count
   }
   for(let i=0;i<sidestepfilledtoday.length;i++){
-    sidestepTodayCount = sidestepTodayCount + sidestepfilledtoday[i].count
+    sidestepTodayCount += sidestepfilledtoday[i].count
   }
   for(let i=0;i<squatfilledtoday.length;i++){
-    squatTodayCount = squatTodayCount + squatfilledtoday[i].count
+    squatTodayCount += squatfilledtoday[i].count
   }
   for(let i=0;i<standingtwistfilledtoday.length;i++){
-    standingtwistTodayCount = standingtwistTodayCount + standingtwistfilledtoday[i].count
+    standingtwistTodayCount += standingtwistfilledtoday[i].count
   }
   for(let i=0;i<thighpressfilledtoday.length;i++){
-    thighpressTodayCount = thighpressTodayCount + thighpressfilledtoday[i].count
+    thighpressTodayCount += thighpressfilledtoday[i].count
   }
   for(let i=0;i<tricepkickbackfilledtoday.length;i++){
-    tricepkickbackTodayCount = tricepkickbackTodayCount + tricepkickbackfilledtoday[i].count
+    tricepkickbackTodayCount += tricepkickbackfilledtoday[i].count
   }
   for(let i=0;i<widesquatfilledtoday.length;i++){
-    widesquatTodayCount = widesquatTodayCount + widesquatfilledtoday[i].count
+    widesquatTodayCount += widesquatfilledtoday[i].count
   }
     //総合行なったワークアウト（回数）for処理
   for(let i=0;i<backpress.length;i++){
-    backpressTotalCount = backpressTotalCount + backpress[i].count
+    backpressTotalCount += backpress[i].count
   }
   for(let i=0;i<bowpress.length;i++){
-    bowpressTotalCount = bowpressTotalCount + bowpress[i].count
+    bowpressTotalCount += bowpress[i].count
   }
   for(let i=0;i<flutterkick.length;i++){
-    flutterkickTotalCount = flutterkickTotalCount + flutterkick[i].count
+    flutterkickTotalCount += flutterkick[i].count
   }
   for(let i=0;i<frontpress.length;i++){
-    frontpressTotalCount = frontpressTotalCount + frontpress[i].count
+    frontpressTotalCount += frontpress[i].count
   }
   for(let i=0;i<hiplift.length;i++){
-    hipliftTotalCount = hipliftTotalCount + hiplift[i].count
+    hipliftTotalCount += hiplift[i].count
   }
   for(let i=0;i<kneelift.length;i++){
-    kneeliftTotalCount = kneeliftTotalCount + kneelift[i].count
+    kneeliftTotalCount += kneelift[i].count
   }
   for(let i=0;i<kneeliftcombo.length;i++){
-    kneeliftcomboTotalCount = kneeliftcomboTotalCount + kneeliftcombo[i].count
+    kneeliftcomboTotalCount += kneeliftcombo[i].count
   }
   for(let i=0;i<kneetochest.length;i++){
-    kneetochestTotalCount = kneetochestTotalCount + kneetochest[i].count
+    kneetochestTotalCount += kneetochest[i].count
   }
   for(let i=0;i<legraise.length;i++){
-    legraiseTotalCount = legraiseTotalCount + legraise[i].count
+    legraiseTotalCount += legraise[i].count
   }
   for(let i=0;i<legscissors.length;i++){
-    legscissorsTotalCount = legscissorsTotalCount + legscissors[i].count
+    legscissorsTotalCount += legscissors[i].count
   }
   for(let i=0;i<mountainclimber.length;i++){
-    mountainclimberTotalCount = mountainclimberTotalCount + mountainclimber[i].count
+    mountainclimberTotalCount += mountainclimber[i].count
   }
   for(let i=0;i<opencloselegraise.length;i++){
-    opencloselegraiseTotalCount = opencloselegraiseTotalCount + opencloselegraise[i].count
+    opencloselegraiseTotalCount += opencloselegraise[i].count
   }
   for(let i=0;i<overheadarmspin.length;i++){
-    overheadarmspinTotalCount = overheadarmspinTotalCount + overheadarmspin[i].count
+    overheadarmspinTotalCount += overheadarmspin[i].count
   }
   for(let i=0;i<overheadarmtwist.length;i++){
-    overheadarmtwistTotalCount = overheadarmtwistTotalCount + overheadarmtwist[i].count
+    overheadarmtwistTotalCount += overheadarmtwist[i].count
   }
   for(let i=0;i<overheadbend.length;i++){
-    overheadbendTotalCount = overheadbendTotalCount + overheadbend[i].count
+    overheadbendTotalCount += overheadbend[i].count
   }
   for(let i=0;i<overheadhipshake.length;i++){
-    overheadhipshakeTotalCount = overheadhipshakeTotalCount + overheadhipshake[i].count
+    overheadhipshakeTotalCount += overheadhipshake[i].count
   }
   for(let i=0;i<overheadlungetwist.length;i++){
-    overheadlungetwistTotalCount = overheadlungetwistTotalCount + overheadlungetwist[i].count
+    overheadlungetwistTotalCount += overheadlungetwist[i].count
   }
   for(let i=0;i<overheadpress.length;i++){
-    overheadpressTotalCount = overheadpressTotalCount + overheadpress[i].count
+    overheadpressTotalCount += overheadpress[i].count
   }
   for(let i=0;i<overheadsidebend.length;i++){
-    overheadsidebendTotalCount = overheadsidebendTotalCount + overheadsidebend[i].count
+    overheadsidebendTotalCount += overheadsidebend[i].count
   }
   for(let i=0;i<overheadsquat.length;i++){
-    overheadsquatTotalCount = overheadsquatTotalCount + overheadsquat[i].count
+    overheadsquatTotalCount += overheadsquat[i].count
   }
   for(let i=0;i<pendulumbend.length;i++){
-    pendulumbendTotalCount = pendulumbendTotalCount + pendulumbend[i].count
+    pendulumbendTotalCount += pendulumbend[i].count
   }
   for(let i=0;i<ringraisecombo.length;i++){
-    ringraisecomboTotalCount = ringraisecomboTotalCount + ringraisecombo[i].count
+    ringraisecomboTotalCount += ringraisecombo[i].count
   }
   for(let i=0;i<plank.length;i++){
-    plankTotalCount = plankTotalCount + plank[i].count
+    plankTotalCount += plank[i].count
   }
   for(let i=0;i<russiantwist.length;i++){
-    russiantwistTotalCount = russiantwistTotalCount + russiantwist[i].count
+    russiantwistTotalCount += russiantwist[i].count
   }
   for(let i=0;i<seatedforwardpress.length;i++){
-    seatedforwardpressTotalCount = seatedforwardpressTotalCount + seatedforwardpress[i].count
+    seatedforwardpressTotalCount += seatedforwardpress[i].count
   }
   for(let i=0;i<seatedringraise.length;i++){
-    seatedringraiseTotalCount = seatedringraiseTotalCount + seatedringraise[i].count
+    seatedringraiseTotalCount += seatedringraise[i].count
   }
   for(let i=0;i<shoulderpress.length;i++){
-    shoulderpressTotalCount = shoulderpressTotalCount + shoulderpress[i].count
+    shoulderpressTotalCount += shoulderpress[i].count
   }
   for(let i=0;i<sidestep.length;i++){
-    sidestepTotalCount = sidestepTotalCount + sidestep[i].count
+    sidestepTotalCount += sidestep[i].count
   }
   for(let i=0;i<squat.length;i++){
-    squatTotalCount = squatTotalCount + squat[i].count
+    squatTotalCount += squat[i].count
   }
   for(let i=0;i<standingtwist.length;i++){
-    standingtwistTotalCount = standingtwistTotalCount + standingtwist[i].count
+    standingtwistTotalCount += standingtwist[i].count
   }
   for(let i=0;i<thighpress.length;i++){
-    thighpressTotalCount = thighpressTotalCount + thighpress[i].count
+    thighpressTotalCount += thighpress[i].count
   }
   for(let i=0;i<tricepkickback.length;i++){
-    tricepkickbackTotalCount = tricepkickbackTotalCount + tricepkickback[i].count
+    tricepkickbackTotalCount += tricepkickback[i].count
   }
   for(let i=0;i<widesquat.length;i++){
-    widesquatTotalCount = widesquatTotalCount + widesquat[i].count
+    widesquatTotalCount += widesquat[i].count
   }
   //総合ワークアウト回数
   const data = [
@@ -928,22 +967,21 @@ export const HomeChart = () => {
   ]
   return (
     <div className={classes.root}>
-    <div className={classes.swich}>
-      <Typography component="span">本日のフィットネス</Typography>
-      <Switch checked={toggle} onChange={handle}/>
-      <Typography component="span">総合のフィットネス</Typography>
-    </div>
-    <div className={classes.chartcontent}>
-      <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={toggle?data:todaydata} margin={{left:10,right:50}}>
-        <CartesianGrid strokeDasharray="0" />
-        <XAxis dataKey="work" fontSize={12} />
-        <YAxis />
-        <Tooltip />
-        <Bar dataKey="Count" fill="#ff8e00" />
-      </BarChart>
-      </ResponsiveContainer>
+      <div className={classes.swich}>
+        <Button onClick={TodayHandle} className={toggle?classes.buttonFalse:classes.button}>本日のフィットネス回数</Button>
+        <Button onClick={CopHandle} className={toggle?classes.button:classes.buttonFalse}>総合のフィットネス回数</Button>
       </div>
+      <div className={classes.chartcontent}>
+        <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={toggle?data:todaydata} margin={{left:0,right:50}}>
+          <CartesianGrid strokeDasharray="0" />
+          <XAxis dataKey="work" fontSize={12} />
+          <YAxis fontWeight={800}/>
+          <Tooltip />
+          <Bar dataKey="Count" fill="#ff8e00" />
+        </BarChart>
+        </ResponsiveContainer>
+        </div>
     </div>
   )
 }
