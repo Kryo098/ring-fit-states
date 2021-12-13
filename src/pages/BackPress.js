@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     height: "92.3vh",
     overflow: "hidden",
     [theme.breakpoints.down("lg")]: {
-      overflow:"auto",
+      overflow: "auto",
     },
   },
   titlecard: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     borderLeft: "solid 10px #ff8e00",
     width: "50rem",
     [theme.breakpoints.down("md")]: {
-      width: "98%",
+      width: "95%",
       height: 100,
     },
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 5,
     left: 0,
-    width:"100%",
+    width: "100%",
     fontSize: "2.1rem",
     fontWeight: "800",
     fontStyle: "italic",
@@ -39,19 +39,23 @@ const useStyles = makeStyles((theme) => ({
     textIndent: "-0.2em",
     transform: "scale(0.9, 1)",
     transformOrigin: "top",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 25,
+      top: 15,
+      left: 10,
+    },
   },
   sbtitle: {
     position: "absolute",
     top: 0,
     left: 0,
-    width:"100%",
+    width: "100%",
     color: "#ff8e00",
     fontWeight: 800,
     fontSize: 14,
     lineHeight: 1,
     textIndent: "0.05rem",
-    [theme.breakpoints.down("md")]: {
-    },
+    [theme.breakpoints.down("md")]: {},
   },
   icon: {
     position: "absolute",

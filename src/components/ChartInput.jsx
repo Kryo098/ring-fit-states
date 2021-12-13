@@ -53,7 +53,7 @@ const useStyle = makeStyles((theme) => ({
     width: "50%",
     backgroundColor: "#f4f4f4",
     [theme.breakpoints.down('sm')]: {
-      width: "98%",
+      width: "95%",
     }
   },
   workout: {

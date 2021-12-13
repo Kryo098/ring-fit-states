@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme)=> ({
   root: {
     flexGrow: 1,
     color:"#ff8e00",
-    [theme.breakpoints.down('sm')]: {
-      width:'100%',
-    }
   },
   title: {
     position: "relative",
@@ -104,7 +101,7 @@ const useStyles = makeStyles((theme)=> ({
     position: "relative",
     marginLeft: "70%",
     [theme.breakpoints.down('sm')]: {
-      marginLeft: "40%",
+      marginLeft: "20%",
     },
   },
   icon: {

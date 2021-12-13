@@ -7,6 +7,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Brush,
 } from "recharts"
 import {
   getbackpress,
@@ -51,8 +52,23 @@ const useStyles = makeStyles((theme)=>({
   root: {
     height: "50vh",
     width: "95vw",
-  }
+  },
 }))
+
+const viewpoints = () => {
+  const viewW = window.innerWidth
+  const s_min = 200
+  const s_max = 600
+  const m_max = 1200
+
+  if (viewW >= s_min && viewW <= s_max) {
+    return {index: 15, height: 40, margin: 20, size: 17}
+  } else if (viewW >= s_max && viewW <= m_max) {
+    return {index: 12, height: 45, margin: 20, size: 18}
+  } else {
+    return {index: 7, height: 50, margin: 50, size: 20}
+  }
+}
 
 export const BackPressChart = (work) => {
   const selector = useSelector((state) => state)
@@ -70,26 +86,26 @@ export const BackPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
-
   return (
     <>
       <div className={classes.root}>
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -123,19 +139,20 @@ export const BowPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -172,19 +189,20 @@ export const FlutterKickChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -221,19 +239,20 @@ export const FrontPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -270,19 +289,20 @@ export const HipLiftChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -319,19 +339,20 @@ export const KneeLiftChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -368,19 +389,20 @@ export const KneeLiftComboChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -417,19 +439,20 @@ export const KneetoChestChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -466,19 +489,20 @@ export const LegRaiseChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -515,19 +539,20 @@ export const LegScissorsChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -564,19 +589,20 @@ export const MountainClimberChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -613,19 +639,20 @@ export const OpenCloseLegRaiseChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -661,19 +688,20 @@ export const OverheadArmSpinChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -709,19 +737,20 @@ export const OverheadArmTwistChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -757,19 +786,20 @@ export const OverheadBendChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -805,19 +835,20 @@ export const OverheadHipShakeChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -853,19 +884,20 @@ export const OverheadLungeTwistChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -901,19 +933,20 @@ export const OverheadPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -949,19 +982,20 @@ export const OverheadSideBendChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -997,19 +1031,20 @@ export const OverheadSquatChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1045,19 +1080,20 @@ export const PendulumBendChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1093,19 +1129,20 @@ export const PlankChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1141,19 +1178,20 @@ export const RingRaiseComboChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1189,19 +1227,20 @@ export const RussianTwistChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1237,19 +1276,20 @@ export const SeatedForwardPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1285,19 +1325,20 @@ export const SeatedRingRaiseChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1333,19 +1374,20 @@ export const ShoulderPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1381,19 +1423,20 @@ export const SquatChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1430,19 +1473,20 @@ export const SideStepChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1478,19 +1522,20 @@ export const StandingTwistChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1526,19 +1571,20 @@ export const ThighPressChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1574,19 +1620,20 @@ export const TricepKickbackChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -1622,19 +1669,20 @@ export const WideSquatChart = (work) => {
         <ResponsiveContainer width="100%" height='100%'>
         <AreaChart className={classes.chart}
           data={data}
-          margin={{left:50,right:50}}
+          margin={{left:viewpoints().margin,right:viewpoints().margin}}
         >
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1}/>
-              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2}/>
+              <stop offset="0%" stopColor="#e73e0e" stopOpacity={1} />
+              <stop offset="100%" stopColor="#ff8e00" stopOpacity={0.2} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="day" domain={["DAYS"]} fontSize="18px" />
-          <YAxis domain={[0, 500]} fontSize="18px"/>
+          <XAxis dataKey="day" fontSize={18} fontWeight={600} dy={5} />
+          <YAxis domain={[0,200]} fontSize={viewpoints().size} fontWeight={800} />
           <CartesianGrid strokeDasharray="10 10" />
-          <Tooltip />
+          <Tooltip fontSize={30} />
           <Area type="liner" dataKey="count" stroke="#e73e0e" fillOpacity={1} fill="url(#colorCount)" />
+          <Brush startIndex={viewpoints().index} dataKey="day" stroke="#ff8e00" height={viewpoints().height} />
         </AreaChart>
         </ResponsiveContainer>
       </div>
