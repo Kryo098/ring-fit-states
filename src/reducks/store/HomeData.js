@@ -33,7 +33,7 @@ import {
   getthighpress,
   gettricepkickback,
   getwidesquat,
-} from "../reducks/users/selectors";
+} from "../users/selectors";
 
 //トータルカウント初期化
 var backpressTotalCount = 0;

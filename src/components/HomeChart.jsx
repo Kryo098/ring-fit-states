@@ -1,5 +1,5 @@
 import React,{ useState } from "react"
-import { Data } from "./HomeData"
+import { Data } from "../reducks/store/HomeData"
 import {
   BarChart,
   CartesianGrid,
