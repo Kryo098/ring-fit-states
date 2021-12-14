@@ -124,8 +124,8 @@ const Form = () => {
     <form  className={classes.form} id='contact-form' onSubmit={handleSubmit(onSubmit)}>
       <h2 className={classes.h2}>CONTACT</h2>
       <input type='hidden' name='contact_number' value={contactNumber} />
-      <TextField className={classes.name} fullWidth variant="filled" type='text' name='userName' required {...register('userName', { required: true })} placeholder='Name'/>
-      <TextField className={classes.email} fullWidth variant="filled" type='email' name='userEmail' required {...register('userEmail', { required: true })} placeholder='Email' />
+      <TextField className={classes.name} fullWidth variant="filled" type='text' name='userName' required {...register('userName', { required: true })} placeholder='Your name'/>
+      <TextField className={classes.email} fullWidth variant="filled" type='email' name='userEmail' required {...register('userEmail', { required: true })} placeholder='Your Email' />
       <TextField className={classes.message} fullWidth variant="filled" multiline rows={7} name='message' required {...register('message', { required: true })} placeholder='Message'/>
       <p className="statusMessage">{statusMessage}</p>
       <Button className={classes.button} fullWidth type='submit'><Send className={classes.send}/>SEND!</Button>
