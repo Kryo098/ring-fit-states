@@ -110,16 +110,20 @@ export const listenAuthState = () => {
 export const addData = (day, count, props) => {
   return async (dispatch, getState) => {
     const timestamp = FirebaseTimestamp.now();
+    
     //現在時刻の取得
     const date = new Date();
     const year = date.getFullYear();
     const tomonthNm = date.getMonth() + 1;
     const tomonthSt =
       String(tomonthNm).length < 2 ? "0" + tomonthNm : String(tomonthNm);
+
     const todayNm = date.getDate();
     const todaySt =
       String(todayNm).length < 2 ? "0" + todayNm : String(todayNm);
+
     const today = "" + year + tomonthSt + todaySt;
+
     //入力された日付を最適化
     if (day) {
       const inputyear = day.getFullYear();
@@ -134,13 +138,16 @@ export const addData = (day, count, props) => {
         String(inputdayNm).length < 2 ? "0" + inputdayNm : String(inputdayNm);
       var inputtoday = "" + inputyear + inputmouthSt + inputdaySt;
     }
+
     //入力された回数が0以下ではないことを確認
     const counts = count < 0 || !count ? (count = 0) : count;
+
     //日付が未入力の場合、現在時刻を代入
     const days = inputtoday ? inputtoday : today;
     const data = [
       { day: Number(days), count: parseInt(counts, 10), addedAt: timestamp },
     ];
+    
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
 
