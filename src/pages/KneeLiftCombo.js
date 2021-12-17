@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 5,
     left: 60,
+    height:120,
     [theme.breakpoints.down("md")]: {
       height: 70,
       top: 10,
@@ -86,7 +87,7 @@ const KneeLiftCombo = () => {
   return (
     <div className={classes.app}>
       <Paper elevation={4} className={classes.titlecard}>
-        <img src={KneeLiftComboIcon} width="118 px" alt="icon" className={classes.icon}></img>
+        <img src={KneeLiftComboIcon} alt="icon" className={classes.icon}></img>
         <p className={classes.sbtitle}>Knee-Lift Combo</p>
         <h2 className={classes.title}>モモアゲコンボ</h2>
         <div className={classes.effect}>

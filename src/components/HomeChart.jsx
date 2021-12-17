@@ -14,7 +14,7 @@ import { makeStyles, Button} from "@material-ui/core"
 const useStyles= makeStyles((theme) => ({
   chartcontent: {
     margin: "0 auto",
-    marginTop: "9vh",
+    marginTop: "4vh",
     marginBottom: "2vh",
     width: "95vw",
     height: "50vh",
@@ -25,7 +25,7 @@ const useStyles= makeStyles((theme) => ({
   },
   swich: {
     position: "relative",
-    top: "10vh",
+    top: "5vh",
     left: "65vw",
     width: 400,
     [theme.breakpoints.down('md')]: {

@@ -330,6 +330,7 @@ export const HomeMenuItem = (props) => {
           key={menu.id}
           onClick={(e)=>menu.func(e, menu.value)}
           className={classes.cards}
+          title={menu.label}
           >
               {menu.icon}
           </Box>
