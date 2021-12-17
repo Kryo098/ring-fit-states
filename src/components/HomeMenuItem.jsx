@@ -42,43 +42,74 @@ const useStyles = makeStyles((theme)=> ({
     backgroundColor: "#f4f4f4",
     position: "relative",
     bottom: -10,
-    left:0,
-    right:0,
-    margin:"0 auto",
-    paddingTop:15,
-    width:"90%",
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    paddingTop: 15,
+    width: "90%",
     [theme.breakpoints.up('xl')]:{
-      height:430,
+      height: 430,
       transition: theme.transitions.create(
       ['bottom'],
       {duration:theme.transitions.duration.complex}
     ),
     "&:hover": {
-      bottom:150
+      bottom: 150
     },
   },
   },
   cards: {
-    display:"inline",
-    cursor:"pointer",
-    margin:5,
+    display: "inline-block",
+    cursor: "pointer",
+    margin: 5,
+    height: 130,
+    width: 120,
+    [theme.breakpoints.up('xl')]: {
+      display: "inline",
+      height: "auto",
+      width: "auto",
+    }
   },
   card: {
-    width:70,
-    height:70,
-    margin:5,
-    [theme.breakpoints.up('xl')]:{
+    position: "relative",
+    top: -40,
+    width: 110,
+    height: 110,
+    margin: 5,
+    zIndex: 2,
+    [theme.breakpoints.up('xl')]: {
+      width: 70,
+      height: 70,
+      top: 0,
       transition: theme.transitions.create(
         ['width','height','margin'],
         {duration:theme.transitions.duration.complex}
       ),
       "&:hover": {
-        width:100,
-        height:100,
-        margin:-10,
+        width: 100,
+        height: 100,
+        margin: -10,
       },
     },
+    [theme.breakpoints.down('xl')]: {
+    }
   },
+  label: {
+    display: "table-cell",
+    position: "relative",
+    top: 90,
+    backgroundColor: "#ff8e00",
+    border: "1px solid",
+    height: 40,
+    width: 120,
+    color: "#fff",
+    fontWeight: 600,
+    zIndex: 3,
+    verticalAlign: "middle",
+    [theme.breakpoints.up('xl')]:{
+      display:'none'
+    },
+  }
 }))
 
 export const HomeMenuItem = (props) => {
@@ -332,6 +363,7 @@ export const HomeMenuItem = (props) => {
           className={classes.cards}
           title={menu.label}
           >
+              <span className={classes.label}>{menu.label}</span>
               {menu.icon}
           </Box>
         ))}
