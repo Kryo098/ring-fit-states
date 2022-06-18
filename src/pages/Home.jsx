@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { Box } from "@material-ui/core"
 import { HomeMenuItem } from "../components/HomeMenuItem"
 import { HomeChart } from "../components/HomeChart"
-import {makeStyles} from "@material-ui/styles"
+import { makeStyles } from "@material-ui/styles"
 
 const useStyles = makeStyles((theme)=>({
   home: {

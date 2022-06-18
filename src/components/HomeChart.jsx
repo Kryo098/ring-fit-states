@@ -91,7 +91,7 @@ export const HomeChart = () => {
         <Button onClick={CopHandle} className={toggle?classes.button:classes.buttonFalse}>総合のフィットネス回数</Button>
       </div>
       <div className={classes.chartcontent}>
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer>
         <BarChart data={toggle?Data().datas:Data().todaydatas} margin={{left:0,right:50}}>
           <CartesianGrid strokeDasharray="0" />
           <XAxis dataKey="work" fontSize={12} />

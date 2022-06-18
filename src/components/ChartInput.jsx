@@ -293,7 +293,7 @@ const WorkoutInput = (props) => {
               </TableHead>
               <TableBody>
               {data.map((item,index)=>(
-                  <TableRow className={classes.row} key={item.id}>
+                  <TableRow className={classes.row} key={index}>
                     <TableCell className={classes.table}>{item.day}</TableCell>
                     <TableCell className={classes.table}>{item.count}回</TableCell>
                     <TableCell className={classes.table}><Button onClick={()=>dispatch(deleteData(index,item,props.work))}><Backspace /></Button></TableCell>

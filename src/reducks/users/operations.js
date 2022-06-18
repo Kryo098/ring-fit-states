@@ -107,23 +107,22 @@ export const listenAuthState = () => {
   };
 };
 
+const timestamp = FirebaseTimestamp.now();
+
+//現在時刻の取得
+const date = new Date();
+const year = date.getFullYear();
+const tomonthNm = date.getMonth() + 1;
+const tomonthSt =
+  String(tomonthNm).length < 2 ? "0" + tomonthNm : String(tomonthNm);
+
+const todayNm = date.getDate();
+const todaySt = String(todayNm).length < 2 ? "0" + todayNm : String(todayNm);
+
+const today = "" + year + tomonthSt + todaySt;
+
 export const addData = (day, count, props) => {
   return async (dispatch, getState) => {
-    const timestamp = FirebaseTimestamp.now();
-    
-    //現在時刻の取得
-    const date = new Date();
-    const year = date.getFullYear();
-    const tomonthNm = date.getMonth() + 1;
-    const tomonthSt =
-      String(tomonthNm).length < 2 ? "0" + tomonthNm : String(tomonthNm);
-
-    const todayNm = date.getDate();
-    const todaySt =
-      String(todayNm).length < 2 ? "0" + todayNm : String(todayNm);
-
-    const today = "" + year + tomonthSt + todaySt;
-
     //入力された日付を最適化
     if (day) {
       const inputyear = day.getFullYear();
@@ -147,7 +146,7 @@ export const addData = (day, count, props) => {
     const data = [
       { day: Number(days), count: parseInt(counts, 10), addedAt: timestamp },
     ];
-    
+
     const uid = getState().users.uid;
     const workRef = usersRef.doc(uid);
 
@@ -1082,39 +1081,237 @@ export const SignUp = (username, email, password, confirmpass) => {
             email: email,
             uid: uid,
             username: username,
-            backpress: [],
-            bowpress: [],
-            flutterkick: [],
-            frontpress: [],
-            hiplift: [],
-            kneeliftcombo: [],
-            kneelift: [],
-            kneetochest: [],
-            legraise: [],
-            legscissors: [],
-            mountainclimber: [],
-            opencloselegraise: [],
-            overheadarmspin: [],
-            overheadarmtwist: [],
-            overheadbend: [],
-            overheadhipshake: [],
-            overheadlungetwist: [],
-            overheadpress: [],
-            overheadsidebend: [],
-            overheadsquat: [],
-            pendulumbend: [],
-            plank: [],
-            ringraisecombo: [],
-            russiantwist: [],
-            seatedforwardpress: [],
-            seatedringraise: [],
-            shoulderpress: [],
-            sidestep: [],
-            squat: [],
-            standingtwist: [],
-            thighpress: [],
-            tricepkickback: [],
-            widesquat: [],
+            backpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            bowpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            flutterkick: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            frontpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            hiplift: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            kneeliftcombo: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            kneelift: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            kneetochest: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            legraise: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            legscissors: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            mountainclimber: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            opencloselegraise: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadarmspin: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadarmtwist: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadbend: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadhipshake: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadlungetwist: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadsidebend: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            overheadsquat: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            pendulumbend: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            plank: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            ringraisecombo: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            russiantwist: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            seatedforwardpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            seatedringraise: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            shoulderpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            sidestep: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            squat: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            standingtwist: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            thighpress: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            tricepkickback: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
+            widesquat: [
+              {
+                addedAt: timestamp,
+                count: 0,
+                day: Number(today),
+              },
+            ],
           };
 
           db.collection("users")
