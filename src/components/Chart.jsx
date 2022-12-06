@@ -59,12 +59,13 @@ const useStyles = makeStyles((theme)=>({
 
 export const BackPressChart = (work) => {
   const selector = useSelector((state) => state)
-  const data = getbackpress(selector)
+  let data = getbackpress(selector)
   const classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -73,6 +74,10 @@ export const BackPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   return (
     <>
       <div className={classes.root}>
@@ -105,12 +110,13 @@ export const BackPressChart = (work) => {
 
 export const BowPressChart = (work) => {
   const selector = useSelector((state) => state)
-  const data = getbowpress(selector)
+  let data = getbowpress(selector)
   const classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -119,6 +125,10 @@ export const BowPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -155,12 +165,12 @@ export const FlutterKickChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getflutterkick(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -169,6 +179,10 @@ export const FlutterKickChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -205,12 +219,12 @@ export const FrontPressChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getfrontpress(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -219,6 +233,10 @@ export const FrontPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -255,12 +273,12 @@ export const HipLiftChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = gethiplift(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -269,6 +287,10 @@ export const HipLiftChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -305,12 +327,12 @@ export const KneeLiftChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getkneelift(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -319,6 +341,10 @@ export const KneeLiftChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -355,12 +381,12 @@ export const KneeLiftComboChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getkneeliftcombo(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -369,6 +395,10 @@ export const KneeLiftComboChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -405,12 +435,12 @@ export const KneetoChestChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getkneetochest(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -419,6 +449,10 @@ export const KneetoChestChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -455,12 +489,12 @@ export const LegRaiseChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getlegraise(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -469,6 +503,10 @@ export const LegRaiseChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -505,12 +543,12 @@ export const LegScissorsChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getlegscissors(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -519,6 +557,10 @@ export const LegScissorsChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -555,12 +597,12 @@ export const MountainClimberChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getmountainclimber(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -569,6 +611,10 @@ export const MountainClimberChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -605,12 +651,12 @@ export const OpenCloseLegRaiseChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getopencloselegraise(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -619,6 +665,10 @@ export const OpenCloseLegRaiseChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -654,12 +704,12 @@ export const OverheadArmSpinChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getoverheadarmspin(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -668,6 +718,10 @@ export const OverheadArmSpinChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -703,12 +757,12 @@ export const OverheadArmTwistChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getoverheadarmtwist(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -717,6 +771,10 @@ export const OverheadArmTwistChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -752,12 +810,12 @@ export const OverheadBendChart = (work) => {
   const selector = useSelector((state) => state)
   
   const data = getoverheadbend(selector)
-  
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+    data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -766,6 +824,10 @@ export const OverheadBendChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+  
+  } else {
+    data = [];
+  }
   
   return (
     <>
@@ -802,11 +864,13 @@ export const OverheadHipShakeChart = (work) => {
   
   const data = getoverheadhipshake(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -815,6 +879,9 @@ export const OverheadHipShakeChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -851,11 +918,13 @@ export const OverheadLungeTwistChart = (work) => {
   
   const data = getoverheadlungetwist(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -864,6 +933,9 @@ export const OverheadLungeTwistChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -900,11 +972,13 @@ export const OverheadPressChart = (work) => {
   
   const data = getoverheadpress(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -913,6 +987,9 @@ export const OverheadPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -949,11 +1026,13 @@ export const OverheadSideBendChart = (work) => {
   
   const data = getoverheadsidebend(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -962,6 +1041,9 @@ export const OverheadSideBendChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -998,11 +1080,13 @@ export const OverheadSquatChart = (work) => {
   
   const data = getoverheadsquat(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1011,6 +1095,9 @@ export const OverheadSquatChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1047,11 +1134,13 @@ export const PendulumBendChart = (work) => {
   
   const data = getpendulumbend(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1060,6 +1149,9 @@ export const PendulumBendChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1096,11 +1188,13 @@ export const PlankChart = (work) => {
   
   const data = getplank(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1109,6 +1203,9 @@ export const PlankChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1145,11 +1242,13 @@ export const RingRaiseComboChart = (work) => {
   
   const data = getringraisecombo(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1158,6 +1257,9 @@ export const RingRaiseComboChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1194,11 +1296,13 @@ export const RussianTwistChart = (work) => {
   
   const data = getrussiantwist(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1207,6 +1311,9 @@ export const RussianTwistChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1243,11 +1350,13 @@ export const SeatedForwardPressChart = (work) => {
   
   const data = getseatedforwardpress(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1256,6 +1365,9 @@ export const SeatedForwardPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1292,11 +1404,13 @@ export const SeatedRingRaiseChart = (work) => {
   
   const data = getseatedringraise(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1305,6 +1419,9 @@ export const SeatedRingRaiseChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1341,11 +1458,13 @@ export const ShoulderPressChart = (work) => {
   
   const data = getshoulderpress(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1354,6 +1473,9 @@ export const ShoulderPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1390,11 +1512,13 @@ export const SquatChart = (work) => {
   
   const data = getsquat(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1403,6 +1527,9 @@ export const SquatChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1440,11 +1567,13 @@ export const SideStepChart = (work) => {
   
   const data = getsidestep(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1453,6 +1582,9 @@ export const SideStepChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1489,11 +1621,13 @@ export const StandingTwistChart = (work) => {
   
   const data = getstandingtwist(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1502,6 +1636,9 @@ export const StandingTwistChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1538,11 +1675,13 @@ export const ThighPressChart = (work) => {
   
   const data = getthighpress(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1551,6 +1690,9 @@ export const ThighPressChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1587,11 +1729,13 @@ export const TricepKickbackChart = (work) => {
   
   const data = gettricepkickback(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1600,6 +1744,9 @@ export const TricepKickbackChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
@@ -1636,11 +1783,13 @@ export const WideSquatChart = (work) => {
   
   const data = getwidesquat(selector)
   
-  const classes = useStyles()
+  let classes = useStyles()
   const sl = "/"
 
   //データを日付順にsort
-  data.sort((a,b)=>a.day-b.day)
+  if(data) {
+  
+ data.sort((a,b)=>a.day-b.day)
 
   //日付を最適化　String型YYYY/MM/DD
   Object.keys(data).forEach(a =>{
@@ -1649,6 +1798,9 @@ export const WideSquatChart = (work) => {
       data[a].day = (data[a].day).slice(0,4)+sl+(data[a].day).slice(4,6)+sl+(data[a].day).slice(6,8)
     }
   })
+   } else {
+    data = [];
+  }
   
   return (
     <>
